@@ -1,0 +1,42 @@
+$titleColor: rgb(255, 255, 175);
+$titleFont: 'KOTRALEAP';
+$titleFontSize: 1.8em;
+
+@font-face {
+  font-family: 'KOTRALEAP';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.title {
+  color: $titleColor;
+  font-size: $titleFontSize;
+  font-family: $titleFont;
+  letter-spacing: 2px;
+  padding: 2% 0 2%;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 400%;
+  background: linear-gradient(to top, white 25%, rgb(22, 22, 22));
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.imgFade-enter-from,
+.imgFade-leave-to {
+  opacity: 0;
+}
+.imgFade-enter-active,
+.imgFade-leave-active {
+  transition: .3s
+}
