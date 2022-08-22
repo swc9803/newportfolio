@@ -3,10 +3,11 @@
         <div class="menu">
             <p class="symbol" @click="moveToTop">SUNGWOO</p>
             <div class="items" ref="items">
-                <p @click="moveToAboutme" class="About me">About me</p>
-                <p @click="moveToSkills" class="Skills">Skills</p>
-                <p @click="moveToMyworks" class="My works">My works</p>
-                <p @click="moveToContact" class="Contact">Contact</p>
+                <p @click="moveToAboutme" class="navItem">About me</p>
+                <p @click="moveToSkills" class="navItem">Skills</p>
+                <p @click="moveToMyworks" class="navItem">My works</p>
+                <p @click="moveToContact" class="navItem">Contact</p>
+                <!-- v-for :ref로 처리 -->
             </div>
         </div>
         <svg
@@ -24,183 +25,167 @@
     </nav>
 </template>
 
-<script>
+<script setup>
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default {
-    setup(props, { emit }) {
-        const navbar = ref();
-        // 각각 해당하는 위치로 스크롤 이동
-        const moveToTop = () => {
-            scrollTo({ top: 0, behavior: "smooth" });
-        };
-        const moveToAboutme = () => {
-            emit("moveToAboutme");
-        };
-        const moveToSkills = () => {
-            emit("moveToSkills");
-        };
-        const moveToMyworks = () => {
-            emit("moveToMyworks");
-        };
-        const moveToContact = () => {
-            emit("moveToContact");
-        };
-
-        const toggledata = ref(false);
-        const items = ref();
-        const toggle = () => {
-            if (toggledata.value === false) {
-                gsap.to(".toggle1", {
-                    yPercent: -158,
-                    ease: "none",
-                    duration: 0.1,
-                });
-                gsap.to(
-                    ".toggle3",
-                    {
-                        yPercent: 158,
-                        ease: "none",
-                        duration: 0.1,
-                    },
-                    "<"
-                );
-                gsap.to(
-                    ".toggle2",
-                    {
-                        opacity: 0,
-                        ease: "none",
-                        duration: 0.1,
-                    },
-                    "<"
-                );
-                gsap.to(
-                    ".toggle3",
-                    {
-                        rotate: -45,
-                        transformOrigin: "center center",
-                        ease: "none",
-                        duration: 0.1,
-                    },
-                    ">"
-                );
-                gsap.to(
-                    ".toggle1",
-                    {
-                        rotate: 45,
-                        transformOrigin: "center center",
-                        ease: "none",
-                        duration: 0.1,
-                    },
-                    "<"
-                );
-                items.value.style.opacity = "1";
-                items.value.style.pointerEvents = "auto";
-            } else if (toggledata.value === true) {
-                gsap.to(".toggle1, .toggle3", {
-                    rotate: 0,
-                    transformOrigin: "center center",
-                    ease: "none",
-                    duration: 0.1,
-                });
-                gsap.to(
-                    ".toggle2",
-                    {
-                        opacity: 1,
-                        ease: "none",
-                        duration: 0.1,
-                    },
-                    ">"
-                );
-                gsap.to(
-                    ".toggle3, .toggle1",
-                    {
-                        yPercent: 0,
-                        ease: "none",
-                        duration: 0.1,
-                    },
-                    "<"
-                );
-                items.value.style.opacity = "0";
-                items.value.style.pointerEvents = "none";
-            }
-        };
-
-        // progressbar
-        const progressbar = ref();
-        const changeProgress = () => {
-            addEventListener("scroll", () => {
-                const height =
-                    document.documentElement.scrollHeight -
-                    document.documentElement.clientHeight;
-                const scrollTop =
-                    document.body.scrollTop ||
-                    document.documentElement.scrollTop;
-                var scrolled = (scrollTop / height) * 100;
-                progressbar.value.style.width = scrolled + "%";
-            });
-        };
-
-        onMounted(() => {
-            // 내리면 navBar 색이 변하는 애니메이션
-            const navBarColor = gsap
-                .from(navbar.value, {
-                    background: "#ffffff",
-                    duration: 0.2,
-                    ease: "none",
-                })
-                .progress(1);
-            navBarColor.pause();
-            const menuColor = gsap
-                .to("p", {
-                    color: "#ffffff",
-                    duration: 0.1,
-                    ease: "none",
-                })
-                .progress(1);
-            menuColor.pause();
-            const toggleColor = gsap
-                .to(".toggle1, .toggle2, .toggle3", {
-                    fill: "#ffffff",
-                    duration: 0.1,
-                    ease: "none",
-                })
-                .progress(1);
-            toggleColor.pause();
-            ScrollTrigger.create({
-                start: "10%",
-                end: "bottom",
-                onUpdate: (self) => {
-                    self.direction === -1
-                        ? navBarColor.play()
-                        : navBarColor.reverse();
-                    self.direction === -1
-                        ? menuColor.play()
-                        : menuColor.reverse();
-                    self.direction === -1
-                        ? toggleColor.play()
-                        : toggleColor.reverse();
-                },
-            });
-        });
-        return {
-            navbar,
-            moveToTop,
-            moveToAboutme,
-            moveToSkills,
-            moveToMyworks,
-            moveToContact,
-            toggle,
-            toggledata,
-            items,
-            progressbar,
-            changeProgress,
-        };
-    },
+// eslint-disable-next-line no-undef
+const emit = defineEmits([
+    "moveToAboutme",
+    "moveToSkills",
+    "moveToMyworks",
+    "moveToContact",
+]);
+const navbar = ref();
+// 각각 해당하는 위치로 스크롤 이동
+const moveToTop = () => {
+    scrollTo({ top: 0, behavior: "smooth" });
 };
+const moveToAboutme = () => {
+    emit("moveToAboutme");
+};
+const moveToSkills = () => {
+    emit("moveToSkills");
+};
+const moveToMyworks = () => {
+    emit("moveToMyworks");
+};
+const moveToContact = () => {
+    emit("moveToContact");
+};
+
+const toggledata = ref(false);
+const items = ref();
+const toggle = () => {
+    if (toggledata.value === false) {
+        gsap.to(".toggle1", {
+            yPercent: -158,
+            ease: "none",
+            duration: 0.1,
+        });
+        gsap.to(
+            ".toggle3",
+            {
+                yPercent: 158,
+                ease: "none",
+                duration: 0.1,
+            },
+            "<"
+        );
+        gsap.to(
+            ".toggle2",
+            {
+                opacity: 0,
+                ease: "none",
+                duration: 0.1,
+            },
+            "<"
+        );
+        gsap.to(
+            ".toggle3",
+            {
+                rotate: -45,
+                transformOrigin: "center center",
+                ease: "none",
+                duration: 0.1,
+            },
+            ">"
+        );
+        gsap.to(
+            ".toggle1",
+            {
+                rotate: 45,
+                transformOrigin: "center center",
+                ease: "none",
+                duration: 0.1,
+            },
+            "<"
+        );
+        items.value.style.opacity = "1";
+        items.value.style.pointerEvents = "auto";
+    } else if (toggledata.value === true) {
+        gsap.to(".toggle1, .toggle3", {
+            rotate: 0,
+            transformOrigin: "center center",
+            ease: "none",
+            duration: 0.1,
+        });
+        gsap.to(
+            ".toggle2",
+            {
+                opacity: 1,
+                ease: "none",
+                duration: 0.1,
+            },
+            ">"
+        );
+        gsap.to(
+            ".toggle3, .toggle1",
+            {
+                yPercent: 0,
+                ease: "none",
+                duration: 0.1,
+            },
+            "<"
+        );
+        items.value.style.opacity = "0";
+        items.value.style.pointerEvents = "none";
+    }
+};
+
+// progressbar
+const progressbar = ref();
+// const changeProgress = () => {
+//     addEventListener("scroll", () => {
+//         const height =
+//             document.documentElement.scrollHeight -
+//             document.documentElement.clientHeight;
+//         const scrollTop =
+//             document.body.scrollTop || document.documentElement.scrollTop;
+//         let scrolled = (scrollTop / height) * 100;
+//         progressbar.value.style.width = scrolled + "%";
+//     });
+// };
+
+onMounted(() => {
+    // 내리면 navBar 색이 변하는 애니메이션
+    const navBarColor = gsap
+        .from(navbar.value, {
+            background: "#ffffff",
+            duration: 0.2,
+            ease: "none",
+        })
+        .progress(1);
+    navBarColor.pause();
+    const menuColor = gsap
+        .to(".navItem, .symbol", {
+            color: "#ffffff",
+            duration: 0.1,
+            ease: "none",
+        })
+        .progress(1);
+    menuColor.pause();
+    const toggleColor = gsap
+        .to(".toggle1, .toggle2, .toggle3", {
+            fill: "#ffffff",
+            duration: 0.1,
+            ease: "none",
+        })
+        .progress(1);
+    toggleColor.pause();
+    ScrollTrigger.create({
+        start: "10%",
+        end: "bottom",
+        // markers: true,
+        onUpdate: (self) => {
+            self.direction === -1 ? navBarColor.play() : navBarColor.reverse();
+            self.direction === -1 ? menuColor.play() : menuColor.reverse();
+            self.direction === -1 ? toggleColor.play() : toggleColor.reverse();
+        },
+    });
+});
 </script>
 
 <style lang="scss" scoped>

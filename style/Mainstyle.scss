@@ -1,12 +1,16 @@
-$titleColor: rgb(255, 255, 175);
-$titleFont: 'KOTRALEAP';
-$titleFontSize: 1.8em;
-
 @font-face {
   font-family: 'KOTRALEAP';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+}
+
+$titleColor: rgb(255, 255, 175);
+$titleFont: 'KOTRALEAP';
+$titleFontSize: 1.8em;
+
+body {
+    margin: 0;
 }
 
 .title {
@@ -26,17 +30,11 @@ $titleFontSize: 1.8em;
   background: linear-gradient(to top, white 25%, rgb(22, 22, 22));
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.imgFade-enter-from,
-.imgFade-leave-to {
-  opacity: 0;
-}
-.imgFade-enter-active,
-.imgFade-leave-active {
-  transition: .3s
-}
+// .imgFade-enter-from,
+// .imgFade-leave-to {
+//   opacity: 0;
+// }
+// .imgFade-enter-active,
+// .imgFade-leave-active {
+//   transition: .3s
+// }

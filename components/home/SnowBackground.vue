@@ -164,77 +164,64 @@
     </svg>
 </template>
 
-<script>
+<script setup>
 import gsap from "gsap";
 import { onMounted, ref } from "vue";
+const lsnow1 = ref();
+const lsnow2 = ref();
+const msnow1 = ref();
+const msnow2 = ref();
+const ssnow1 = ref();
+const ssnow2 = ref();
 
-export default {
-    setup() {
-        const lsnow1 = ref();
-        const lsnow2 = ref();
-        const msnow1 = ref();
-        const msnow2 = ref();
-        const ssnow1 = ref();
-        const ssnow2 = ref();
-
-        onMounted(() => {
-            gsap.fromTo(
-                lsnow1.value,
-                { yPercent: -100 },
-                { yPercent: 100, ease: "none", duration: 30, repeat: -1 }
-            );
-            gsap.fromTo(
-                lsnow2.value,
-                { yPercent: -100 },
-                {
-                    yPercent: 100,
-                    ease: "none",
-                    duration: 30,
-                    delay: 15,
-                    repeat: -1,
-                }
-            );
-            gsap.fromTo(
-                msnow1.value,
-                { yPercent: -100 },
-                { yPercent: 100, ease: "none", duration: 40, repeat: -1 }
-            );
-            gsap.fromTo(
-                msnow2.value,
-                { yPercent: -100 },
-                {
-                    yPercent: 100,
-                    ease: "none",
-                    duration: 40,
-                    delay: 20,
-                    repeat: -1,
-                }
-            );
-            gsap.fromTo(
-                ssnow1.value,
-                { yPercent: -100 },
-                { yPercent: 100, ease: "none", duration: 50, repeat: -1 }
-            );
-            gsap.fromTo(
-                ssnow2.value,
-                { yPercent: -100 },
-                {
-                    yPercent: 100,
-                    ease: "none",
-                    duration: 50,
-                    delay: 30,
-                    repeat: -1,
-                }
-            );
-        });
-        return {
-            lsnow1,
-            lsnow2,
-            msnow1,
-            msnow2,
-            ssnow1,
-            ssnow2,
-        };
-    },
-};
+onMounted(() => {
+    gsap.fromTo(
+        lsnow1.value,
+        { yPercent: -100 },
+        { yPercent: 100, ease: "none", duration: 30, repeat: -1 }
+    );
+    gsap.fromTo(
+        lsnow2.value,
+        { yPercent: -100 },
+        {
+            yPercent: 100,
+            ease: "none",
+            duration: 30,
+            delay: 15,
+            repeat: -1,
+        }
+    );
+    gsap.fromTo(
+        msnow1.value,
+        { yPercent: -100 },
+        { yPercent: 100, ease: "none", duration: 40, repeat: -1 }
+    );
+    gsap.fromTo(
+        msnow2.value,
+        { yPercent: -100 },
+        {
+            yPercent: 100,
+            ease: "none",
+            duration: 40,
+            delay: 20,
+            repeat: -1,
+        }
+    );
+    gsap.fromTo(
+        ssnow1.value,
+        { yPercent: -100 },
+        { yPercent: 100, ease: "none", duration: 50, repeat: -1 }
+    );
+    gsap.fromTo(
+        ssnow2.value,
+        { yPercent: -100 },
+        {
+            yPercent: 100,
+            ease: "none",
+            duration: 50,
+            delay: 30,
+            repeat: -1,
+        }
+    );
+});
 </script>

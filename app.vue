@@ -9,12 +9,12 @@
             @moveToContact="moveToContact"
         />
         <div class="background" />
-        <div class="container main">
+        <div class="main">
             <SpaceBackground class="space" />
             <div class="wrapper">
                 <!-- 최성우 누르면 소개페이지로 -->
                 <p ref="mainText">
-                    끝없이 배움을 추구하는 웹퍼블리셔
+                    끝없이 배움을 추구하는 프론트엔드
                     <span
                         v-for="star in stars"
                         :key="star.id"
@@ -44,12 +44,7 @@
 <!-- <script setup lang="ts"> -->
 <script setup>
 import { onMounted, ref } from "vue";
-import Navbar from "@/components/Navbar.vue";
 import SpaceBackground from "@/components/home/SpaceBackground.vue";
-import Aboutme from "@/components/Aboutme.vue";
-import Skills from "@/components/Skills.vue";
-import Myworks from "@/components/Myworks.vue";
-import Contact from "@/components/Contact.vue";
 import gsap from "gsap";
 
 const progressbar = ref();
@@ -60,12 +55,11 @@ const contact = ref();
 const mainText = ref();
 const array = ref([]);
 const twinkle = (el) => array.value.push(el);
-// const star = ref();
 const stars = ref([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
 
-const scrollEvent = () => {
-    progressbar.value.changeProgress();
-};
+// const scrollEvent = () => {
+//     progressbar.value.changeProgress();
+// };
 const moveToAboutme = () => {
     const aboutmeLocation = aboutme.value.offsetTop;
     const menuHeight = document.querySelector(".navbar").offsetHeight;
@@ -96,7 +90,7 @@ const setRandomPosition = () => {
     }
 };
 onMounted(() => {
-    document.addEventListener("scroll", scrollEvent);
+    // document.addEventListener("scroll", scrollEvent);
     gsap.from(mainText.value, {
         opacity: 0,
         yPercent: -100,
@@ -127,6 +121,8 @@ $titleFont: "KOTRALEAP";
 $titleFontSize: 1.8em;
 
 .main {
+    width: 100%;
+    height: 100vh;
     .space {
         position: absolute;
         width: 100%;
@@ -134,13 +130,15 @@ $titleFontSize: 1.8em;
     }
     .wrapper {
         position: relative;
+        width: 100%;
+        height: 100%;
         pointer-events: none;
-        top: 50%;
-        transform: translate(0, -50%);
-        text-align: center;
         font-family: $titleFont;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
         p {
-            display: inline-block;
             pointer-events: auto;
             margin: 0 4% 0 4%;
             font-size: $titleFontSize;

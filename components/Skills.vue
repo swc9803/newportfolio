@@ -247,232 +247,194 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default {
-    setup() {
-        const skills = ref();
-        const vue = ref(false);
-        const js = ref(false);
-        const scss = ref(false);
-        const gsapp = ref(false);
-        const figma = ref(false);
-        const firebase = ref(false);
-        const vueIcon = ref();
-        const jsIcon = ref();
-        const scssIcon = ref();
-        const gsapIcon = ref();
-        const figmaIcon = ref();
-        const firebaseIcon = ref();
-        const onVue = () => {
-            if (vue.value === false) {
-                js.value =
-                    scss.value =
-                    gsapp.value =
-                    figma.value =
-                    firebase.value =
-                        false;
-                jsIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                vueIcon.value.classList.toggle("active");
-                vue.value = true;
-            } else {
-                vueIcon.value.classList.toggle("active");
-                vue.value = false;
-            }
-        };
-        const onJs = () => {
-            if (js.value === false) {
-                vue.value =
-                    scss.value =
-                    gsapp.value =
-                    figma.value =
-                    firebase.value =
-                        false;
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                jsIcon.value.classList.toggle("active");
-                js.value = true;
-            } else {
-                jsIcon.value.classList.toggle("active");
-                js.value = false;
-            }
-        };
-        const onScss = () => {
-            if (scss.value === false) {
-                js.value =
-                    vue.value =
-                    gsapp.value =
-                    figma.value =
-                    firebase.value =
-                        false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                scssIcon.value.classList.toggle("active");
-                scss.value = true;
-            } else {
-                scssIcon.value.classList.toggle("active");
-                scss.value = false;
-            }
-        };
-        const onGsap = () => {
-            if (gsapp.value === false) {
-                js.value =
-                    scss.value =
-                    vue.value =
-                    figma.value =
-                    firebase.value =
-                        false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                gsapIcon.value.classList.toggle("active");
-                gsapp.value = true;
-            } else {
-                gsapIcon.value.classList.toggle("active");
-                gsapp.value = false;
-            }
-        };
-        const onFigma = () => {
-            if (figma.value === false) {
-                js.value =
-                    scss.value =
-                    vue.value =
-                    gsapp.value =
-                    firebase.value =
-                        false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                figmaIcon.value.classList.toggle("active");
-                figma.value = true;
-            } else {
-                figmaIcon.value.classList.toggle("active");
-                figma.value = false;
-            }
-        };
-        const onFirebase = () => {
-            if (firebase.value === false) {
-                js.value =
-                    scss.value =
-                    vue.value =
-                    gsapp.value =
-                    figma.value =
-                        false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.toggle("active");
-                firebase.value = true;
-            } else {
-                firebaseIcon.value.classList.toggle("active");
-                firebase.value = false;
-            }
-        };
-
-        const vueEx = ref(false);
-        const jsEx = ref(false);
-        const scssEx = ref(false);
-        const gsapEx = ref(false);
-        const figmaEx = ref(false);
-        const firebaseEx = ref(false);
-        const focusVue = () => {
-            vueEx.value = true;
-        };
-        const focusJs = () => {
-            jsEx.value = true;
-        };
-        const focusScss = () => {
-            scssEx.value = true;
-        };
-        const focusGsap = () => {
-            gsapEx.value = true;
-        };
-        const focusFigma = () => {
-            figmaEx.value = true;
-        };
-        const focusFirebase = () => {
-            firebaseEx.value = true;
-        };
-        const blur = () => {
-            vueEx.value = false;
-            jsEx.value = false;
-            scssEx.value = false;
-            gsapEx.value = false;
-            firebaseEx.value = false;
-            figmaEx.value = false;
-        };
-
-        onMounted(() => {
-            gsap.fromTo(
-                skills.value,
-                { color: "#ffffaf" },
-                { color: "#ffffff", duration: 3, yoyo: true, repeat: -1 }
-            );
-
-            const logoAni = gsap.timeline();
-            ScrollTrigger.create({
-                animation: logoAni,
-                trigger: ".skills",
-                start: "top 50%",
-            });
-            logoAni.from(".logos > img", { opacity: 0, stagger: 0.2 });
-        });
-        return {
-            skills,
-            vue,
-            js,
-            scss,
-            gsapp,
-            figma,
-            firebase,
-            vueIcon,
-            jsIcon,
-            scssIcon,
-            gsapIcon,
-            figmaIcon,
-            firebaseIcon,
-            onVue,
-            onJs,
-            onScss,
-            onGsap,
-            onFigma,
-            onFirebase,
-            vueEx,
-            focusVue,
-            jsEx,
-            focusJs,
-            scssEx,
-            focusScss,
-            gsapEx,
-            focusGsap,
-            figmaEx,
-            focusFigma,
-            firebaseEx,
-            focusFirebase,
-            blur,
-        };
-    },
+const skills = ref();
+const vue = ref(false);
+const js = ref(false);
+const scss = ref(false);
+const gsapp = ref(false);
+const figma = ref(false);
+const firebase = ref(false);
+const vueIcon = ref();
+const jsIcon = ref();
+const scssIcon = ref();
+const gsapIcon = ref();
+const figmaIcon = ref();
+const firebaseIcon = ref();
+const onVue = () => {
+    if (vue.value === false) {
+        js.value =
+            scss.value =
+            gsapp.value =
+            figma.value =
+            firebase.value =
+                false;
+        jsIcon.value.classList.remove("active");
+        scssIcon.value.classList.remove("active");
+        gsapIcon.value.classList.remove("active");
+        figmaIcon.value.classList.remove("active");
+        firebaseIcon.value.classList.remove("active");
+        vueIcon.value.classList.toggle("active");
+        vue.value = true;
+    } else {
+        vueIcon.value.classList.toggle("active");
+        vue.value = false;
+    }
 };
+const onJs = () => {
+    if (js.value === false) {
+        vue.value =
+            scss.value =
+            gsapp.value =
+            figma.value =
+            firebase.value =
+                false;
+        vueIcon.value.classList.remove("active");
+        scssIcon.value.classList.remove("active");
+        gsapIcon.value.classList.remove("active");
+        figmaIcon.value.classList.remove("active");
+        firebaseIcon.value.classList.remove("active");
+        jsIcon.value.classList.toggle("active");
+        js.value = true;
+    } else {
+        jsIcon.value.classList.toggle("active");
+        js.value = false;
+    }
+};
+const onScss = () => {
+    if (scss.value === false) {
+        js.value =
+            vue.value =
+            gsapp.value =
+            figma.value =
+            firebase.value =
+                false;
+        jsIcon.value.classList.remove("active");
+        vueIcon.value.classList.remove("active");
+        gsapIcon.value.classList.remove("active");
+        figmaIcon.value.classList.remove("active");
+        firebaseIcon.value.classList.remove("active");
+        scssIcon.value.classList.toggle("active");
+        scss.value = true;
+    } else {
+        scssIcon.value.classList.toggle("active");
+        scss.value = false;
+    }
+};
+const onGsap = () => {
+    if (gsapp.value === false) {
+        js.value =
+            scss.value =
+            vue.value =
+            figma.value =
+            firebase.value =
+                false;
+        jsIcon.value.classList.remove("active");
+        vueIcon.value.classList.remove("active");
+        scssIcon.value.classList.remove("active");
+        figmaIcon.value.classList.remove("active");
+        firebaseIcon.value.classList.remove("active");
+        gsapIcon.value.classList.toggle("active");
+        gsapp.value = true;
+    } else {
+        gsapIcon.value.classList.toggle("active");
+        gsapp.value = false;
+    }
+};
+const onFigma = () => {
+    if (figma.value === false) {
+        js.value =
+            scss.value =
+            vue.value =
+            gsapp.value =
+            firebase.value =
+                false;
+        jsIcon.value.classList.remove("active");
+        vueIcon.value.classList.remove("active");
+        scssIcon.value.classList.remove("active");
+        gsapIcon.value.classList.remove("active");
+        firebaseIcon.value.classList.remove("active");
+        figmaIcon.value.classList.toggle("active");
+        figma.value = true;
+    } else {
+        figmaIcon.value.classList.toggle("active");
+        figma.value = false;
+    }
+};
+const onFirebase = () => {
+    if (firebase.value === false) {
+        js.value =
+            scss.value =
+            vue.value =
+            gsapp.value =
+            figma.value =
+                false;
+        jsIcon.value.classList.remove("active");
+        vueIcon.value.classList.remove("active");
+        scssIcon.value.classList.remove("active");
+        gsapIcon.value.classList.remove("active");
+        figmaIcon.value.classList.remove("active");
+        firebaseIcon.value.classList.toggle("active");
+        firebase.value = true;
+    } else {
+        firebaseIcon.value.classList.toggle("active");
+        firebase.value = false;
+    }
+};
+
+const vueEx = ref(false);
+const jsEx = ref(false);
+const scssEx = ref(false);
+const gsapEx = ref(false);
+const figmaEx = ref(false);
+const firebaseEx = ref(false);
+const focusVue = () => {
+    vueEx.value = true;
+};
+const focusJs = () => {
+    jsEx.value = true;
+};
+const focusScss = () => {
+    scssEx.value = true;
+};
+const focusGsap = () => {
+    gsapEx.value = true;
+};
+const focusFigma = () => {
+    figmaEx.value = true;
+};
+const focusFirebase = () => {
+    firebaseEx.value = true;
+};
+const blur = () => {
+    vueEx.value = false;
+    jsEx.value = false;
+    scssEx.value = false;
+    gsapEx.value = false;
+    firebaseEx.value = false;
+    figmaEx.value = false;
+};
+
+onMounted(() => {
+    gsap.fromTo(
+        skills.value,
+        { color: "#ffffaf" },
+        { color: "#ffffff", duration: 3, yoyo: true, repeat: -1 }
+    );
+
+    const logoAni = gsap.timeline();
+    ScrollTrigger.create({
+        animation: logoAni,
+        trigger: ".skills",
+        start: "top 50%",
+    });
+    logoAni.from(".logos > img", { opacity: 0, stagger: 0.2 });
+});
 </script>
 
 <style lang="scss" scoped>

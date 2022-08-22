@@ -248,113 +248,85 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import gsap from "gsap";
 import { onMounted, ref } from "vue";
-export default {
-    setup() {
-        const goToGithub = () => {
-            open("https://github.com/swc9803");
-        };
-        const goToEmail = () => {
-            open("mailto:swc9803@naver.com");
-        };
-        const goToKakao = () => {
-            open("https://open.kakao.com/o/sA1wdaZd");
-        };
-        const gitIcon = ref();
-        const emailIcon = ref();
-        const kakaoIcon = ref();
-        const gitText = ref();
-        const emailText = ref();
-        const kakaoText = ref();
-        const light1 = ref();
-        const light2 = ref();
-        const light3 = ref();
-        const top = ref();
-        const paper = ref();
-        const emark = ref();
-        const katalk = ref();
-        const iconAni1 = gsap.timeline({ paused: true });
-        const iconAni2 = gsap.timeline({ paused: true });
-        const iconAni3 = gsap.timeline({ paused: true });
 
-        onMounted(() => {
-            iconAni1.to(gitIcon.value, {
-                yPercent: -5,
-                opacity: 1,
-                duration: 0.3,
-            });
-            iconAni1.to(light1.value, { opacity: 1 }, "<");
-            iconAni1.to(gitText.value, { opacity: 1 }, "<");
-
-            iconAni2.to(emailIcon.value, {
-                yPercent: -5,
-                opacity: 1,
-                duration: 0.3,
-            });
-            iconAni2.to(light2.value, { opacity: 1 }, "<");
-            iconAni2.to(emailText.value, { opacity: 1 }, "<");
-            iconAni2.to(emark.value, { opacity: 0, duration: 0.3 }, "<");
-            iconAni2.set(
-                top.value,
-                {
-                    yPercent: -90,
-                    rotate: 180,
-                    transformOrigin: "center center",
-                },
-                "<"
-            );
-            iconAni2.to(paper.value, { opacity: 1, duration: 0.3 }, "<");
-
-            iconAni3.to(kakaoIcon.value, {
-                yPercent: -5,
-                opacity: 1,
-                duration: 0.3,
-            });
-            iconAni3.to(light3.value, { opacity: 1 }, "<");
-            iconAni3.to(kakaoText.value, { opacity: 1 }, "<");
-            iconAni3.fromTo(
-                katalk.value,
-                { xPercent: "3" },
-                { xPercent: "-3", repeat: 3, duration: 0.1 },
-                ">"
-            );
-        });
-
-        const play1 = () => iconAni1.play();
-        const play2 = () => iconAni2.play();
-        const play3 = () => iconAni3.play();
-        const reverse1 = () => iconAni1.reverse();
-        const reverse2 = () => iconAni2.reverse();
-        const reverse3 = () => iconAni3.reverse();
-
-        return {
-            goToGithub,
-            goToEmail,
-            goToKakao,
-            gitIcon,
-            emailIcon,
-            kakaoIcon,
-            gitText,
-            emailText,
-            kakaoText,
-            light1,
-            light2,
-            light3,
-            top,
-            paper,
-            emark,
-            katalk,
-            play1,
-            play2,
-            play3,
-            reverse1,
-            reverse2,
-            reverse3,
-        };
-    },
+const goToGithub = () => {
+    open("https://github.com/swc9803");
 };
+const goToEmail = () => {
+    open("mailto:swc9803@naver.com");
+};
+const goToKakao = () => {
+    open("https://open.kakao.com/o/sA1wdaZd");
+};
+const gitIcon = ref();
+const emailIcon = ref();
+const kakaoIcon = ref();
+const gitText = ref();
+const emailText = ref();
+const kakaoText = ref();
+const light1 = ref();
+const light2 = ref();
+const light3 = ref();
+const top = ref();
+const paper = ref();
+const emark = ref();
+const katalk = ref();
+const iconAni1 = gsap.timeline({ paused: true });
+const iconAni2 = gsap.timeline({ paused: true });
+const iconAni3 = gsap.timeline({ paused: true });
+
+onMounted(() => {
+    iconAni1.to(gitIcon.value, {
+        yPercent: -5,
+        opacity: 1,
+        duration: 0.3,
+    });
+    iconAni1.to(light1.value, { opacity: 1 }, "<");
+    iconAni1.to(gitText.value, { opacity: 1 }, "<");
+
+    iconAni2.to(emailIcon.value, {
+        yPercent: -5,
+        opacity: 1,
+        duration: 0.3,
+    });
+    iconAni2.to(light2.value, { opacity: 1 }, "<");
+    iconAni2.to(emailText.value, { opacity: 1 }, "<");
+    iconAni2.to(emark.value, { opacity: 0, duration: 0.3 }, "<");
+    iconAni2.set(
+        top.value,
+        {
+            yPercent: -90,
+            rotate: 180,
+            transformOrigin: "center center",
+        },
+        "<"
+    );
+    iconAni2.to(paper.value, { opacity: 1, duration: 0.3 }, "<");
+
+    iconAni3.to(kakaoIcon.value, {
+        yPercent: -5,
+        opacity: 1,
+        duration: 0.3,
+    });
+    iconAni3.to(light3.value, { opacity: 1 }, "<");
+    iconAni3.to(kakaoText.value, { opacity: 1 }, "<");
+    iconAni3.fromTo(
+        katalk.value,
+        { xPercent: "3" },
+        { xPercent: "-3", repeat: 3, duration: 0.1 },
+        ">"
+    );
+});
+
+const play1 = () => iconAni1.play();
+const play2 = () => iconAni2.play();
+const play3 = () => iconAni3.play();
+const reverse1 = () => iconAni1.reverse();
+const reverse2 = () => iconAni2.reverse();
+const reverse3 = () => iconAni3.reverse();
 </script>
 
 <style lang="scss" scoped>
