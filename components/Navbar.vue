@@ -3,10 +3,18 @@
         <div class="menu">
             <p class="symbol" @click="moveToTop">SUNGWOO</p>
             <div class="items" ref="items">
-                <p @click="moveToAboutme" class="navItem">About me</p>
-                <p @click="moveToSkills" class="navItem">Skills</p>
-                <p @click="moveToMyworks" class="navItem">My works</p>
-                <p @click="moveToContact" class="navItem">Contact</p>
+                <p @click="moveToAboutme" class="navItem" data-title="About me">
+                    About me
+                </p>
+                <p @click="moveToSkills" class="navItem" data-title="Skills">
+                    Skills
+                </p>
+                <p @click="moveToMyworks" class="navItem" data-title="My works">
+                    My works
+                </p>
+                <p @click="moveToContact" class="navItem" data-title="Contact">
+                    Contact
+                </p>
                 <!-- v-for :ref로 처리 -->
             </div>
         </div>
@@ -253,7 +261,7 @@ nav {
         p {
             &:before {
                 position: absolute;
-                content: attr(class);
+                content: attr(data-title);
                 background: rgb(100, 100, 100);
                 clip-path: inset(0 100% 0 0);
                 height: 3px;
