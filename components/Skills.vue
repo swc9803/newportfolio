@@ -4,40 +4,11 @@
         <h2>아이콘을 클릭해보세요 ▼</h2>
         <div class="logos">
             <img
-                src="@/assets/logos/vueLogo.png"
-                @click="onVue"
-                ref="vueIcon"
-                alt="vue"
-            />
-            <img
-                src="@/assets/logos/jsLogo.png"
-                @click="onJs"
-                ref="jsIcon"
-                alt="js"
-            />
-            <img
-                src="@/assets/logos/scssLogo.png"
-                @click="onScss"
-                ref="scssIcon"
-                alt="scss"
-            />
-            <img
-                src="@/assets/logos/gsapLogo.png"
-                @click="onGsap"
-                ref="gsapIcon"
-                alt="gsap"
-            />
-            <img
-                src="@/assets/logos/figmaLogo.png"
-                @click="onFigma"
-                ref="figmaIcon"
-                alt="figma"
-            />
-            <img
-                src="@/assets/logos/firebaseLogo.png"
-                @click="onFirebase"
-                ref="firebaseIcon"
-                alt="firebase"
+                v-for="logo in logos"
+                :key="logo.id"
+                :src="logo.iconImg"
+                @click="logo.showDes"
+                :alt="logo.alt"
             />
         </div>
         <div class="des">
@@ -266,126 +237,153 @@ const scssIcon = ref();
 const gsapIcon = ref();
 const figmaIcon = ref();
 const firebaseIcon = ref();
-const onVue = () => {
-    if (vue.value === false) {
-        js.value =
-            scss.value =
-            gsapp.value =
-            figma.value =
-            firebase.value =
-                false;
-        jsIcon.value.classList.remove("active");
-        scssIcon.value.classList.remove("active");
-        gsapIcon.value.classList.remove("active");
-        figmaIcon.value.classList.remove("active");
-        firebaseIcon.value.classList.remove("active");
-        vueIcon.value.classList.toggle("active");
-        vue.value = true;
-    } else {
-        vueIcon.value.classList.toggle("active");
-        vue.value = false;
-    }
-};
-const onJs = () => {
-    if (js.value === false) {
-        vue.value =
-            scss.value =
-            gsapp.value =
-            figma.value =
-            firebase.value =
-                false;
-        vueIcon.value.classList.remove("active");
-        scssIcon.value.classList.remove("active");
-        gsapIcon.value.classList.remove("active");
-        figmaIcon.value.classList.remove("active");
-        firebaseIcon.value.classList.remove("active");
-        jsIcon.value.classList.toggle("active");
-        js.value = true;
-    } else {
-        jsIcon.value.classList.toggle("active");
-        js.value = false;
-    }
-};
-const onScss = () => {
-    if (scss.value === false) {
-        js.value =
-            vue.value =
-            gsapp.value =
-            figma.value =
-            firebase.value =
-                false;
-        jsIcon.value.classList.remove("active");
-        vueIcon.value.classList.remove("active");
-        gsapIcon.value.classList.remove("active");
-        figmaIcon.value.classList.remove("active");
-        firebaseIcon.value.classList.remove("active");
-        scssIcon.value.classList.toggle("active");
-        scss.value = true;
-    } else {
-        scssIcon.value.classList.toggle("active");
-        scss.value = false;
-    }
-};
-const onGsap = () => {
-    if (gsapp.value === false) {
-        js.value =
-            scss.value =
-            vue.value =
-            figma.value =
-            firebase.value =
-                false;
-        jsIcon.value.classList.remove("active");
-        vueIcon.value.classList.remove("active");
-        scssIcon.value.classList.remove("active");
-        figmaIcon.value.classList.remove("active");
-        firebaseIcon.value.classList.remove("active");
-        gsapIcon.value.classList.toggle("active");
-        gsapp.value = true;
-    } else {
-        gsapIcon.value.classList.toggle("active");
-        gsapp.value = false;
-    }
-};
-const onFigma = () => {
-    if (figma.value === false) {
-        js.value =
-            scss.value =
-            vue.value =
-            gsapp.value =
-            firebase.value =
-                false;
-        jsIcon.value.classList.remove("active");
-        vueIcon.value.classList.remove("active");
-        scssIcon.value.classList.remove("active");
-        gsapIcon.value.classList.remove("active");
-        firebaseIcon.value.classList.remove("active");
-        figmaIcon.value.classList.toggle("active");
-        figma.value = true;
-    } else {
-        figmaIcon.value.classList.toggle("active");
-        figma.value = false;
-    }
-};
-const onFirebase = () => {
-    if (firebase.value === false) {
-        js.value =
-            scss.value =
-            vue.value =
-            gsapp.value =
-            figma.value =
-                false;
-        jsIcon.value.classList.remove("active");
-        vueIcon.value.classList.remove("active");
-        scssIcon.value.classList.remove("active");
-        gsapIcon.value.classList.remove("active");
-        figmaIcon.value.classList.remove("active");
-        firebaseIcon.value.classList.toggle("active");
-        firebase.value = true;
-    } else {
-        firebaseIcon.value.classList.toggle("active");
-        firebase.value = false;
-    }
-};
+
+const logos = [
+    {
+        iconImg: "../assets/logos/vueLogo.png",
+        showDes: () => {
+            if (!vue.value) {
+                js.value =
+                    scss.value =
+                    gsapp.value =
+                    figma.value =
+                    firebase.value =
+                        false;
+                jsIcon.value.classList.remove("active");
+                scssIcon.value.classList.remove("active");
+                gsapIcon.value.classList.remove("active");
+                figmaIcon.value.classList.remove("active");
+                firebaseIcon.value.classList.remove("active");
+                vueIcon.value.classList.toggle("active");
+                vue.value = true;
+            } else {
+                vueIcon.value.classList.toggle("active");
+                vue.value = false;
+            }
+        },
+        alt: "vueIcon",
+    },
+    {
+        iconImg: "../assets/logos/jsLogo.png",
+        showDes: () => {
+            if (!js.value) {
+                vue.value =
+                    scss.value =
+                    gsapp.value =
+                    figma.value =
+                    firebase.value =
+                        false;
+                vueIcon.value.classList.remove("active");
+                scssIcon.value.classList.remove("active");
+                gsapIcon.value.classList.remove("active");
+                figmaIcon.value.classList.remove("active");
+                firebaseIcon.value.classList.remove("active");
+                jsIcon.value.classList.toggle("active");
+                js.value = true;
+            } else {
+                jsIcon.value.classList.toggle("active");
+                js.value = false;
+            }
+        },
+        alt: "jsIcon",
+    },
+    {
+        iconImg: "../assets/logos/scssLogo.png",
+        showDes: () => {
+            if (!scss.value) {
+                js.value =
+                    vue.value =
+                    gsapp.value =
+                    figma.value =
+                    firebase.value =
+                        false;
+                jsIcon.value.classList.remove("active");
+                vueIcon.value.classList.remove("active");
+                gsapIcon.value.classList.remove("active");
+                figmaIcon.value.classList.remove("active");
+                firebaseIcon.value.classList.remove("active");
+                scssIcon.value.classList.toggle("active");
+                scss.value = true;
+            } else {
+                scssIcon.value.classList.toggle("active");
+                scss.value = false;
+            }
+        },
+        alt: "scssIcon",
+    },
+    {
+        iconImg: "../assets/logos/gsapLogo.png",
+        showDes: () => {
+            if (!gsapp.value) {
+                js.value =
+                    scss.value =
+                    vue.value =
+                    figma.value =
+                    firebase.value =
+                        false;
+                jsIcon.value.classList.remove("active");
+                vueIcon.value.classList.remove("active");
+                scssIcon.value.classList.remove("active");
+                figmaIcon.value.classList.remove("active");
+                firebaseIcon.value.classList.remove("active");
+                gsapIcon.value.classList.toggle("active");
+                gsapp.value = true;
+            } else {
+                gsapIcon.value.classList.toggle("active");
+                gsapp.value = false;
+            }
+        },
+        alt: "gsapIcon",
+    },
+    {
+        iconImg: "../assets/logos/figmaLogo.png",
+        showDes: () => {
+            if (!figma.value) {
+                js.value =
+                    scss.value =
+                    vue.value =
+                    gsapp.value =
+                    firebase.value =
+                        false;
+                jsIcon.value.classList.remove("active");
+                vueIcon.value.classList.remove("active");
+                scssIcon.value.classList.remove("active");
+                gsapIcon.value.classList.remove("active");
+                firebaseIcon.value.classList.remove("active");
+                figmaIcon.value.classList.toggle("active");
+                figma.value = true;
+            } else {
+                figmaIcon.value.classList.toggle("active");
+                figma.value = false;
+            }
+        },
+        alt: "figmaIcon",
+    },
+    {
+        iconImg: "../assets/logos/firebaseLogo.png",
+        showDes: () => {
+            if (!firebase.value) {
+                js.value =
+                    scss.value =
+                    vue.value =
+                    gsapp.value =
+                    figma.value =
+                        false;
+                jsIcon.value.classList.remove("active");
+                vueIcon.value.classList.remove("active");
+                scssIcon.value.classList.remove("active");
+                gsapIcon.value.classList.remove("active");
+                figmaIcon.value.classList.remove("active");
+                firebaseIcon.value.classList.toggle("active");
+                firebase.value = true;
+            } else {
+                firebaseIcon.value.classList.toggle("active");
+                firebase.value = false;
+            }
+        },
+        alt: "firebaseIcon",
+    },
+];
 
 const vueEx = ref(false);
 const jsEx = ref(false);
@@ -393,24 +391,7 @@ const scssEx = ref(false);
 const gsapEx = ref(false);
 const figmaEx = ref(false);
 const firebaseEx = ref(false);
-const focusVue = () => {
-    vueEx.value = true;
-};
-const focusJs = () => {
-    jsEx.value = true;
-};
-const focusScss = () => {
-    scssEx.value = true;
-};
-const focusGsap = () => {
-    gsapEx.value = true;
-};
-const focusFigma = () => {
-    figmaEx.value = true;
-};
-const focusFirebase = () => {
-    firebaseEx.value = true;
-};
+
 const blur = () => {
     vueEx.value = false;
     jsEx.value = false;
@@ -427,13 +408,13 @@ onMounted(() => {
         { color: "#ffffff", duration: 3, yoyo: true, repeat: -1 }
     );
 
-    const logoAni = gsap.timeline();
-    ScrollTrigger.create({
-        animation: logoAni,
-        trigger: ".skills",
-        start: "top 50%",
-    });
-    logoAni.from(".logos > img", { opacity: 0, stagger: 0.2 });
+    // const logoAni = gsap.timeline();
+    // ScrollTrigger.create({
+    //     animation: logoAni,
+    //     trigger: ".skills",
+    //     start: "top 50%",
+    // });
+    // logoAni.from(".logos > img", { opacity: 0, stagger: 0.2 });
 });
 </script>
 
