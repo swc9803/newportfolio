@@ -135,9 +135,7 @@ onMounted(() => {
             ctx.lineCap = "round";
             ctx.lineWidth = starSize * star.z * scale;
             ctx.strokeStyle =
-                "rgba(255, 255, 255," +
-                (0.7 + 0.7 * Math.random()) +
-                ")";
+                "rgba(255, 255, 255," + (0.7 + 0.7 * Math.random()) + ")";
             ctx.beginPath();
             ctx.moveTo(star.x, star.y);
 
@@ -153,16 +151,11 @@ onMounted(() => {
     }
 
     function movePointer(x, y) {
-        if (
-            typeof pointerX === "number" &&
-            typeof pointerY === "number"
-        ) {
+        if (typeof pointerX === "number" && typeof pointerY === "number") {
             const ox = x - pointerX;
             const oy = y - pointerY;
-            velocity.tx =
-                velocity.x + (ox / 8) * scale * (touchInput ? -1 : 1);
-            velocity.ty =
-                velocity.y + (oy / 8) * scale * (touchInput ? -1 : 1);
+            velocity.tx = velocity.x + (ox / 8) * scale * (touchInput ? -1 : 1);
+            velocity.ty = velocity.y + (oy / 8) * scale * (touchInput ? -1 : 1);
         }
         pointerX = x;
         pointerY = y;
@@ -174,11 +167,7 @@ onMounted(() => {
     }
     function onTouchMove(e) {
         touchInput = true;
-        movePointer(
-            e.touches[0].clientX / 5,
-            e.touches[0].clientY / 5,
-            true
-        );
+        movePointer(e.touches[0].clientX / 5, e.touches[0].clientY / 5, true);
         e.preventDefault();
     }
 });

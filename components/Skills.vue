@@ -8,142 +8,32 @@
                 :key="logo.id"
                 :src="logo.iconImg"
                 @click="logo.showDes"
+                :ref="logoRef"
                 :alt="logo.alt"
             />
         </div>
         <div class="des">
-            <div v-show="vue" class="vue">
-                <img class="desIcon" src="@/assets/logos/vueLogo.png" />
+            <div
+                v-for="des in dess"
+                :key="des.id"
+                class="desBorder"
+                :style="{ background: des.background }"
+            >
+                <img class="desIcon" :src="des.desImg" />
                 <section>
                     <div>
                         <p>
-                            Vue를 사용해 컴포넌트화와 라우팅, 전역 상태 관리
-                            등을 할 수 있으며, vuex, router 등의 라이브러리를
-                            사용할 수 있습니다.
+                            {{ des.firstDes }}
                         </p>
                         <p>
-                            가상 돔을 사용하는 Vue에 다중 루트 노드와 컴포지션
-                            api가 추가된 vue3를 사용함으로써 보다 효율적인
-                            개발을 할 수 있습니다.
+                            {{ des.secondDes }}
                         </p>
                     </div>
                     <div class="frame">
                         <img
-                            src="@/assets/examples/vueEx1.png"
-                            @click="focusVue"
-                            alt="vueEx"
-                        />
-                        <p>이미지를 클릭하시면 확대됩니다.</p>
-                    </div>
-                </section>
-            </div>
-            <div v-show="js" class="js">
-                <img class="desIcon" src="@/assets/logos/jsLogo.png" />
-                <section>
-                    <div>
-                        <p>
-                            Vanilla javascript와 firebase와 같은 백엔드를 다룰
-                            수 있습니다.
-                        </p>
-                        <p>
-                            돔을 직접 조작하는 Jquery를 사용하지 않아 브라우저
-                            성능을 높이는 것이 가능합니다.
-                        </p>
-                    </div>
-                    <div class="frame">
-                        <img
-                            src="@/assets/examples/jsEx.png"
-                            @click="focusJs"
-                            alt="jsEx"
-                        />
-                        <p>이미지를 클릭하시면 확대됩니다.</p>
-                    </div>
-                </section>
-            </div>
-            <div v-show="scss" class="scss">
-                <img class="desIcon" src="@/assets/logos/scssLogo.png" />
-                <section>
-                    <div>
-                        <p>CSS3와 scss로 반응형 웹을 만들 수 있습니다.</p>
-                        <p>
-                            Scss를 사용해 mixin, 변수를 만들어 유지 보수 관리를
-                            수월하게 합니다.
-                        </p>
-                    </div>
-                    <div class="frame">
-                        <img
-                            src="@/assets/examples/scssEx.png"
-                            @click="focusScss"
-                            alt="scssEx"
-                        />
-                        <p>이미지를 클릭하시면 확대됩니다.</p>
-                    </div>
-                </section>
-            </div>
-            <div v-show="gsapp" class="gsap">
-                <img class="desIcon" src="@/assets/logos/gsapLogo.png" />
-                <section>
-                    <div>
-                        <p>
-                            Gsap 라이브러리와 ScrollTrigger를 능숙하게 다룹니다.
-                        </p>
-                        <p>
-                            Gsap를 사용해 Keyframe 보다 더 정교하고 섬세한
-                            애니메이션을 만들 수 있습니다.
-                        </p>
-                    </div>
-                    <div class="frame">
-                        <img
-                            src="@/assets/examples/gsapEx.png"
-                            @click="focusGsap"
-                            alt="gsapEx"
-                        />
-                        <p>이미지를 클릭하시면 확대됩니다.</p>
-                    </div>
-                </section>
-            </div>
-            <div v-show="figma" class="figma">
-                <img class="desIcon" src="@/assets/logos/figmaLogo.png" />
-                <section>
-                    <div>
-                        <p>
-                            Figma 툴을 사용해 간단한 일러스트를 제작할 수 있으며
-                            웹 개발을 하기 전 제작에 도움을 줄 수 있는 견본을
-                            만들 수 있습니다.
-                        </p>
-                        <p>
-                            figma에 대해 기본 지식이 있어 디자이너와의
-                            효율적으로 협업이 가능합니다.
-                        </p>
-                    </div>
-                    <div class="frame">
-                        <img
-                            src="@/assets/examples/figmaEx1.png"
-                            @click="focusFigma"
-                            alt="figmaEx"
-                        />
-                        <p>이미지를 클릭하시면 확대됩니다.</p>
-                    </div>
-                </section>
-            </div>
-            <div v-show="firebase" class="firebase">
-                <img class="desIcon" src="@/assets/logos/firebaseLogo.png" />
-                <section>
-                    <div>
-                        <p>
-                            구글의 NOSQL Firebase를 사용해 클라우드
-                            데이터베이스와 유저를 관리할 수 있습니다.
-                        </p>
-                        <p>
-                            Firebase 또는 Firestore, storage를 사용해 글, 이미지
-                            저장 등의 간단한 백엔드를 다룰 수 있습니다.
-                        </p>
-                    </div>
-                    <div class="frame">
-                        <img
-                            src="@/assets/examples/firebaseEx1.png"
-                            @click="focusFirebase"
-                            alt="firebaseEx"
+                            :src="des.desExImg"
+                            @click="des.focus"
+                            :alt="des.desEx"
                         />
                         <p>이미지를 클릭하시면 확대됩니다.</p>
                     </div>
@@ -231,14 +121,10 @@ const scss = ref(false);
 const gsapp = ref(false);
 const figma = ref(false);
 const firebase = ref(false);
-const vueIcon = ref();
-const jsIcon = ref();
-const scssIcon = ref();
-const gsapIcon = ref();
-const figmaIcon = ref();
-const firebaseIcon = ref();
 
-const logos = [
+const logoArray = ref([]);
+const logoRef = (el) => logoArray.value.push(el);
+const logos = ref([
     {
         iconImg: "../assets/logos/vueLogo.png",
         showDes: () => {
@@ -249,15 +135,15 @@ const logos = [
                     figma.value =
                     firebase.value =
                         false;
-                jsIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                vueIcon.value.classList.toggle("active");
+                logoArray.value[0].classList.toggle("active");
+                logoArray.value[1].classList.remove("active");
+                logoArray.value[2].classList.remove("active");
+                logoArray.value[3].classList.remove("active");
+                logoArray.value[4].classList.remove("active");
+                logoArray.value[5].classList.remove("active");
                 vue.value = true;
             } else {
-                vueIcon.value.classList.toggle("active");
+                logoArray.value[0].classList.toggle("active");
                 vue.value = false;
             }
         },
@@ -273,15 +159,15 @@ const logos = [
                     figma.value =
                     firebase.value =
                         false;
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                jsIcon.value.classList.toggle("active");
+                logoArray.value[0].classList.remove("active");
+                logoArray.value[1].classList.toggle("active");
+                logoArray.value[2].classList.remove("active");
+                logoArray.value[3].classList.remove("active");
+                logoArray.value[4].classList.remove("active");
+                logoArray.value[5].classList.remove("active");
                 js.value = true;
             } else {
-                jsIcon.value.classList.toggle("active");
+                logoArray.value[1].classList.toggle("active");
                 js.value = false;
             }
         },
@@ -297,15 +183,15 @@ const logos = [
                     figma.value =
                     firebase.value =
                         false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                scssIcon.value.classList.toggle("active");
+                logoArray.value[0].classList.remove("active");
+                logoArray.value[1].classList.remove("active");
+                logoArray.value[2].classList.toggle("active");
+                logoArray.value[3].classList.remove("active");
+                logoArray.value[4].classList.remove("active");
+                logoArray.value[5].classList.remove("active");
                 scss.value = true;
             } else {
-                scssIcon.value.classList.toggle("active");
+                logoArray.value[2].classList.toggle("active");
                 scss.value = false;
             }
         },
@@ -321,15 +207,15 @@ const logos = [
                     figma.value =
                     firebase.value =
                         false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                gsapIcon.value.classList.toggle("active");
+                logoArray.value[0].classList.remove("active");
+                logoArray.value[1].classList.remove("active");
+                logoArray.value[2].classList.remove("active");
+                logoArray.value[3].classList.toggle("active");
+                logoArray.value[4].classList.remove("active");
+                logoArray.value[5].classList.remove("active");
                 gsapp.value = true;
             } else {
-                gsapIcon.value.classList.toggle("active");
+                logoArray.value[3].classList.toggle("active");
                 gsapp.value = false;
             }
         },
@@ -345,15 +231,15 @@ const logos = [
                     gsapp.value =
                     firebase.value =
                         false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.remove("active");
-                figmaIcon.value.classList.toggle("active");
+                logoArray.value[0].classList.remove("active");
+                logoArray.value[1].classList.remove("active");
+                logoArray.value[2].classList.remove("active");
+                logoArray.value[3].classList.remove("active");
+                logoArray.value[4].classList.toggle("active");
+                logoArray.value[5].classList.remove("active");
                 figma.value = true;
             } else {
-                figmaIcon.value.classList.toggle("active");
+                logoArray.value[4].classList.toggle("active");
                 figma.value = false;
             }
         },
@@ -369,21 +255,21 @@ const logos = [
                     gsapp.value =
                     figma.value =
                         false;
-                jsIcon.value.classList.remove("active");
-                vueIcon.value.classList.remove("active");
-                scssIcon.value.classList.remove("active");
-                gsapIcon.value.classList.remove("active");
-                figmaIcon.value.classList.remove("active");
-                firebaseIcon.value.classList.toggle("active");
+                logoArray.value[0].classList.remove("active");
+                logoArray.value[1].classList.remove("active");
+                logoArray.value[2].classList.remove("active");
+                logoArray.value[3].classList.remove("active");
+                logoArray.value[4].classList.remove("active");
+                logoArray.value[5].classList.toggle("active");
                 firebase.value = true;
             } else {
-                firebaseIcon.value.classList.toggle("active");
+                logoArray.value[5].classList.toggle("active");
                 firebase.value = false;
             }
         },
         alt: "firebaseIcon",
     },
-];
+]);
 
 const vueEx = ref(false);
 const jsEx = ref(false);
@@ -391,6 +277,82 @@ const scssEx = ref(false);
 const gsapEx = ref(false);
 const figmaEx = ref(false);
 const firebaseEx = ref(false);
+const dess = [
+    {
+        background: "#0a8810",
+        desImg: "../assets/logos/vueLogo.png",
+        firstDes:
+            "Vue를 사용해 컴포넌트화와 라우팅, 전역 상태 관리등을 할 수 있으며, vuex, router 등의 라이브러리를 사용할 수 있습니다.",
+        secondDes:
+            "가상 돔을 사용하는 Vue에 다중 루트 노드와 컴포지션 api가 추가된 vue3를 사용함으로써 보다 효율적인 개발을 할 수 있습니다.",
+        focus: () => {
+            vueEx.value = true;
+        },
+        desExImg: "../assets/examples/vueEx1.png",
+        desEx: "vueEx",
+    },
+    {
+        background: "#7e9c06",
+        desImg: "../assets/logos/jsLogo.png",
+        firstDes: "es6, 프레임워크",
+        secondDes: "es6, 프레임워크",
+        focus: () => {
+            jsEx.value = true;
+        },
+        desExImg: "../assets/examples/jsEx.png",
+        desEx: "jsEx",
+    },
+    {
+        background: "#881777",
+        desImg: "../assets/logos/scssLogo.png",
+        firstDes: "CSS3와 scss로 반응형 웹을 만들 수 있습니다.",
+        secondDes:
+            "Scss를 사용해 mixin, 변수를 만들어 유지 보수 관리를 수월하게 합니다.",
+        focus: () => {
+            scssEx.value = true;
+        },
+        desExImg: "../assets/examples/scssEx.png",
+        desEx: "scssEx",
+    },
+    {
+        background: "#3faf12",
+        desImg: "../assets/logos/gsapLogo.png",
+        firstDes: "Gsap 라이브러리와 ScrollTrigger를 능숙하게 다룹니다.",
+        secondDes:
+            "Gsap를 사용해 Keyframe에 못지않는 더 정교하고 섬세한 애니메이션을 만들 수 있습니다.",
+        focus: () => {
+            gsapEx.value = true;
+        },
+        desExImg: "../assets/examples/gsapEx.png",
+        desEx: "gsapEx",
+    },
+    {
+        background: "#757575",
+        desImg: "../assets/logos/figmaLogo.png",
+        firstDes:
+            "Figma 툴을 사용해 간단한 일러스트를 제작할 수 있으며 웹 개발을 하기 전 제작에 도움을 줄 수 있는 견본을 만들 수 있습니다.",
+        secondDes:
+            "figma에 대해 기본 지식이 있으며 디자이너와의 협업 경험이 있어 능숙하게 다룰 수 있습니다.",
+        focus: () => {
+            figmaEx.value = true;
+        },
+        desExImg: "../assets/examples/figmaEx1.png",
+        desEx: "figmaEx",
+    },
+    {
+        background: "#0d7297",
+        desImg: "../assets/logos/firebaseLogo.png",
+        firstDes:
+            "구글의 NOSQL Firebase를 사용해 클라우드 데이터베이스와 유저를 관리할 수 있습니다.",
+        secondDes:
+            "Firebase 또는 Firestore, storage를 사용해 글, 이미지 저장 등의 간단한 백엔드를 다룰 수 있습니다.",
+        focus: () => {
+            firebaseEx.value = true;
+        },
+        desExImg: "../assets/examples/firebaseEx1.png",
+        desEx: "firebaseEx",
+    },
+];
 
 const blur = () => {
     vueEx.value = false;
@@ -400,7 +362,6 @@ const blur = () => {
     firebaseEx.value = false;
     figmaEx.value = false;
 };
-
 onMounted(() => {
     gsap.fromTo(
         skills.value,
@@ -414,7 +375,7 @@ onMounted(() => {
     //     trigger: ".skills",
     //     start: "top 50%",
     // });
-    // logoAni.from(".logos > img", { opacity: 0, stagger: 0.2 });
+    // logoAni.from(logoArray.value, { opacity: 0, stagger: 0.01 });
 });
 </script>
 
@@ -435,12 +396,16 @@ h2 {
         border-radius: 70%;
         transition: 0.3s;
         filter: grayscale(1);
-        &:hover,
-        &.active {
+        &:hover {
             transform: scale(1.2);
             filter: grayscale(0);
             box-shadow: 1.5px 2px 3px rgb(100, 100, 100);
         }
+    }
+    .active {
+        transform: scale(1.2);
+        filter: grayscale(0);
+        box-shadow: 1.5px 2px 3px rgb(100, 100, 100);
     }
 }
 .des {
@@ -451,32 +416,11 @@ h2 {
     margin-top: 50px;
     transition: 0.3s;
     color: #ffffff;
-    .vue {
-        background: #0a8810;
-        box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
-    }
-    .js {
-        background: #7e9c06;
-        box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
-    }
-    .scss {
-        background: #881777;
-        box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
-    }
-    .gsap {
-        background: #3faf12;
-        box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
-    }
-    .figma {
-        background: #757575;
-        box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
-    }
-    .firebase {
-        background: #0d7297;
-        box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
+    .desBorder {
+        box-shadow: 0 0 0 3px rgb(255, 255, 255) inset;
     }
     .desIcon {
-        position: absolute;
+        // position: absolute;
         top: 6px;
         left: 20%;
         width: 120px;
@@ -639,5 +583,9 @@ h2 {
             margin: 10px;
         }
     }
+}
+.active {
+    transform: scale(1.2);
+    box-shadow: 1.5px 2px 3px rgb(100, 100, 100);
 }
 </style>
