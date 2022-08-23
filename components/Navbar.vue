@@ -135,18 +135,15 @@ const toggle = () => {
     }
 };
 
-// progressbar
-const progressbar = ref();
+// const progressbar = ref();
+// // progressbar
 // const changeProgress = () => {
-//     addEventListener("scroll", () => {
-//         const height =
-//             document.documentElement.scrollHeight -
-//             document.documentElement.clientHeight;
-//         const scrollTop =
-//             document.body.scrollTop || document.documentElement.scrollTop;
+//     addEventListener('scroll', () => {
+//         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+//         const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 //         let scrolled = (scrollTop / height) * 100;
-//         progressbar.value.style.width = scrolled + "%";
-//     });
+//         progressbar.value.style.width = `${scrolled}%`;
+//     })
 // };
 
 onMounted(() => {
@@ -176,13 +173,15 @@ onMounted(() => {
         .progress(1);
     toggleColor.pause();
     ScrollTrigger.create({
-        start: "10%",
-        end: "bottom",
-        // markers: true,
+        trigger: ".aboutme",
+        start: "-101px",
+        end: "-101px",
         onUpdate: (self) => {
-            self.direction === -1 ? navBarColor.play() : navBarColor.reverse();
-            self.direction === -1 ? menuColor.play() : menuColor.reverse();
-            self.direction === -1 ? toggleColor.play() : toggleColor.reverse();
+            self.direction === -1
+                ? (navBarColor.play(), menuColor.play(), toggleColor.play())
+                : (navBarColor.reverse(),
+                  menuColor.reverse(),
+                  toggleColor.reverse());
         },
     });
 });
