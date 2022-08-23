@@ -18,6 +18,7 @@
                 :key="des.id"
                 class="desBorder"
                 :style="{ background: des.background }"
+                v-show="dd(des.id)"
             >
                 <img class="desIcon" :src="des.desImg" />
                 <section>
@@ -121,6 +122,10 @@ const scss = ref(false);
 const gsapp = ref(false);
 const figma = ref(false);
 const firebase = ref(false);
+
+const dd = (e) => {
+    console.log(e);
+};
 
 const logoArray = ref([]);
 const logoRef = (el) => logoArray.value.push(el);
