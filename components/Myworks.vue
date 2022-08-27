@@ -2,8 +2,8 @@
     <div>
         <p class="title">My Works</p>
         <div v-for="mywork in myworks" :key="mywork.id" class="projectInfo">
+            <p class="projectTitle">{{ mywork.siteTitle }}</p>
             <div class="sliderWrap">
-                <p class="projectTitle">{{ mywork.siteTitle }}</p>
                 <swiper
                     class="slider"
                     :modules="[Navigation, Pagination]"
@@ -25,14 +25,14 @@
                         {{ mywork.secondDes }}
                     </p>
                     <div class="desTitle">
-                        <p>Main-Function</p>
+                        <p class="frontTitle">Main-Function</p>
                         <p>{{ mywork.desTitle }}</p>
                     </div>
                     <div class="desTitle">
                         <p class="frontTitle">Front-End</p>
                         <div class="flex">
                             <div
-                                class="flex"
+                                class="inline"
                                 v-for="front in mywork.frontImgArray"
                                 :key="front.id"
                             >
@@ -46,8 +46,10 @@
                     <div class="desTitle">
                         <p class="frontTitle">Distribution</p>
                         <div class="flex">
-                            <img src="@/assets/firebase.png" />
-                            <p>Firebase</p>
+                            <div>
+                                <img src="@/assets/firebase.png" />
+                                <p>Firebase</p>
+                            </div>
                         </div>
                     </div>
                     <div class="icons">
@@ -284,7 +286,7 @@ const myworks = [
         }
         .projectDes {
             flex: 1 1 45%;
-            margin: 20px;
+            margin: 0 20px 0 20px;
             margin-top: 20px;
             word-break: keep-all;
             font-size: 1em;
@@ -292,18 +294,28 @@ const myworks = [
             flex-direction: column;
             .desTitle {
                 margin: 0;
+                p {
+                    margin: 5px 0 5px 0;
+                }
                 .frontTitle {
                     color: rgb(41, 41, 41);
                     letter-spacing: 1px;
                     font-size: 1.2em;
                     font-weight: 600;
-                    margin: 20px 0 3px 0;
+                    margin: 10px 0 3px 0;
                 }
                 .flex {
                     display: flex;
-                    margin-right: 5px;
+                    .inline {
+                        display: inline-block;
+                    }
+                    p {
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
                     img {
-                        width: 1em;
+                        height: 1.5em;
+                        margin-right: 5px;
                     }
                 }
             }
@@ -313,7 +325,6 @@ const myworks = [
         }
         .icons {
             text-align: center;
-            margin-top: 20px;
             img {
                 cursor: pointer;
                 width: 25px;

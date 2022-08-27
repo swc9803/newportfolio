@@ -18,7 +18,6 @@
                 :key="des.id"
                 class="desBorder"
                 :style="{ background: des.background }"
-                v-show="dd(des.id)"
             >
                 <img class="desIcon" :src="des.desImg" />
                 <section>
@@ -122,11 +121,6 @@ const scss = ref(false);
 const gsapp = ref(false);
 const figma = ref(false);
 const firebase = ref(false);
-
-const dd = (e) => {
-    console.log(e);
-};
-
 const logoArray = ref([]);
 const logoRef = (el) => logoArray.value.push(el);
 const logos = ref([
@@ -402,13 +396,13 @@ h2 {
         transition: 0.3s;
         filter: grayscale(1);
         &:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
             filter: grayscale(0);
             box-shadow: 1.5px 2px 3px rgb(100, 100, 100);
         }
     }
     .active {
-        transform: scale(1.2);
+        transform: scale(1.1);
         filter: grayscale(0);
         box-shadow: 1.5px 2px 3px rgb(100, 100, 100);
     }
@@ -499,11 +493,6 @@ h2 {
     }
 }
 @media screen and (max-width: 1500px) {
-    .logos {
-        img {
-            width: 15%;
-        }
-    }
     .des {
         .desIcon {
             width: 100px;
@@ -588,9 +577,5 @@ h2 {
             margin: 10px;
         }
     }
-}
-.active {
-    transform: scale(1.2);
-    box-shadow: 1.5px 2px 3px rgb(100, 100, 100);
 }
 </style>

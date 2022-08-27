@@ -1,5 +1,4 @@
 <template>
-    test
     <nav ref="navbar">
         <div class="menu">
             <p class="symbol" @click="moveToTop">SUNGWOO</p>
