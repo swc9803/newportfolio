@@ -4,19 +4,19 @@
         <h2>아이콘을 클릭해보세요 ▼</h2>
         <div class="logos">
             <img
-                v-for="logo in logos"
+                v-for="(logo, index) in logos"
                 :key="logo.id"
                 :src="logo.iconImg"
-                @click="logo.showDes"
+                @click="[logo.showDes(index)]"
                 :ref="logoRef"
                 :alt="logo.alt"
             />
         </div>
-        <div class="des">
+        <div class="des" v-for="des in dess" :key="des.id">
             <div
-                v-for="des in dess"
-                :key="des.id"
                 class="desBorder"
+                style="display: none"
+                :ref="desRef"
                 :style="{ background: des.background }"
             >
                 <img class="desIcon" :src="des.desImg" />
@@ -40,71 +40,77 @@
                 </section>
             </div>
         </div>
-        <transition name="imgFade">
-            <div class="focus" v-show="vueEx" @click="blur">
-                <img
-                    src="@/assets/examples/vueEx1.png"
-                    class="img2"
-                    alt="vueEx"
-                />
-                <img
-                    src="@/assets/examples/vueEx2.png"
-                    class="img2"
-                    alt="vueEx"
-                />
-            </div>
-        </transition>
-        <transition name="imgFade">
-            <div class="focus" v-show="jsEx" @click="blur">
-                <img src="@/assets/examples/jsEx.png" class="img1" alt="jsEx" />
-            </div>
-        </transition>
-        <transition name="imgFade">
-            <div class="focus" v-show="scssEx" @click="blur">
-                <img
-                    src="@/assets/examples/scssEx.png"
-                    class="img1"
-                    alt="scssEx"
-                />
-            </div>
-        </transition>
-        <transition name="imgFade">
-            <div class="focus" v-show="gsapEx" @click="blur">
-                <img
-                    src="@/assets/examples/gsapEx.png"
-                    class="img1"
-                    alt="gsapEx"
-                />
-            </div>
-        </transition>
-        <transition name="imgFade">
-            <div class="focus" v-show="figmaEx" @click="blur">
-                <img
-                    src="@/assets/examples/figmaEx1.png"
-                    class="img2"
-                    alt="figmaEx1"
-                />
-                <img
-                    src="@/assets/examples/figmaEx2.png"
-                    class="img2"
-                    alt="figmaEx2"
-                />
-            </div>
-        </transition>
-        <transition name="imgFade">
-            <div class="focus" v-show="firebaseEx" @click="blur">
-                <img
-                    src="@/assets/examples/firebaseEx1.png"
-                    class="img2"
-                    alt="firebaseEx1"
-                />
-                <img
-                    src="@/assets/examples/firebaseEx2.png"
-                    class="img2"
-                    alt="firebaseEx2"
-                />
-            </div>
-        </transition>
+        <div>
+            <transition name="imgFade">
+                <div class="focus" v-show="vueEx" @click="blur">
+                    <img
+                        src="@/assets/examples/vueEx1.png"
+                        class="img2"
+                        alt="vueEx"
+                    />
+                    <img
+                        src="@/assets/examples/vueEx2.png"
+                        class="img2"
+                        alt="vueEx"
+                    />
+                </div>
+            </transition>
+            <transition name="imgFade">
+                <div class="focus" v-show="jsEx" @click="blur">
+                    <img
+                        src="@/assets/examples/jsEx.png"
+                        class="img1"
+                        alt="jsEx"
+                    />
+                </div>
+            </transition>
+            <transition name="imgFade">
+                <div class="focus" v-show="scssEx" @click="blur">
+                    <img
+                        src="@/assets/examples/scssEx.png"
+                        class="img1"
+                        alt="scssEx"
+                    />
+                </div>
+            </transition>
+            <transition name="imgFade">
+                <div class="focus" v-show="gsapEx" @click="blur">
+                    <img
+                        src="@/assets/examples/gsapEx.png"
+                        class="img1"
+                        alt="gsapEx"
+                    />
+                </div>
+            </transition>
+            <transition name="imgFade">
+                <div class="focus" v-show="figmaEx" @click="blur">
+                    <img
+                        src="@/assets/examples/figmaEx1.png"
+                        class="img2"
+                        alt="figmaEx1"
+                    />
+                    <img
+                        src="@/assets/examples/figmaEx2.png"
+                        class="img2"
+                        alt="figmaEx2"
+                    />
+                </div>
+            </transition>
+            <transition name="imgFade">
+                <div class="focus" v-show="firebaseEx" @click="blur">
+                    <img
+                        src="@/assets/examples/firebaseEx1.png"
+                        class="img2"
+                        alt="firebaseEx1"
+                    />
+                    <img
+                        src="@/assets/examples/firebaseEx2.png"
+                        class="img2"
+                        alt="firebaseEx2"
+                    />
+                </div>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -126,7 +132,7 @@ const logoRef = (el) => logoArray.value.push(el);
 const logos = ref([
     {
         iconImg: "../assets/logos/vueLogo.png",
-        showDes: () => {
+        showDes: (index) => {
             if (!vue.value) {
                 js.value =
                     scss.value =
@@ -134,23 +140,24 @@ const logos = ref([
                     figma.value =
                     firebase.value =
                         false;
-                logoArray.value[0].classList.toggle("active");
-                logoArray.value[1].classList.remove("active");
-                logoArray.value[2].classList.remove("active");
-                logoArray.value[3].classList.remove("active");
-                logoArray.value[4].classList.remove("active");
-                logoArray.value[5].classList.remove("active");
                 vue.value = true;
+                logoArray.value.map((item) => {
+                    item.classList.remove("active");
+                });
+                logoArray.value[index].classList.toggle("active");
+                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value[index].style.display = "block";
             } else {
-                logoArray.value[0].classList.toggle("active");
+                logoArray.value[index].classList.toggle("active");
                 vue.value = false;
+                desArray.value[index].style.display = "none";
             }
         },
         alt: "vueIcon",
     },
     {
         iconImg: "../assets/logos/jsLogo.png",
-        showDes: () => {
+        showDes: (index) => {
             if (!js.value) {
                 vue.value =
                     scss.value =
@@ -158,23 +165,24 @@ const logos = ref([
                     figma.value =
                     firebase.value =
                         false;
-                logoArray.value[0].classList.remove("active");
-                logoArray.value[1].classList.toggle("active");
-                logoArray.value[2].classList.remove("active");
-                logoArray.value[3].classList.remove("active");
-                logoArray.value[4].classList.remove("active");
-                logoArray.value[5].classList.remove("active");
                 js.value = true;
+                logoArray.value.map((item) => {
+                    item.classList.remove("active");
+                });
+                logoArray.value[index].classList.toggle("active");
+                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value[index].style.display = "block";
             } else {
-                logoArray.value[1].classList.toggle("active");
+                logoArray.value[index].classList.toggle("active");
                 js.value = false;
+                desArray.value[index].style.display = "none";
             }
         },
         alt: "jsIcon",
     },
     {
         iconImg: "../assets/logos/scssLogo.png",
-        showDes: () => {
+        showDes: (index) => {
             if (!scss.value) {
                 js.value =
                     vue.value =
@@ -182,23 +190,24 @@ const logos = ref([
                     figma.value =
                     firebase.value =
                         false;
-                logoArray.value[0].classList.remove("active");
-                logoArray.value[1].classList.remove("active");
-                logoArray.value[2].classList.toggle("active");
-                logoArray.value[3].classList.remove("active");
-                logoArray.value[4].classList.remove("active");
-                logoArray.value[5].classList.remove("active");
                 scss.value = true;
+                logoArray.value.map((item) => {
+                    item.classList.remove("active");
+                });
+                logoArray.value[index].classList.toggle("active");
+                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value[index].style.display = "block";
             } else {
-                logoArray.value[2].classList.toggle("active");
+                logoArray.value[index].classList.toggle("active");
                 scss.value = false;
+                desArray.value[index].style.display = "none";
             }
         },
         alt: "scssIcon",
     },
     {
         iconImg: "../assets/logos/gsapLogo.png",
-        showDes: () => {
+        showDes: (index) => {
             if (!gsapp.value) {
                 js.value =
                     scss.value =
@@ -206,23 +215,24 @@ const logos = ref([
                     figma.value =
                     firebase.value =
                         false;
-                logoArray.value[0].classList.remove("active");
-                logoArray.value[1].classList.remove("active");
-                logoArray.value[2].classList.remove("active");
-                logoArray.value[3].classList.toggle("active");
-                logoArray.value[4].classList.remove("active");
-                logoArray.value[5].classList.remove("active");
                 gsapp.value = true;
+                logoArray.value.map((item) => {
+                    item.classList.remove("active");
+                });
+                logoArray.value[index].classList.toggle("active");
+                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value[index].style.display = "block";
             } else {
-                logoArray.value[3].classList.toggle("active");
+                logoArray.value[index].classList.toggle("active");
                 gsapp.value = false;
+                desArray.value[index].style.display = "none";
             }
         },
         alt: "gsapIcon",
     },
     {
         iconImg: "../assets/logos/figmaLogo.png",
-        showDes: () => {
+        showDes: (index) => {
             if (!figma.value) {
                 js.value =
                     scss.value =
@@ -230,23 +240,24 @@ const logos = ref([
                     gsapp.value =
                     firebase.value =
                         false;
-                logoArray.value[0].classList.remove("active");
-                logoArray.value[1].classList.remove("active");
-                logoArray.value[2].classList.remove("active");
-                logoArray.value[3].classList.remove("active");
-                logoArray.value[4].classList.toggle("active");
-                logoArray.value[5].classList.remove("active");
                 figma.value = true;
+                logoArray.value.map((item) => {
+                    item.classList.remove("active");
+                });
+                logoArray.value[index].classList.toggle("active");
+                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value[index].style.display = "block";
             } else {
-                logoArray.value[4].classList.toggle("active");
+                logoArray.value[index].classList.toggle("active");
                 figma.value = false;
+                desArray.value[index].style.display = "none";
             }
         },
         alt: "figmaIcon",
     },
     {
         iconImg: "../assets/logos/firebaseLogo.png",
-        showDes: () => {
+        showDes: (index) => {
             if (!firebase.value) {
                 js.value =
                     scss.value =
@@ -254,16 +265,17 @@ const logos = ref([
                     gsapp.value =
                     figma.value =
                         false;
-                logoArray.value[0].classList.remove("active");
-                logoArray.value[1].classList.remove("active");
-                logoArray.value[2].classList.remove("active");
-                logoArray.value[3].classList.remove("active");
-                logoArray.value[4].classList.remove("active");
-                logoArray.value[5].classList.toggle("active");
                 firebase.value = true;
+                logoArray.value.map((item) => {
+                    item.classList.remove("active");
+                });
+                logoArray.value[index].classList.toggle("active");
+                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value[index].style.display = "block";
             } else {
-                logoArray.value[5].classList.toggle("active");
+                logoArray.value[index].classList.toggle("active");
                 firebase.value = false;
+                desArray.value[index].style.display = "none";
             }
         },
         alt: "firebaseIcon",
@@ -276,6 +288,8 @@ const scssEx = ref(false);
 const gsapEx = ref(false);
 const figmaEx = ref(false);
 const firebaseEx = ref(false);
+const desArray = ref([]);
+const desRef = (el) => desArray.value.push(el);
 const dess = [
     {
         background: "#0a8810",
