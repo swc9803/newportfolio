@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import SnowBackground from "@/components/home/SnowBackground.vue";
+import SnowBackground from "@/components/backgrounds/SnowBackground.vue";
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 

@@ -3,19 +3,15 @@
         <div class="menu">
             <p class="symbol" @click="moveToTop">SUNGWOO</p>
             <div class="items" ref="items">
-                <p @click="moveToAboutme" class="navItem" data-title="About me">
-                    About me
+                <p
+                    v-for="item in navbarItems"
+                    :key="item.id"
+                    @click="item.moveToSection"
+                    class="navItem"
+                    :data-title="item.title"
+                >
+                    {{ item.title }}
                 </p>
-                <p @click="moveToSkills" class="navItem" data-title="Skills">
-                    Skills
-                </p>
-                <p @click="moveToMyworks" class="navItem" data-title="My works">
-                    My works
-                </p>
-                <p @click="moveToContact" class="navItem" data-title="Contact">
-                    Contact
-                </p>
-                <!-- v-for :ref로 처리 -->
             </div>
         </div>
         <svg
@@ -46,23 +42,39 @@ const emit = defineEmits([
     "moveToMyworks",
     "moveToContact",
 ]);
+
 const navbar = ref();
-// 각각 해당하는 위치로 스크롤 이동
+
+// 각 섹션으로 스크롤 이동 함수
 const moveToTop = () => {
     scrollTo({ top: 0, behavior: "smooth" });
 };
-const moveToAboutme = () => {
-    emit("moveToAboutme");
-};
-const moveToSkills = () => {
-    emit("moveToSkills");
-};
-const moveToMyworks = () => {
-    emit("moveToMyworks");
-};
-const moveToContact = () => {
-    emit("moveToContact");
-};
+const navbarItems = [
+    {
+        title: "About Me",
+        moveToSection: () => {
+            emit("moveToAboutme");
+        },
+    },
+    {
+        title: "Skills",
+        moveToSection: () => {
+            emit("moveToSkills");
+        },
+    },
+    {
+        title: "Myworks",
+        moveToSection: () => {
+            emit("moveToMyworks");
+        },
+    },
+    {
+        title: "Contact",
+        moveToSection: () => {
+            emit("moveToContact");
+        },
+    },
+];
 
 const toggledata = ref(false);
 const items = ref();

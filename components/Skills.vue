@@ -148,8 +148,8 @@ const logos = ref([
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
-                vue.value = false;
                 desArray.value[i].style.display = "none";
+                vue.value = false;
             }
         },
         alt: "vueIcon",
@@ -173,8 +173,8 @@ const logos = ref([
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
-                js.value = false;
                 desArray.value[i].style.display = "none";
+                js.value = false;
             }
         },
         alt: "jsIcon",
@@ -198,8 +198,8 @@ const logos = ref([
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
-                scss.value = false;
                 desArray.value[i].style.display = "none";
+                scss.value = false;
             }
         },
         alt: "scssIcon",
@@ -223,8 +223,8 @@ const logos = ref([
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
-                gsapp.value = false;
                 desArray.value[i].style.display = "none";
+                gsapp.value = false;
             }
         },
         alt: "gsapIcon",
@@ -248,8 +248,8 @@ const logos = ref([
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
-                figma.value = false;
                 desArray.value[i].style.display = "none";
+                figma.value = false;
             }
         },
         alt: "figmaIcon",
@@ -273,8 +273,8 @@ const logos = ref([
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
-                firebase.value = false;
                 desArray.value[i].style.display = "none";
+                firebase.value = false;
             }
         },
         alt: "firebaseIcon",

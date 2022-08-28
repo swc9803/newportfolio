@@ -16,7 +16,7 @@
                 <p ref="mainText">
                     끝없이 배움을 추구하는 프론트엔드
                     <span
-                        v-for="star in stars"
+                        v-for="star in 4"
                         :key="star.id"
                         class="twinkle"
                         :ref="twinkle"
@@ -44,7 +44,7 @@
 <!-- <script setup lang="ts"> -->
 <script setup>
 import { onMounted, ref } from "vue";
-import SpaceBackground from "@/components/home/SpaceBackground.vue";
+import SpaceBackground from "@/components/backgrounds/SpaceBackground.vue";
 import gsap from "gsap";
 
 const progressbar = ref();
@@ -55,7 +55,6 @@ const contact = ref();
 const mainText = ref();
 const array = ref([]);
 const twinkle = (el) => array.value.push(el);
-const stars = ref([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
 
 // const scrollEvent = () => {
 //     progressbar.value.changeProgress();
