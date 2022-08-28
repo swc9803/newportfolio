@@ -4,10 +4,10 @@
         <h2>아이콘을 클릭해보세요 ▼</h2>
         <div class="logos">
             <img
-                v-for="(logo, index) in logos"
+                v-for="(logo, i) in logos"
                 :key="logo.id"
                 :src="logo.iconImg"
-                @click="[logo.showDes(index)]"
+                @click="[logo.showDes(i)]"
                 :ref="logoRef"
                 :alt="logo.alt"
             />
@@ -15,7 +15,6 @@
         <div class="des" v-for="des in dess" :key="des.id">
             <div
                 class="desBorder"
-                style="display: none"
                 :ref="desRef"
                 :style="{ background: des.background }"
             >
@@ -132,7 +131,7 @@ const logoRef = (el) => logoArray.value.push(el);
 const logos = ref([
     {
         iconImg: "../assets/logos/vueLogo.png",
-        showDes: (index) => {
+        showDes: (i) => {
             if (!vue.value) {
                 js.value =
                     scss.value =
@@ -144,20 +143,20 @@ const logos = ref([
                 logoArray.value.map((item) => {
                     item.classList.remove("active");
                 });
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 desArray.value.map((item) => (item.style.display = "none"));
-                desArray.value[index].style.display = "block";
+                desArray.value[i].style.display = "block";
             } else {
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 vue.value = false;
-                desArray.value[index].style.display = "none";
+                desArray.value[i].style.display = "none";
             }
         },
         alt: "vueIcon",
     },
     {
         iconImg: "../assets/logos/jsLogo.png",
-        showDes: (index) => {
+        showDes: (i) => {
             if (!js.value) {
                 vue.value =
                     scss.value =
@@ -169,20 +168,20 @@ const logos = ref([
                 logoArray.value.map((item) => {
                     item.classList.remove("active");
                 });
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 desArray.value.map((item) => (item.style.display = "none"));
-                desArray.value[index].style.display = "block";
+                desArray.value[i].style.display = "block";
             } else {
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 js.value = false;
-                desArray.value[index].style.display = "none";
+                desArray.value[i].style.display = "none";
             }
         },
         alt: "jsIcon",
     },
     {
         iconImg: "../assets/logos/scssLogo.png",
-        showDes: (index) => {
+        showDes: (i) => {
             if (!scss.value) {
                 js.value =
                     vue.value =
@@ -194,20 +193,20 @@ const logos = ref([
                 logoArray.value.map((item) => {
                     item.classList.remove("active");
                 });
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 desArray.value.map((item) => (item.style.display = "none"));
-                desArray.value[index].style.display = "block";
+                desArray.value[i].style.display = "block";
             } else {
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 scss.value = false;
-                desArray.value[index].style.display = "none";
+                desArray.value[i].style.display = "none";
             }
         },
         alt: "scssIcon",
     },
     {
         iconImg: "../assets/logos/gsapLogo.png",
-        showDes: (index) => {
+        showDes: (i) => {
             if (!gsapp.value) {
                 js.value =
                     scss.value =
@@ -219,20 +218,20 @@ const logos = ref([
                 logoArray.value.map((item) => {
                     item.classList.remove("active");
                 });
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 desArray.value.map((item) => (item.style.display = "none"));
-                desArray.value[index].style.display = "block";
+                desArray.value[i].style.display = "block";
             } else {
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 gsapp.value = false;
-                desArray.value[index].style.display = "none";
+                desArray.value[i].style.display = "none";
             }
         },
         alt: "gsapIcon",
     },
     {
         iconImg: "../assets/logos/figmaLogo.png",
-        showDes: (index) => {
+        showDes: (i) => {
             if (!figma.value) {
                 js.value =
                     scss.value =
@@ -244,20 +243,20 @@ const logos = ref([
                 logoArray.value.map((item) => {
                     item.classList.remove("active");
                 });
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 desArray.value.map((item) => (item.style.display = "none"));
-                desArray.value[index].style.display = "block";
+                desArray.value[i].style.display = "block";
             } else {
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 figma.value = false;
-                desArray.value[index].style.display = "none";
+                desArray.value[i].style.display = "none";
             }
         },
         alt: "figmaIcon",
     },
     {
         iconImg: "../assets/logos/firebaseLogo.png",
-        showDes: (index) => {
+        showDes: (i) => {
             if (!firebase.value) {
                 js.value =
                     scss.value =
@@ -269,13 +268,13 @@ const logos = ref([
                 logoArray.value.map((item) => {
                     item.classList.remove("active");
                 });
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 desArray.value.map((item) => (item.style.display = "none"));
-                desArray.value[index].style.display = "block";
+                desArray.value[i].style.display = "block";
             } else {
-                logoArray.value[index].classList.toggle("active");
+                logoArray.value[i].classList.toggle("active");
                 firebase.value = false;
-                desArray.value[index].style.display = "none";
+                desArray.value[i].style.display = "none";
             }
         },
         alt: "firebaseIcon",
@@ -368,12 +367,13 @@ const dess = [
 ];
 
 const blur = () => {
-    vueEx.value = false;
-    jsEx.value = false;
-    scssEx.value = false;
-    gsapEx.value = false;
-    firebaseEx.value = false;
-    figmaEx.value = false;
+    vueEx.value =
+        jsEx.value =
+        scssEx.value =
+        gsapEx.value =
+        firebaseEx.value =
+        figmaEx.value =
+            false;
 };
 onMounted(() => {
     gsap.fromTo(
@@ -382,13 +382,17 @@ onMounted(() => {
         { color: "#ffffff", duration: 3, yoyo: true, repeat: -1 }
     );
 
-    // const logoAni = gsap.timeline();
-    // ScrollTrigger.create({
-    //     animation: logoAni,
-    //     trigger: ".skills",
-    //     start: "top 50%",
-    // });
-    // logoAni.from(logoArray.value, { opacity: 0, stagger: 0.01 });
+    const logoAni = gsap.timeline();
+    ScrollTrigger.create({
+        animation: logoAni,
+        trigger: skills.value,
+        start: "top 35%",
+    });
+    logoAni.fromTo(
+        logoArray.value,
+        { opacity: 0 },
+        { opacity: 1, stagger: 0.2 }
+    );
 });
 </script>
 
@@ -431,6 +435,7 @@ h2 {
     color: #ffffff;
     .desBorder {
         box-shadow: 0 0 0 3px rgb(255, 255, 255) inset;
+        display: none;
     }
     .desIcon {
         // position: absolute;

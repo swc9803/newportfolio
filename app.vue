@@ -120,6 +120,15 @@ $titleColor: rgb(255, 255, 175);
 $titleFont: "KOTRALEAP";
 $titleFontSize: 1.8em;
 
+.imgFade-enter-from,
+.imgFade-leave-to {
+    opacity: 0;
+}
+.imgFade-enter-active,
+.imgFade-leave-active {
+    transition: 0.3s;
+}
+
 .main {
     width: 100%;
     height: 100vh;
