@@ -40,75 +40,59 @@
             </div>
         </div>
         <div>
-            <transition name="imgFade">
-                <div class="focus" v-show="vueEx" @click="blur">
-                    <img
-                        src="@/assets/examples/vueEx1.png"
-                        class="img2"
-                        alt="vueEx"
-                    />
-                    <img
-                        src="@/assets/examples/vueEx2.png"
-                        class="img2"
-                        alt="vueEx"
-                    />
-                </div>
-            </transition>
-            <transition name="imgFade">
-                <div class="focus" v-show="jsEx" @click="blur">
-                    <img
-                        src="@/assets/examples/jsEx.png"
-                        class="img1"
-                        alt="jsEx"
-                    />
-                </div>
-            </transition>
-            <transition name="imgFade">
-                <div class="focus" v-show="scssEx" @click="blur">
-                    <img
-                        src="@/assets/examples/scssEx.png"
-                        class="img1"
-                        alt="scssEx"
-                    />
-                </div>
-            </transition>
-            <transition name="imgFade">
-                <div class="focus" v-show="gsapEx" @click="blur">
-                    <img
-                        src="@/assets/examples/gsapEx.png"
-                        class="img1"
-                        alt="gsapEx"
-                    />
-                </div>
-            </transition>
-            <transition name="imgFade">
-                <div class="focus" v-show="figmaEx" @click="blur">
-                    <img
-                        src="@/assets/examples/figmaEx1.png"
-                        class="img2"
-                        alt="figmaEx1"
-                    />
-                    <img
-                        src="@/assets/examples/figmaEx2.png"
-                        class="img2"
-                        alt="figmaEx2"
-                    />
-                </div>
-            </transition>
-            <transition name="imgFade">
-                <div class="focus" v-show="firebaseEx" @click="blur">
-                    <img
-                        src="@/assets/examples/firebaseEx1.png"
-                        class="img2"
-                        alt="firebaseEx1"
-                    />
-                    <img
-                        src="@/assets/examples/firebaseEx2.png"
-                        class="img2"
-                        alt="firebaseEx2"
-                    />
-                </div>
-            </transition>
+            <div class="focus" v-show="vueEx" @click="blur">
+                <img
+                    src="@/assets/examples/vueEx1.png"
+                    class="img2"
+                    alt="vueEx"
+                />
+                <img
+                    src="@/assets/examples/vueEx2.png"
+                    class="img2"
+                    alt="vueEx"
+                />
+            </div>
+            <div class="focus" v-show="jsEx" @click="blur">
+                <img src="@/assets/examples/jsEx.png" class="img1" alt="jsEx" />
+            </div>
+            <div class="focus" v-show="scssEx" @click="blur">
+                <img
+                    src="@/assets/examples/scssEx.png"
+                    class="img1"
+                    alt="scssEx"
+                />
+            </div>
+            <div class="focus" v-show="gsapEx" @click="blur">
+                <img
+                    src="@/assets/examples/gsapEx.png"
+                    class="img1"
+                    alt="gsapEx"
+                />
+            </div>
+            <div class="focus" v-show="figmaEx" @click="blur">
+                <img
+                    src="@/assets/examples/figmaEx1.png"
+                    class="img2"
+                    alt="figmaEx1"
+                />
+                <img
+                    src="@/assets/examples/figmaEx2.png"
+                    class="img2"
+                    alt="figmaEx2"
+                />
+            </div>
+            <div class="focus" v-show="firebaseEx" @click="blur">
+                <img
+                    src="@/assets/examples/firebaseEx1.png"
+                    class="img2"
+                    alt="firebaseEx1"
+                />
+                <img
+                    src="@/assets/examples/firebaseEx2.png"
+                    class="img2"
+                    alt="firebaseEx2"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -411,8 +395,7 @@ h2 {
         margin: 20px;
         cursor: pointer;
         border-radius: 70%;
-        transition: 0.3s;
-        filter: grayscale(1);
+        filter: grayscale(0.8);
         &:hover {
             transform: scale(1.1);
             filter: grayscale(0);
@@ -431,15 +414,15 @@ h2 {
     left: 50%;
     width: 80%;
     margin-top: 50px;
-    transition: 0.3s;
     color: #ffffff;
     .desBorder {
         box-shadow: 0 0 0 3px rgb(255, 255, 255) inset;
+        border-radius: 1em;
         display: none;
     }
     .desIcon {
-        // position: absolute;
-        top: 6px;
+        position: absolute;
+        top: 15px;
         left: 20%;
         width: 120px;
     }
@@ -448,14 +431,14 @@ h2 {
         display: flex;
         div {
             flex: 1 1 45%;
-            margin: 160px 0 0 10px;
+            margin: 130px 0 0 10px;
             word-break: keep-all;
             p:nth-child(1) {
                 font-size: 1.3em;
                 font-weight: 600;
             }
             p:nth-child(2) {
-                margin-top: 70px;
+                margin-top: 30px;
                 font-size: 1.2em;
             }
             p:nth-child(3) {
