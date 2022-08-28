@@ -412,7 +412,7 @@ h2 {
         cursor: pointer;
         border-radius: 70%;
         transition: 0.3s;
-        filter: grayscale(1);
+        filter: grayscale(0.8);
         &:hover {
             transform: scale(1.1);
             filter: grayscale(0);
@@ -431,15 +431,15 @@ h2 {
     left: 50%;
     width: 80%;
     margin-top: 50px;
-    transition: 0.3s;
     color: #ffffff;
     .desBorder {
         box-shadow: 0 0 0 3px rgb(255, 255, 255) inset;
+        border-radius: 1em;
         display: none;
     }
     .desIcon {
-        // position: absolute;
-        top: 6px;
+        position: absolute;
+        top: 15px;
         left: 20%;
         width: 120px;
     }
