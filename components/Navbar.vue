@@ -155,18 +155,20 @@ const toggle = () => {
     }
 };
 
-// const progressbar = ref();
-// // progressbar
-// const changeProgress = () => {
-//     addEventListener('scroll', () => {
-//         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-//         const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-//         let scrolled = (scrollTop / height) * 100;
-//         progressbar.value.style.width = `${scrolled}%`;
-//     })
-// };
-
+const progressbar = ref();
+const scrolled = ref(0);
 onMounted(() => {
+    // progressbar
+    addEventListener("scroll", () => {
+        const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+        const scrollTop =
+            document.body.scrollTop || document.documentElement.scrollTop;
+        scrolled.value = (scrollTop / height) * 100;
+        progressbar.value.style.width = `${scrolled.value}%`;
+    });
+
     // 내리면 navBar 색이 변하는 애니메이션
     const navBarColor = gsap
         .from(navbar.value, {
