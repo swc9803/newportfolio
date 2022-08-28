@@ -26,17 +26,16 @@
                 </p>
             </div>
         </div>
-        <div class="aboutme" ref="aboutme">
-            <Aboutme />
-        </div>
-        <div class="skills" ref="skills">
-            <Skills />
-        </div>
-        <div class="myworks" ref="myworks">
-            <Myworks />
-        </div>
-        <div class="contact" ref="contact">
-            <Contact />
+        <div
+            v-for="section in sections"
+            :key="section.id"
+            :class="section.title"
+            :ref="sectionRef"
+        >
+            <component
+                :is="section.component"
+                :style="{ background: section.background }"
+            />
         </div>
     </div>
 </template>
@@ -45,37 +44,61 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import SpaceBackground from "@/components/backgrounds/SpaceBackground.vue";
+import Aboutme from "@/components/Aboutme.vue";
+import Myworks from "@/components/Myworks.vue";
+import Skills from "@/components/Skills.vue";
+import Contact from "@/components/Contact.vue";
 import gsap from "gsap";
 
 const progressbar = ref();
-const aboutme = ref();
-const skills = ref();
-const myworks = ref();
-const contact = ref();
+
 const mainText = ref();
 const array = ref([]);
 const twinkle = (el) => array.value.push(el);
+
+const sectionArray = ref([]);
+const sectionRef = (el) => sectionArray.value.push(el);
+
+const sections = [
+    {
+        title: "aboutme",
+        component: Aboutme,
+    },
+    {
+        title: "skills",
+        component: Skills,
+    },
+    {
+        title: "myworks",
+        component: Myworks,
+    },
+    {
+        title: "contact",
+        component: Contact,
+        background: "#212121",
+    },
+];
 
 // const scrollEvent = () => {
 //     progressbar.value.changeProgress();
 // };
 const moveToAboutme = () => {
-    const aboutmeLocation = aboutme.value.offsetTop;
+    const aboutmeLocation = sectionArray.value[0].offsetTop;
     const menuHeight = document.querySelector(".navbar").offsetHeight;
     scrollTo({ top: aboutmeLocation - menuHeight, behavior: "smooth" });
 };
 const moveToSkills = () => {
-    const skillsLocation = skills.value.offsetTop;
+    const skillsLocation = sectionArray.value[1].offsetTop;
     const menuHeight = document.querySelector(".navbar").offsetHeight;
     scrollTo({ top: skillsLocation - menuHeight, behavior: "smooth" });
 };
 const moveToMyworks = () => {
-    const myworksLocation = myworks.value.offsetTop;
+    const myworksLocation = sectionArray.value[2].offsetTop;
     const menuHeight = document.querySelector(".navbar").offsetHeight;
     scrollTo({ top: myworksLocation - menuHeight, behavior: "smooth" });
 };
 const moveToContact = () => {
-    const contactLocation = contact.value.offsetTop;
+    const contactLocation = sectionArray.value[3].offsetTop;
     const menuHeight = document.querySelector(".navbar").offsetHeight;
     scrollTo({ top: contactLocation - menuHeight, behavior: "smooth" });
 };
