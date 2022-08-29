@@ -164,15 +164,15 @@
     </svg>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import gsap from "gsap";
 import { onMounted, ref } from "vue";
-const lsnow1 = ref();
-const lsnow2 = ref();
-const msnow1 = ref();
-const msnow2 = ref();
-const ssnow1 = ref();
-const ssnow2 = ref();
+const lsnow1 = ref<null>(null);
+const lsnow2 = ref<null>(null);
+const msnow1 = ref<null>(null);
+const msnow2 = ref<null>(null);
+const ssnow1 = ref<null>(null);
+const ssnow2 = ref<null>(null);
 
 onMounted(() => {
     gsap.fromTo(

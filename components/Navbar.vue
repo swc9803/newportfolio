@@ -29,7 +29,7 @@
     </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -43,7 +43,7 @@ const emit = defineEmits([
     "moveToContact",
 ]);
 
-const navbar = ref();
+const navbar = ref<null>(null);
 
 // 각 섹션으로 스크롤 이동 함수
 const moveToTop = () => {
@@ -51,24 +51,28 @@ const moveToTop = () => {
 };
 const navbarItems = [
     {
+        id: 0,
         title: "About Me",
         moveToSection: () => {
             emit("moveToAboutme");
         },
     },
     {
+        id: 1,
         title: "Skills",
         moveToSection: () => {
             emit("moveToSkills");
         },
     },
     {
+        id: 2,
         title: "Myworks",
         moveToSection: () => {
             emit("moveToMyworks");
         },
     },
     {
+        id: 3,
         title: "Contact",
         moveToSection: () => {
             emit("moveToContact");
@@ -77,7 +81,7 @@ const navbarItems = [
 ];
 
 const toggledata = ref(false);
-const items = ref();
+const items = ref<null>(null);
 const toggle = () => {
     if (toggledata.value === false) {
         gsap.to(".toggle1", {
@@ -155,7 +159,7 @@ const toggle = () => {
     }
 };
 
-const progressbar = ref();
+const progressbar = ref<null>(null);
 const scrolled = ref(0);
 onMounted(() => {
     // progressbar

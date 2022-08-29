@@ -110,6 +110,15 @@ const scss = ref(false);
 const gsapp = ref(false);
 const figma = ref(false);
 const firebase = ref(false);
+
+// const skills = ref<null>(null);
+// const vue = ref<boolean | null>(false);
+// const js = ref<boolean | null>(false);
+// const scss = ref<boolean | null>(false);
+// const gsapp = ref<boolean | null>(false);
+// const figma = ref<boolean | null>(false);
+// const firebase = ref<boolean | null>(false);
+
 const logoArray = ref([]);
 const logoRef = (el) => logoArray.value.push(el);
 const logos = ref([

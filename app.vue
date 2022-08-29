@@ -17,7 +17,7 @@
                     끝없이 배움을 추구하는 프론트엔드
                     <span
                         v-for="star in 4"
-                        :key="star.id"
+                        :key="star"
                         class="twinkle"
                         :ref="twinkle"
                         >★</span
@@ -40,7 +40,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import SpaceBackground from "@/components/backgrounds/SpaceBackground.vue";
 import Aboutme from "@/components/Aboutme.vue";
@@ -49,9 +49,9 @@ import Skills from "@/components/Skills.vue";
 import Contact from "@/components/Contact.vue";
 import gsap from "gsap";
 
-const progressbar = ref();
+const progressbar = ref<null>(null);
 
-const mainText = ref();
+const mainText = ref<null>(null);
 const array = ref([]);
 const twinkle = (el) => array.value.push(el);
 
@@ -60,18 +60,22 @@ const sectionRef = (el) => sectionArray.value.push(el);
 
 const sections = [
     {
+        id: 0,
         title: "aboutme",
         component: Aboutme,
     },
     {
+        id: 1,
         title: "skills",
         component: Skills,
     },
     {
+        id: 2,
         title: "myworks",
         component: Myworks,
     },
     {
+        id: 3,
         title: "contact",
         component: Contact,
         background: "#212121",

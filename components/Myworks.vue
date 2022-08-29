@@ -53,8 +53,11 @@
                         </div>
                     </div>
                     <div class="icons">
-                        <img src="@/assets/homeIcon.png" @click="goToSite" />
-                        <img :src="mywork.git" @click="goToGit" />
+                        <img
+                            src="@/assets/homeIcon.png"
+                            @click="mywork.goToSite"
+                        />
+                        <img :src="mywork.git" @click="mywork.goToGit" />
                     </div>
                 </div>
             </div>
@@ -62,7 +65,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
@@ -70,18 +73,23 @@ import "swiper/css/pagination";
 
 const myworks = [
     {
+        id: 0,
         siteTitle: "Interactive Beer Promotion Site",
         slideArray: [
             {
+                id: 0,
                 slideImg: "../assets/beer/beerEx1.png",
             },
             {
+                id: 1,
                 slideImg: "../assets/beer/beerEx2.png",
             },
             {
+                id: 2,
                 slideImg: "../assets/beer/beerEx3.png",
             },
             {
+                id: 3,
                 slideImg: "../assets/beer/beerEx4.png",
             },
         ],
@@ -92,16 +100,18 @@ const myworks = [
         desTitle: "좌우 스크롤, 네비게이션 바, svg파일 상호작용",
         frontImgArray: [
             {
+                id: 0,
                 frontImg: "../assets/vue.png",
                 frontImgDes: "vue",
             },
             {
+                id: 1,
                 frontImg: "../assets/scss.png",
                 frontImgDes: "scss",
             },
         ],
         goToSite: () => {
-            open("https://sungsbeer.web.app/");
+            open("https://sungsbeer.web.app");
         },
         git: "../assets/githubIcon.png",
         goToGit: () => {
@@ -109,21 +119,27 @@ const myworks = [
         },
     },
     {
+        id: 1,
         siteTitle: "Portfolio Site",
         slideArray: [
             {
+                id: 0,
                 slideImg: "../assets/portfolio/pf1.png",
             },
             {
+                id: 1,
                 slideImg: "../assets/portfolio/pf2.png",
             },
             {
+                id: 2,
                 slideImg: "../assets/portfolio/pf3.png",
             },
             {
+                id: 3,
                 slideImg: "../assets/portfolio/pf4.png",
             },
             {
+                id: 4,
                 slideImg: "../assets/portfolio/pf5.png",
             },
         ],
@@ -134,37 +150,45 @@ const myworks = [
         desTitle: "자기 소개, 보유 기술 나열, 프로젝트 설명",
         frontImgArray: [
             {
+                id: 0,
                 frontImg: "../assets/vue.png",
                 frontImgDes: "vue",
             },
         ],
         goToSite: () => {
-            open("https://github.com/swc9803/portf");
+            open("https://sungpf.web.app");
         },
         git: "../assets/githubIcon.png",
         goToGit: () => {
-            open("https://github.com/swc9803/threetest");
+            open("https://github.com/swc9803/portf");
         },
     },
     {
+        id: 2,
         siteTitle: "Interactive GSAP Animation Practice",
         slideArray: [
             {
+                id: 0,
                 slideImg: "../assets/gsap/spring.png",
             },
             {
+                id: 1,
                 slideImg: "../assets/gsap/summer.png",
             },
             {
+                id: 2,
                 slideImg: "../assets/gsap/fall.png",
             },
             {
+                id: 3,
                 slideImg: "../assets/gsap/winter.png",
             },
             {
+                id: 4,
                 slideImg: "../assets/gsap/sea.png",
             },
             {
+                id: 5,
                 slideImg: "../assets/gsap/process.png",
             },
         ],
@@ -173,6 +197,7 @@ const myworks = [
         desTitle: "애니메이션 감상",
         frontImgArray: [
             {
+                id: 0,
                 frontImg: "../assets/vue.png",
                 frontImgDes: "vue",
             },
@@ -182,21 +207,27 @@ const myworks = [
         },
     },
     {
+        id: 3,
         siteTitle: "Review Site",
         slideArray: [
             {
+                id: 0,
                 slideImg: "../assets/review/review1.png",
             },
             {
+                id: 1,
                 slideImg: "../assets/review/review2.png",
             },
             {
+                id: 2,
                 slideImg: "../assets/review/review3.png",
             },
             {
+                id: 3,
                 slideImg: "../assets/review/review4.png",
             },
             {
+                id: 4,
                 slideImg: "../assets/review/review5.png",
             },
         ],
@@ -208,6 +239,7 @@ const myworks = [
             "로그인 및 회원가입, 글 읽기, 쓰기, 삭제, 수정, 이미지 업로드, 댓글 기능",
         frontImgArray: [
             {
+                id: 0,
                 frontImg: "../assets/vue.png",
                 frontImgDes: "vue",
             },
@@ -217,15 +249,19 @@ const myworks = [
         },
     },
     {
+        id: 4,
         siteTitle: "Three Js Test Site",
         slideArray: [
             {
+                id: 0,
                 slideImg: "../assets/threejs/three1.png",
             },
             {
+                id: 1,
                 slideImg: "../assets/threejs/three2.png",
             },
             {
+                id: 2,
                 slideImg: "../assets/threejs/three3.png",
             },
         ],
@@ -236,6 +272,7 @@ const myworks = [
         desTitle: "3D 모델링, GSAP 애니메이션",
         frontImgArray: [
             {
+                id: 0,
                 frontImg: "../assets/vue.png",
                 frontImgDes: "vue",
             },
