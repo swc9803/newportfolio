@@ -2,22 +2,23 @@
     <canvas ref="canvas" />
 </template>
 
-<script setup>
+<script setup lang="ts">
+// import { T } from "unimport/dist/types-43c63a16";
 import { onMounted, ref } from "vue";
 
 const canvas = ref();
 onMounted(() => {
-    const starCount = (innerWidth + innerHeight) / 5;
-    const starSize = 2.5;
-    const starMinSize = 0.2;
-    const overflowThreshold = 20;
+    const starCount: number = (innerWidth + innerHeight) / 5;
+    const starSize: number = 2.5;
+    const starMinSize: number = 0.2;
+    const overflowThreshold: number = 20;
     const ctx = canvas.value.getContext("2d");
-    let scale = 1;
-    let width, height;
-    const stars = [];
-    let pointerX, pointerY;
+    let scale: number = 1;
+    let width: number, height: number;
+    const stars: Array<T> = [];
+    let pointerX: number, pointerY: number;
     const velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.001 };
-    let touchInput = false;
+    let touchInput: boolean = false;
 
     generate();
     resize();
@@ -37,12 +38,12 @@ onMounted(() => {
         }
     }
 
-    function placeStar(star) {
+    function placeStar(star: any) {
         star.x = Math.random() * width;
         star.y = Math.random() * height;
     }
 
-    function recycleStar(star) {
+    function recycleStar(star: any) {
         let direction = "z";
         const vx = Math.abs(velocity.tx);
         const vy = Math.abs(velocity.ty);
@@ -150,7 +151,7 @@ onMounted(() => {
         });
     }
 
-    function movePointer(x, y) {
+    function movePointer(x: number, y: number) {
         if (typeof pointerX === "number" && typeof pointerY === "number") {
             const ox = x - pointerX;
             const oy = y - pointerY;
@@ -161,13 +162,13 @@ onMounted(() => {
         pointerY = y;
     }
 
-    function onMouseMove(e) {
+    function onMouseMove(e: MouseEvent) {
         touchInput = false;
         movePointer(e.clientX / 5, e.clientY / 5);
     }
-    function onTouchMove(e) {
+    function onTouchMove(e: TouchEvent) {
         touchInput = true;
-        movePointer(e.touches[0].clientX / 5, e.touches[0].clientY / 5, true);
+        movePointer(e.touches[0].clientX / 5, e.touches[0].clientY / 5);
         e.preventDefault();
     }
 });

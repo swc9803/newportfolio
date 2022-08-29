@@ -405,6 +405,7 @@ h2 {
         cursor: pointer;
         border-radius: 70%;
         filter: grayscale(0.8);
+        transition: 0.3s;
         &:hover {
             transform: scale(1.1);
             filter: grayscale(0);

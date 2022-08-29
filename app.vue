@@ -12,7 +12,6 @@
         <div class="main">
             <SpaceBackground class="space" />
             <div class="wrapper">
-                <!-- 최성우 누르면 소개페이지로 -->
                 <p ref="mainText">
                     끝없이 배움을 추구하는 프론트엔드
                     <span
