@@ -432,7 +432,7 @@ h2 {
     }
     .desIcon {
         position: absolute;
-        top: 15px;
+        top: 10px;
         left: 20%;
         width: 120px;
     }
@@ -444,12 +444,12 @@ h2 {
             margin: 130px 0 0 10px;
             word-break: keep-all;
             p:nth-child(1) {
-                font-size: 1.3em;
+                margin-top: 22px;
                 font-weight: 600;
             }
             p:nth-child(2) {
                 margin-top: 30px;
-                font-size: 1.2em;
+                font-size: 0.9em;
             }
             p:nth-child(3) {
                 display: inline-block;
@@ -461,7 +461,7 @@ h2 {
         }
         .frame {
             flex: 1 1 50%;
-            margin: 10px 0 5px 0;
+            margin: 15px 5px 5px 10px;
             text-align: center;
             overflow: hidden;
             img {
@@ -511,12 +511,8 @@ h2 {
         }
         section {
             div {
-                p:nth-child(1) {
-                    font-size: 1.1em;
-                }
                 p:nth-child(2) {
                     margin-top: 40px;
-                    font-size: 1em;
                 }
             }
         }
