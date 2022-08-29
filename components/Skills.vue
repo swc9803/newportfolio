@@ -110,6 +110,15 @@ const scss = ref(false);
 const gsapp = ref(false);
 const figma = ref(false);
 const firebase = ref(false);
+
+// const skills = ref<null>(null);
+// const vue = ref<boolean | null>(false);
+// const js = ref<boolean | null>(false);
+// const scss = ref<boolean | null>(false);
+// const gsapp = ref<boolean | null>(false);
+// const figma = ref<boolean | null>(false);
+// const firebase = ref<boolean | null>(false);
+
 const logoArray = ref([]);
 const logoRef = (el) => logoArray.value.push(el);
 const logos = ref([
@@ -396,6 +405,7 @@ h2 {
         cursor: pointer;
         border-radius: 70%;
         filter: grayscale(0.8);
+        transition: 0.3s;
         &:hover {
             transform: scale(1.1);
             filter: grayscale(0);
@@ -422,7 +432,7 @@ h2 {
     }
     .desIcon {
         position: absolute;
-        top: 15px;
+        top: 10px;
         left: 20%;
         width: 120px;
     }
@@ -434,12 +444,12 @@ h2 {
             margin: 130px 0 0 10px;
             word-break: keep-all;
             p:nth-child(1) {
-                font-size: 1.3em;
+                margin-top: 22px;
                 font-weight: 600;
             }
             p:nth-child(2) {
                 margin-top: 30px;
-                font-size: 1.2em;
+                font-size: 0.9em;
             }
             p:nth-child(3) {
                 display: inline-block;
@@ -451,7 +461,7 @@ h2 {
         }
         .frame {
             flex: 1 1 50%;
-            margin: 10px 0 5px 0;
+            margin: 15px 5px 5px 10px;
             text-align: center;
             overflow: hidden;
             img {
@@ -501,12 +511,8 @@ h2 {
         }
         section {
             div {
-                p:nth-child(1) {
-                    font-size: 1.1em;
-                }
                 p:nth-child(2) {
                     margin-top: 40px;
-                    font-size: 1em;
                 }
             }
         }

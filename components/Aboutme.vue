@@ -53,14 +53,14 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import SnowBackground from "@/components/backgrounds/SnowBackground.vue";
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 
-const about = ref();
-const piledsnow1 = ref();
-const piledsnow2 = ref();
+const about = ref<null>(null);
+const piledsnow1 = ref<null>(null);
+const piledsnow2 = ref<null>(null);
 
 const snowFallingAni1 = () => {
     let timer = setTimeout(function () {
