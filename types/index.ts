@@ -33,3 +33,11 @@ export interface Skills {
     alt: string;
 }
 export type TypeSkills = Skills[];
+
+export interface Velocity {
+    x: number;
+    y: number;
+    tx: number;
+    ty: number;
+    z: number;
+}

@@ -61,15 +61,17 @@ import gsap from "gsap";
 const about = ref<null>(null);
 const piledsnow1 = ref<null>(null);
 const piledsnow2 = ref<null>(null);
+const piledsnow1Ani: gsap.core.Timeline = gsap.timeline();
+const piledsnow2Ani: gsap.core.Timeline = gsap.timeline();
 
 const snowFallingAni1 = () => {
     let timer = setTimeout(function () {
-        gsap.fromTo(
+        piledsnow1Ani.fromTo(
             piledsnow1.value,
             { xPercent: "0.5" },
             { xPercent: "-0.5", yoyo: true, repeat: 6, duration: 0.1 }
         );
-        gsap.to(piledsnow1.value, { yPercent: 200, opacity: 0 }, ">");
+        piledsnow1Ani.to(piledsnow1.value, { yPercent: 200, opacity: 0 }, ">");
     }, 1000);
     addEventListener("mouseout", () => {
         clearTimeout(timer);
@@ -77,12 +79,12 @@ const snowFallingAni1 = () => {
 };
 const snowFallingAni2 = () => {
     const timer = setTimeout(function () {
-        gsap.fromTo(
+        piledsnow2Ani.fromTo(
             piledsnow2.value,
             { xPercent: "0.5" },
             { xPercent: "-0.5", yoyo: true, repeat: 6, duration: 0.1 }
         );
-        gsap.to(piledsnow2.value, { yPercent: 200, opacity: 0 }, ">");
+        piledsnow2Ani.to(piledsnow2.value, { yPercent: 200, opacity: 0 }, ">");
     }, 1000);
     addEventListener("mouseout", () => {
         clearTimeout(timer);

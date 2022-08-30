@@ -3,21 +3,22 @@
 </template>
 
 <script setup lang="ts">
-// import { T } from "unimport/dist/types-43c63a16";
 import { onMounted, ref } from "vue";
+import { Velocity } from "../../types/index.js";
 
-const canvas = ref();
+const canvas = ref<HTMLCanvasElement>();
 onMounted(() => {
     const starCount: number = (innerWidth + innerHeight) / 5;
     const starSize: number = 2.5;
-    const starMinSize = 0.2;
-    const overflowThreshold = 20;
-    const ctx = canvas.value.getContext("2d");
+    const starMinSize: number = 0.2;
+    const overflowThreshold: number = 20;
+    let ctx: CanvasRenderingContext2D | null;
+    ctx = canvas.value!.getContext("2d");
     let scale: number = 1;
     let width: number, height: number;
     const stars: any[] = [];
     let pointerX: number, pointerY: number;
-    const velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.001 };
+    const velocity: Velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.001 };
     let touchInput: boolean = false;
 
     generate();
@@ -25,10 +26,10 @@ onMounted(() => {
     step();
 
     onresize = resize;
-    canvas.value.onmousemove = onMouseMove;
-    canvas.value.ontouchmove = onTouchMove;
+    canvas.value!.onmousemove = onMouseMove;
+    canvas.value!.ontouchmove = onTouchMove;
 
-    function generate() {
+    function generate(): void {
         for (let i = 0; i < starCount; i++) {
             stars.push({
                 x: 0,
@@ -38,12 +39,12 @@ onMounted(() => {
         }
     }
 
-    function placeStar(star: any) {
+    function placeStar(star: any): void {
         star.x = Math.random() * width;
         star.y = Math.random() * height;
     }
 
-    function recycleStar(star: any) {
+    function recycleStar(star: any): void {
         let direction = "z";
         const vx = Math.abs(velocity.tx);
         const vy = Math.abs(velocity.ty);
@@ -89,24 +90,24 @@ onMounted(() => {
         }
     }
 
-    function resize() {
+    function resize(): void {
         scale = devicePixelRatio || 1;
         width = innerWidth * scale;
         height = innerHeight * scale;
-        canvas.value.width = width;
-        canvas.value.height = height;
+        canvas.value!.width = width;
+        canvas.value!.height = height;
         stars.forEach(placeStar);
     }
 
-    function step() {
-        ctx.clearRect(0, 0, width, height);
+    function step(): void {
+        ctx!.clearRect(0, 0, width, height);
 
         update();
         render();
         requestAnimationFrame(step);
     }
 
-    function update() {
+    function update(): void {
         velocity.tx *= 0.8;
         velocity.ty *= 0.8;
         velocity.x += (velocity.tx - velocity.x) * 0.4;
@@ -130,15 +131,15 @@ onMounted(() => {
         });
     }
 
-    function render() {
+    function render(): void {
         stars.forEach((star) => {
-            ctx.beginPath();
-            ctx.lineCap = "round";
-            ctx.lineWidth = starSize * star.z * scale;
-            ctx.strokeStyle =
+            ctx!.beginPath();
+            ctx!.lineCap = "round";
+            ctx!.lineWidth = starSize * star.z * scale;
+            ctx!.strokeStyle =
                 "rgba(255, 255, 255," + (0.7 + 0.7 * Math.random()) + ")";
-            ctx.beginPath();
-            ctx.moveTo(star.x, star.y);
+            ctx!.beginPath();
+            ctx!.moveTo(star.x, star.y);
 
             let tailX = velocity.x * 2;
             let tailY = velocity.y * 2;
@@ -146,12 +147,12 @@ onMounted(() => {
             if (Math.abs(tailX) < 0.1) tailX = 0.4;
             if (Math.abs(tailY) < 0.1) tailY = 0.4;
 
-            ctx.lineTo(star.x + tailX, star.y + tailY);
-            ctx.stroke();
+            ctx!.lineTo(star.x + tailX, star.y + tailY);
+            ctx!.stroke();
         });
     }
 
-    function movePointer(x: number, y: number) {
+    function movePointer(x: number, y: number): void {
         if (typeof pointerX === "number" && typeof pointerY === "number") {
             const ox = x - pointerX;
             const oy = y - pointerY;
@@ -162,11 +163,11 @@ onMounted(() => {
         pointerY = y;
     }
 
-    function onMouseMove(e: MouseEvent) {
+    function onMouseMove(e: MouseEvent): void {
         touchInput = false;
         movePointer(e.clientX / 5, e.clientY / 5);
     }
-    function onTouchMove(e: TouchEvent) {
+    function onTouchMove(e: TouchEvent): void {
         touchInput = true;
         movePointer(e.touches[0].clientX / 5, e.touches[0].clientY / 5);
         e.preventDefault();
