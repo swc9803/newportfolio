@@ -25,3 +25,11 @@ export interface Navbar {
     moveToSection: () => void;
 }
 export type TypeNavbar = Navbar[];
+
+export interface Skills {
+    id: number;
+    iconImg: string;
+    showDes: (i: number) => any;
+    alt: string;
+}
+export type TypeSkills = Skills[];

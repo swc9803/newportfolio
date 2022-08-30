@@ -33,7 +33,7 @@
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TypeNavbar } from "../types/section.js";
+import { TypeNavbar } from "../types/index.js";
 gsap.registerPlugin(ScrollTrigger);
 
 const emit = defineEmits([

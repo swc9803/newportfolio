@@ -70,7 +70,7 @@ import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
-import { TypeMyWorks } from "../types/section.js"
+import { TypeMyWorks } from "../types/index.js"
 
 const myworks: TypeMyWorks = [
     {

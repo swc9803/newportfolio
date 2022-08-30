@@ -101,15 +101,8 @@
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TypeSkills } from "../types/index.js"
 gsap.registerPlugin(ScrollTrigger);
-
-// const skills = ref();
-// const vue = ref(false);
-// const js = ref(false);
-// const scss = ref(false);
-// const gsapp = ref(false);
-// const figma = ref(false);
-// const firebase = ref(false);
 
 const skills = ref<null>(null);
 const vue = ref<boolean>(false);
@@ -119,9 +112,9 @@ const gsapp = ref<boolean>(false);
 const figma = ref<boolean>(false);
 const firebase = ref<boolean>(false);
 
-const logoArray = ref<Array<T>>([]);
-const logoRef = (el) => logoArray.value.push(el);
-const logos = ref([
+const logoArray = ref<any>([]);
+const logoRef = (el: any) => logoArray.value.push(el);
+const logos: TypeSkills = ref([
     {
         id: 0,
         iconImg: "../assets/logos/vueLogo.png",
@@ -134,11 +127,11 @@ const logos = ref([
                     firebase.value =
                         false;
                 vue.value = true;
-                logoArray.value.map((item) => {
+                logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value.map((item: any) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -160,11 +153,11 @@ const logos = ref([
                     firebase.value =
                         false;
                 js.value = true;
-                logoArray.value.map((item) => {
+                logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value.map((item: any) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -186,11 +179,11 @@ const logos = ref([
                     firebase.value =
                         false;
                 scss.value = true;
-                logoArray.value.map((item) => {
+                logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value.map((item: any) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -212,11 +205,11 @@ const logos = ref([
                     firebase.value =
                         false;
                 gsapp.value = true;
-                logoArray.value.map((item) => {
+                logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value.map((item: any) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -238,11 +231,11 @@ const logos = ref([
                     firebase.value =
                         false;
                 figma.value = true;
-                logoArray.value.map((item) => {
+                logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value.map((item: any) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -264,11 +257,11 @@ const logos = ref([
                     figma.value =
                         false;
                 firebase.value = true;
-                logoArray.value.map((item) => {
+                logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item) => (item.style.display = "none"));
+                desArray.value.map((item: any) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -280,14 +273,14 @@ const logos = ref([
     },
 ]);
 
-const vueEx = ref(false);
-const jsEx = ref(false);
-const scssEx = ref(false);
-const gsapEx = ref(false);
-const figmaEx = ref(false);
-const firebaseEx = ref(false);
-const desArray = ref<Array<T>>([]);
-const desRef = (el) => desArray.value.push(el);
+const vueEx = ref<boolean>(false);
+const jsEx = ref<boolean>(false);
+const scssEx = ref<boolean>(false);
+const gsapEx = ref<boolean>(false);
+const figmaEx = ref<boolean>(false);
+const firebaseEx = ref<boolean>(false);
+const desArray = ref<any>([]);
+const desRef = (el: any) => desArray.value.push(el);
 const dess = [
     {
         id: 0,
