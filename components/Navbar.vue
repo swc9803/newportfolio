@@ -33,9 +33,9 @@
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TypeNavbar } from "../types/section.js";
 gsap.registerPlugin(ScrollTrigger);
 
-// eslint-disable-next-line no-undef
 const emit = defineEmits([
     "moveToAboutme",
     "moveToSkills",
@@ -49,7 +49,7 @@ const navbar = ref<null>(null);
 const moveToTop = () => {
     scrollTo({ top: 0, behavior: "smooth" });
 };
-const navbarItems = [
+const navbarItems: TypeNavbar = [
     {
         id: 0,
         title: "About Me",
@@ -80,16 +80,18 @@ const navbarItems = [
     },
 ];
 
-const toggledata = ref(false);
-const items = ref<null>(null);
+const toggledata = ref<boolean>(false);
+const items = ref<any>(null);
+const toggleOn: gsap.core.Timeline = gsap.timeline();
+const toggleOff: gsap.core.Timeline = gsap.timeline();
 const toggle = () => {
     if (toggledata.value === false) {
-        gsap.to(".toggle1", {
+        toggleOn.to(".toggle1", {
             yPercent: -158,
             ease: "none",
             duration: 0.1,
         });
-        gsap.to(
+        toggleOn.to(
             ".toggle3",
             {
                 yPercent: 158,
@@ -98,7 +100,7 @@ const toggle = () => {
             },
             "<"
         );
-        gsap.to(
+        toggleOn.to(
             ".toggle2",
             {
                 opacity: 0,
@@ -107,7 +109,7 @@ const toggle = () => {
             },
             "<"
         );
-        gsap.to(
+        toggleOn.to(
             ".toggle3",
             {
                 rotate: -45,
@@ -117,7 +119,7 @@ const toggle = () => {
             },
             ">"
         );
-        gsap.to(
+        toggleOn.to(
             ".toggle1",
             {
                 rotate: 45,
@@ -130,13 +132,13 @@ const toggle = () => {
         items.value!.style.opacity = "1";
         items.value!.style.pointerEvents = "auto";
     } else if (toggledata.value === true) {
-        gsap.to(".toggle1, .toggle3", {
+        toggleOff.to(".toggle1, .toggle3", {
             rotate: 0,
             transformOrigin: "center center",
             ease: "none",
             duration: 0.1,
         });
-        gsap.to(
+        toggleOff.to(
             ".toggle2",
             {
                 opacity: 1,
@@ -145,7 +147,7 @@ const toggle = () => {
             },
             ">"
         );
-        gsap.to(
+        toggleOff.to(
             ".toggle3, .toggle1",
             {
                 yPercent: 0,
@@ -154,24 +156,27 @@ const toggle = () => {
             },
             "<"
         );
-        items.value.style.opacity = "0";
-        items.value.style.pointerEvents = "none";
+        items.value!.style.opacity = "0";
+        items.value!.style.pointerEvents = "none";
     }
 };
 
-const progressbar = ref<null>(null);
-const scrolled = ref(0);
+const progressbar = ref<any>(null);
+const scrolled = ref<number>(0);
 onMounted(() => {
     // progressbar
-    addEventListener("scroll", () => {
-        const height =
+    function changeProgressbar(): void {
+        const height: number =
             document.documentElement.scrollHeight -
             document.documentElement.clientHeight;
-        const scrollTop =
+        const scrollTop: number =
             document.body.scrollTop || document.documentElement.scrollTop;
         scrolled.value = (scrollTop / height) * 100;
-        progressbar.value.style.width = `${scrolled.value}%`;
-    });
+        if (progressbar.value instanceof HTMLDivElement) {
+            progressbar.value.style.width = `${scrolled.value}%`;
+        }
+    }
+    addEventListener("scroll", changeProgressbar);
 
     // 내리면 navBar 색이 변하는 애니메이션
     const navBarColor: gsap.core.Tween = gsap

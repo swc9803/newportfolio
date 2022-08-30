@@ -15,7 +15,7 @@ onMounted(() => {
     const ctx = canvas.value.getContext("2d");
     let scale: number = 1;
     let width: number, height: number;
-    const stars: Array<T> = [];
+    const stars: any[] = [];
     let pointerX: number, pointerY: number;
     const velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.001 };
     let touchInput: boolean = false;

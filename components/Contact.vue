@@ -274,9 +274,9 @@ const top = ref<null>(null);
 const paper = ref<null>(null);
 const emark = ref<null>(null);
 const katalk = ref<null>(null);
-const iconAni1 = gsap.timeline({ paused: true });
-const iconAni2 = gsap.timeline({ paused: true });
-const iconAni3 = gsap.timeline({ paused: true });
+const iconAni1: gsap.core.Timeline = gsap.timeline({ paused: true });
+const iconAni2: gsap.core.Timeline = gsap.timeline({ paused: true });
+const iconAni3: gsap.core.Timeline = gsap.timeline({ paused: true });
 
 onMounted(() => {
     iconAni1.to(gitIcon.value, {
