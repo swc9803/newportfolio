@@ -70,8 +70,9 @@ import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
+import { TypeMyWorks } from "../types/section.js"
 
-const myworks = [
+const myworks: TypeMyWorks = [
     {
         id: 0,
         siteTitle: "Interactive Beer Promotion Site",

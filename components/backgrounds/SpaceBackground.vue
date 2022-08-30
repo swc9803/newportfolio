@@ -8,12 +8,12 @@ import { onMounted, ref } from "vue";
 
 const canvas = ref();
 onMounted(() => {
-    const starCount = (innerWidth + innerHeight) / 5;
-    const starSize = 2.5;
+    const starCount: number = (innerWidth + innerHeight) / 5;
+    const starSize: number = 2.5;
     const starMinSize = 0.2;
     const overflowThreshold = 20;
     const ctx = canvas.value.getContext("2d");
-    let scale = 1;
+    let scale: number = 1;
     let width: number, height: number;
     const stars: Array<T> = [];
     let pointerX: number, pointerY: number;

@@ -49,14 +49,11 @@ import Contact from "@/components/Contact.vue";
 import gsap from "gsap";
 
 const progressbar = ref<null>(null);
-
 const mainText = ref<null>(null);
 const array = ref([]);
-const twinkle = (el) => array.value.push(el);
-
+const twinkle = (el: any) => array.value.push(el);
 const sectionArray = ref([]);
-const sectionRef = (el) => sectionArray.value.push(el);
-
+const sectionRef = (el: any) => sectionArray.value.push(el);
 const sections = [
     {
         id: 0,
@@ -81,9 +78,6 @@ const sections = [
     },
 ];
 
-// const scrollEvent = () => {
-//     progressbar.value.changeProgress();
-// };
 const moveToAboutme = () => {
     const aboutmeLocation = sectionArray.value[0].offsetTop;
     const menuHeight = document.querySelector(".navbar").offsetHeight;
@@ -114,7 +108,6 @@ const setRandomPosition = () => {
     }
 };
 onMounted(() => {
-    // document.addEventListener("scroll", scrollEvent);
     gsap.from(mainText.value, {
         opacity: 0,
         yPercent: -100,

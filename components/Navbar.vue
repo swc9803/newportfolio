@@ -127,8 +127,8 @@ const toggle = () => {
             },
             "<"
         );
-        items.value.style.opacity = "1";
-        items.value.style.pointerEvents = "auto";
+        items.value!.style.opacity = "1";
+        items.value!.style.pointerEvents = "auto";
     } else if (toggledata.value === true) {
         gsap.to(".toggle1, .toggle3", {
             rotate: 0,
@@ -174,7 +174,7 @@ onMounted(() => {
     });
 
     // 내리면 navBar 색이 변하는 애니메이션
-    const navBarColor = gsap
+    const navBarColor: gsap.core.Tween = gsap
         .from(navbar.value, {
             background: "#ffffff",
             duration: 0.2,
@@ -182,7 +182,7 @@ onMounted(() => {
         })
         .progress(1);
     navBarColor.pause();
-    const menuColor = gsap
+    const menuColor: gsap.core.Tween = gsap
         .to(".navItem, .symbol", {
             color: "#ffffff",
             duration: 0.1,
@@ -190,7 +190,7 @@ onMounted(() => {
         })
         .progress(1);
     menuColor.pause();
-    const toggleColor = gsap
+    const toggleColor: gsap.core.Tween = gsap
         .to(".toggle1, .toggle2, .toggle3", {
             fill: "#ffffff",
             duration: 0.1,
