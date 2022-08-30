@@ -97,32 +97,33 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const skills = ref();
-const vue = ref(false);
-const js = ref(false);
-const scss = ref(false);
-const gsapp = ref(false);
-const figma = ref(false);
-const firebase = ref(false);
+// const skills = ref();
+// const vue = ref(false);
+// const js = ref(false);
+// const scss = ref(false);
+// const gsapp = ref(false);
+// const figma = ref(false);
+// const firebase = ref(false);
 
-// const skills = ref<null>(null);
-// const vue = ref<boolean | null>(false);
-// const js = ref<boolean | null>(false);
-// const scss = ref<boolean | null>(false);
-// const gsapp = ref<boolean | null>(false);
-// const figma = ref<boolean | null>(false);
-// const firebase = ref<boolean | null>(false);
+const skills = ref<null>(null);
+const vue = ref<boolean>(false);
+const js = ref<boolean>(false);
+const scss = ref<boolean>(false);
+const gsapp = ref<boolean>(false);
+const figma = ref<boolean>(false);
+const firebase = ref<boolean>(false);
 
-const logoArray = ref([]);
+const logoArray = ref<Array<T>>([]);
 const logoRef = (el) => logoArray.value.push(el);
 const logos = ref([
     {
+        id: 0,
         iconImg: "../assets/logos/vueLogo.png",
         showDes: (i) => {
             if (!vue.value) {
@@ -148,6 +149,7 @@ const logos = ref([
         alt: "vueIcon",
     },
     {
+        id: 1,
         iconImg: "../assets/logos/jsLogo.png",
         showDes: (i) => {
             if (!js.value) {
@@ -173,6 +175,7 @@ const logos = ref([
         alt: "jsIcon",
     },
     {
+        id: 2,
         iconImg: "../assets/logos/scssLogo.png",
         showDes: (i) => {
             if (!scss.value) {
@@ -198,6 +201,7 @@ const logos = ref([
         alt: "scssIcon",
     },
     {
+        id: 3,
         iconImg: "../assets/logos/gsapLogo.png",
         showDes: (i) => {
             if (!gsapp.value) {
@@ -223,6 +227,7 @@ const logos = ref([
         alt: "gsapIcon",
     },
     {
+        id: 4,
         iconImg: "../assets/logos/figmaLogo.png",
         showDes: (i) => {
             if (!figma.value) {
@@ -248,6 +253,7 @@ const logos = ref([
         alt: "figmaIcon",
     },
     {
+        id: 5,
         iconImg: "../assets/logos/firebaseLogo.png",
         showDes: (i) => {
             if (!firebase.value) {
@@ -280,10 +286,11 @@ const scssEx = ref(false);
 const gsapEx = ref(false);
 const figmaEx = ref(false);
 const firebaseEx = ref(false);
-const desArray = ref([]);
+const desArray = ref<Array<T>>([]);
 const desRef = (el) => desArray.value.push(el);
 const dess = [
     {
+        id: 0,
         background: "#0a8810",
         desImg: "../assets/logos/vueLogo.png",
         firstDes:
@@ -297,6 +304,7 @@ const dess = [
         desEx: "vueEx",
     },
     {
+        id: 1,
         background: "#7e9c06",
         desImg: "../assets/logos/jsLogo.png",
         firstDes: "es6, 프레임워크",
@@ -308,6 +316,7 @@ const dess = [
         desEx: "jsEx",
     },
     {
+        id: 2,
         background: "#881777",
         desImg: "../assets/logos/scssLogo.png",
         firstDes: "CSS3와 scss로 반응형 웹을 만들 수 있습니다.",
@@ -320,6 +329,7 @@ const dess = [
         desEx: "scssEx",
     },
     {
+        id: 3,
         background: "#3faf12",
         desImg: "../assets/logos/gsapLogo.png",
         firstDes: "Gsap 라이브러리와 ScrollTrigger를 능숙하게 다룹니다.",
@@ -332,6 +342,7 @@ const dess = [
         desEx: "gsapEx",
     },
     {
+        id: 4,
         background: "#757575",
         desImg: "../assets/logos/figmaLogo.png",
         firstDes:
@@ -345,6 +356,7 @@ const dess = [
         desEx: "figmaEx",
     },
     {
+        id: 5,
         background: "#0d7297",
         desImg: "../assets/logos/firebaseLogo.png",
         firstDes:
