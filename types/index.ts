@@ -29,7 +29,7 @@ export type TypeNavbar = Navbar[];
 export interface Skills {
     id: number;
     iconImg: string;
-    showDes: (i: number) => any;
+    showDes: (i: number) => void;
     alt: string;
 }
 export type TypeSkills = Skills[];
@@ -41,3 +41,10 @@ export interface Velocity {
     ty: number;
     z: number;
 }
+export interface Sections {
+    id: number;
+    title: string;
+    component: any;
+    background?: string;
+}
+export type TypeSections = Sections[];

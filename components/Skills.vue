@@ -114,7 +114,7 @@ const firebase = ref<boolean>(false);
 
 const logoArray = ref<any>([]);
 const logoRef = (el: any) => logoArray.value.push(el);
-const logos: TypeSkills = ref([
+const logos: TypeSkills = ([
     {
         id: 0,
         iconImg: "../assets/logos/vueLogo.png",

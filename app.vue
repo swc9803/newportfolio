@@ -47,14 +47,15 @@ import Myworks from "@/components/Myworks.vue";
 import Skills from "@/components/Skills.vue";
 import Contact from "@/components/Contact.vue";
 import gsap from "gsap";
+import { TypeSections } from "./types/index.js";
 
 const progressbar = ref<null>(null);
 const mainText = ref<null>(null);
-const array = ref([]);
+const array = ref<any>([]);
 const twinkle = (el: any) => array.value.push(el);
-const sectionArray = ref([]);
+const sectionArray = ref<any>([]);
 const sectionRef = (el: any) => sectionArray.value.push(el);
-const sections = [
+const sections: TypeSections = [
     {
         id: 0,
         title: "aboutme",
@@ -80,22 +81,22 @@ const sections = [
 
 const moveToAboutme = () => {
     const aboutmeLocation = sectionArray.value[0].offsetTop;
-    const menuHeight = document.querySelector(".navbar").offsetHeight;
+    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: aboutmeLocation - menuHeight, behavior: "smooth" });
 };
 const moveToSkills = () => {
     const skillsLocation = sectionArray.value[1].offsetTop;
-    const menuHeight = document.querySelector(".navbar").offsetHeight;
+    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: skillsLocation - menuHeight, behavior: "smooth" });
 };
 const moveToMyworks = () => {
     const myworksLocation = sectionArray.value[2].offsetTop;
-    const menuHeight = document.querySelector(".navbar").offsetHeight;
+    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: myworksLocation - menuHeight, behavior: "smooth" });
 };
 const moveToContact = () => {
     const contactLocation = sectionArray.value[3].offsetTop;
-    const menuHeight = document.querySelector(".navbar").offsetHeight;
+    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: contactLocation - menuHeight, behavior: "smooth" });
 };
 

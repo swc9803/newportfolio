@@ -12,8 +12,7 @@ onMounted(() => {
     const starSize: number = 2.5;
     const starMinSize: number = 0.2;
     const overflowThreshold: number = 20;
-    let ctx: CanvasRenderingContext2D | null;
-    ctx = canvas.value!.getContext("2d");
+    const ctx = (canvas.value as HTMLCanvasElement).getContext("2d");
     let scale: number = 1;
     let width: number, height: number;
     const stars: any[] = [];
