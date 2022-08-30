@@ -64,7 +64,7 @@ const piledsnow2 = ref<null>(null);
 const piledsnow1Ani: gsap.core.Timeline = gsap.timeline();
 const piledsnow2Ani: gsap.core.Timeline = gsap.timeline();
 
-const snowFallingAni1 = () => {
+const snowFallingAni1 = (): void => {
     let timer = setTimeout(function () {
         piledsnow1Ani.fromTo(
             piledsnow1.value,
@@ -73,11 +73,11 @@ const snowFallingAni1 = () => {
         );
         piledsnow1Ani.to(piledsnow1.value, { yPercent: 200, opacity: 0 }, ">");
     }, 1000);
-    addEventListener("mouseout", () => {
+    addEventListener("mouseout", (): void => {
         clearTimeout(timer);
     });
 };
-const snowFallingAni2 = () => {
+const snowFallingAni2 = (): void => {
     const timer = setTimeout(function () {
         piledsnow2Ani.fromTo(
             piledsnow2.value,
@@ -86,7 +86,7 @@ const snowFallingAni2 = () => {
         );
         piledsnow2Ani.to(piledsnow2.value, { yPercent: 200, opacity: 0 }, ">");
     }, 1000);
-    addEventListener("mouseout", () => {
+    addEventListener("mouseout", (): void => {
         clearTimeout(timer);
     });
 };

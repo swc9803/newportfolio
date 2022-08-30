@@ -52,9 +52,9 @@ import { TypeSections } from "./types/index.js";
 const progressbar = ref<null>(null);
 const mainText = ref<null>(null);
 const array = ref<any>([]);
-const twinkle = (el: any) => array.value.push(el);
+const twinkle: any = (el: any) => array.value.push(el);
 const sectionArray = ref<any>([]);
-const sectionRef = (el: any) => sectionArray.value.push(el);
+const sectionRef: any = (el: any) => sectionArray.value.push(el);
 const sections: TypeSections = [
     {
         id: 0,
@@ -79,28 +79,28 @@ const sections: TypeSections = [
     },
 ];
 
-const moveToAboutme = () => {
+const moveToAboutme = (): void => {
     const aboutmeLocation = sectionArray.value[0].offsetTop;
     const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: aboutmeLocation - menuHeight, behavior: "smooth" });
 };
-const moveToSkills = () => {
+const moveToSkills = (): void => {
     const skillsLocation = sectionArray.value[1].offsetTop;
     const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: skillsLocation - menuHeight, behavior: "smooth" });
 };
-const moveToMyworks = () => {
+const moveToMyworks = (): void => {
     const myworksLocation = sectionArray.value[2].offsetTop;
     const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: myworksLocation - menuHeight, behavior: "smooth" });
 };
-const moveToContact = () => {
+const moveToContact = (): void => {
     const contactLocation = sectionArray.value[3].offsetTop;
     const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
     scrollTo({ top: contactLocation - menuHeight, behavior: "smooth" });
 };
 
-const setRandomPosition = () => {
+const setRandomPosition = (): void => {
     for (var i = 0; i < 4; i++) {
         gsap.set(array.value[i], {
             xPercent: gsap.utils.random(0, 830),

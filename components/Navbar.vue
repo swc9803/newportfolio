@@ -46,7 +46,7 @@ const emit = defineEmits([
 const navbar = ref<null>(null);
 
 // 각 섹션으로 스크롤 이동 함수
-const moveToTop = () => {
+const moveToTop = (): void => {
     scrollTo({ top: 0, behavior: "smooth" });
 };
 const navbarItems: TypeNavbar = [
@@ -84,7 +84,7 @@ const toggledata = ref<boolean>(false);
 const items = ref<any>(null);
 const toggleOn: gsap.core.Timeline = gsap.timeline();
 const toggleOff: gsap.core.Timeline = gsap.timeline();
-const toggle = () => {
+const toggle = (): void => {
     if (toggledata.value === false) {
         toggleOn.to(".toggle1", {
             yPercent: -158,

@@ -101,7 +101,7 @@
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TypeSkills } from "../types/index.js"
+import { TypeSkills, TypeDes } from "../types/index.js"
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = ref<null>(null);
@@ -113,7 +113,7 @@ const figma = ref<boolean>(false);
 const firebase = ref<boolean>(false);
 
 const logoArray = ref<any>([]);
-const logoRef = (el: any) => logoArray.value.push(el);
+const logoRef: any = (el: any) => logoArray.value.push(el);
 const logos: TypeSkills = ([
     {
         id: 0,
@@ -280,8 +280,8 @@ const gsapEx = ref<boolean>(false);
 const figmaEx = ref<boolean>(false);
 const firebaseEx = ref<boolean>(false);
 const desArray = ref<any>([]);
-const desRef = (el: any) => desArray.value.push(el);
-const dess = [
+const desRef: any = (el: any) => desArray.value.push(el);
+const dess: TypeDes = [
     {
         id: 0,
         background: "#0a8810",
@@ -364,7 +364,7 @@ const dess = [
     },
 ];
 
-const blur = () => {
+const blur = (): void => {
     vueEx.value =
         jsEx.value =
         scssEx.value =

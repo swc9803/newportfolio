@@ -33,6 +33,17 @@ export interface Skills {
     alt: string;
 }
 export type TypeSkills = Skills[];
+export interface Des {
+    id: number;
+    background: string;
+    desImg: string;
+    firstDes: string;
+    secondDes: string;
+    focus: () => void;
+    desExImg: string;
+    desEx: string;
+}
+export type TypeDes = Des[];
 
 export interface Velocity {
     x: number;

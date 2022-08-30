@@ -252,13 +252,13 @@
 import gsap from "gsap";
 import { onMounted, ref } from "vue";
 
-const goToGithub = () => {
+const goToGithub = (): void => {
     open("https://github.com/swc9803");
 };
-const goToEmail = () => {
+const goToEmail = (): void => {
     open("mailto:swc9803@naver.com");
 };
-const goToKakao = () => {
+const goToKakao = (): void => {
     open("https://open.kakao.com/o/sA1wdaZd");
 };
 const gitIcon = ref<null>(null);
