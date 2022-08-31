@@ -117,7 +117,7 @@ const logoRef: any = (el: any) => logoArray.value.push(el);
 const logos: TypeSkills = ([
     {
         id: 0,
-        iconImg: "../assets/logos/vueLogo.png",
+        iconImg: "../assets/logos/vuenuxtLogo.png",
         showDes: (i) => {
             if (!vue.value) {
                 js.value =
@@ -143,7 +143,7 @@ const logos: TypeSkills = ([
     },
     {
         id: 1,
-        iconImg: "../assets/logos/jsLogo.png",
+        iconImg: "../assets/logos/typescriptLogo.png",
         showDes: (i) => {
             if (!js.value) {
                 vue.value =
@@ -169,6 +169,32 @@ const logos: TypeSkills = ([
     },
     {
         id: 2,
+        iconImg: "../assets/logos/piniaLogo.png",
+        showDes: (i) => {
+            if (!gsapp.value) {
+                js.value =
+                    scss.value =
+                    vue.value =
+                    figma.value =
+                    firebase.value =
+                        false;
+                gsapp.value = true;
+                logoArray.value.map((item: any) => {
+                    item.classList.remove("active");
+                });
+                logoArray.value[i].classList.toggle("active");
+                desArray.value.map((item: any) => (item.style.display = "none"));
+                desArray.value[i].style.display = "block";
+            } else {
+                logoArray.value[i].classList.toggle("active");
+                desArray.value[i].style.display = "none";
+                gsapp.value = false;
+            }
+        },
+        alt: "gsapIcon",
+    },
+    {
+        id: 3,
         iconImg: "../assets/logos/scssLogo.png",
         showDes: (i) => {
             if (!scss.value) {
@@ -192,32 +218,6 @@ const logos: TypeSkills = ([
             }
         },
         alt: "scssIcon",
-    },
-    {
-        id: 3,
-        iconImg: "../assets/logos/gsapLogo.png",
-        showDes: (i) => {
-            if (!gsapp.value) {
-                js.value =
-                    scss.value =
-                    vue.value =
-                    figma.value =
-                    firebase.value =
-                        false;
-                gsapp.value = true;
-                logoArray.value.map((item: any) => {
-                    item.classList.remove("active");
-                });
-                logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item: any) => (item.style.display = "none"));
-                desArray.value[i].style.display = "block";
-            } else {
-                logoArray.value[i].classList.toggle("active");
-                desArray.value[i].style.display = "none";
-                gsapp.value = false;
-            }
-        },
-        alt: "gsapIcon",
     },
     {
         id: 4,
@@ -284,12 +284,12 @@ const desRef: any = (el: any) => desArray.value.push(el);
 const dess: TypeDes = [
     {
         id: 0,
-        background: "#0a8810",
-        desImg: "../assets/logos/vueLogo.png",
+        background: "#3F724E",
+        desImg: "../assets/logos/vuenuxtLogo.png",
         firstDes:
-            "Vue를 사용해 컴포넌트화와 라우팅, 전역 상태 관리등을 할 수 있으며, vuex, router 등의 라이브러리를 사용할 수 있습니다.",
+            "Vue3를 사용해 컴포넌트화와 라우팅, 상태 관리등을 할 수 있으며, vuex, router를 사용할 수 있습니다.",
         secondDes:
-            "가상 돔을 사용하는 Vue에 다중 루트 노드와 컴포지션 api가 추가된 vue3를 사용함으로써 보다 효율적인 개발을 할 수 있습니다.",
+            "spa인 vue 뿐만이 아닌 ssr인 nuxt를 사용해 seo를 적용할 수 있습니다.",
         focus: () => {
             vueEx.value = true;
         },
@@ -298,10 +298,10 @@ const dess: TypeDes = [
     },
     {
         id: 1,
-        background: "#7e9c06",
-        desImg: "../assets/logos/jsLogo.png",
-        firstDes: "es6, 프레임워크",
-        secondDes: "es6, 프레임워크",
+        background: "#3178C6",
+        desImg: "../assets/logos/typescriptLogo.png",
+        firstDes: "es6문법과 typescript를 사용할 수 있으며 유지보수와 최적화에 관심이 많습니다.",
+        secondDes: "최근 유지 보수의 중요성을 알게 돼 코드 최적화에 노력을 하고 있습니다. 경험이 적어 모든 타입을 완벽하게 선언하지는 못하지만 앞으로 발전하며 개선할 것입니다.",
         focus: () => {
             jsEx.value = true;
         },
@@ -310,6 +310,19 @@ const dess: TypeDes = [
     },
     {
         id: 2,
+        background: "#909256",
+        desImg: "../assets/logos/piniaLogo.png",
+        firstDes: "vue에서 권장하는 상태 관리 라이브러리인 pinia를 사용해 유저 관리, 토큰 저장 등의 작업이 가능합니다.",
+        secondDes:
+            "mutation이 없으며 vue3 composition api와 잘 어울려 vuex 대신에 pinia를 사용해 보다 깔끔한 코드를 만듭니다.",
+        focus: () => {
+            gsapEx.value = true;
+        },
+        desExImg: "../assets/examples/gsapEx.png",
+        desEx: "gsapEx",
+    },
+    {
+        id: 3,
         background: "#881777",
         desImg: "../assets/logos/scssLogo.png",
         firstDes: "CSS3와 scss로 반응형 웹을 만들 수 있습니다.",
@@ -320,19 +333,6 @@ const dess: TypeDes = [
         },
         desExImg: "../assets/examples/scssEx.png",
         desEx: "scssEx",
-    },
-    {
-        id: 3,
-        background: "#3faf12",
-        desImg: "../assets/logos/gsapLogo.png",
-        firstDes: "Gsap 라이브러리와 ScrollTrigger를 능숙하게 다룹니다.",
-        secondDes:
-            "Gsap를 사용해 Keyframe에 못지않는 더 정교하고 섬세한 애니메이션을 만들 수 있습니다.",
-        focus: () => {
-            gsapEx.value = true;
-        },
-        desExImg: "../assets/examples/gsapEx.png",
-        desEx: "gsapEx",
     },
     {
         id: 4,

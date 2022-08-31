@@ -270,11 +270,11 @@ nav {
         position: absolute;
         top: 100px;
         width: 0%;
-        height: 5px;
+        height: 6px;
         mix-blend-mode: difference;
         will-change: transform;
-        background: rgb(0, 0, 0);
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9) inset;
+        background: rgb(35, 35, 35);
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
     }
 }
 @media screen and (min-width: 800px) {

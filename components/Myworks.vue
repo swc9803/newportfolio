@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="desTitle">
+                    <div v-if="mywork.distribution" class="desTitle">
                         <p class="frontTitle">Distribution</p>
                         <div class="flex">
                             <div>
@@ -75,7 +75,7 @@ import { TypeMyWorks } from "../types/index.js"
 const myworks: TypeMyWorks = [
     {
         id: 0,
-        siteTitle: "Interactive Beer Promotion Site",
+        siteTitle: "Updated Portfolio Site",
         slideArray: [
             {
                 id: 0,
@@ -95,15 +95,15 @@ const myworks: TypeMyWorks = [
             },
         ],
         firstDes:
-            "올해 rc 버전을 낸 nuxt3로 포트폴리오 사이트를 다시 제작해보았습니다.",
+            "최근 나온 nuxt3 rc로 포트폴리오 사이트를 다시 제작해보았습니다.",
         secondDes:
-            "기존 제작했던 포트폴리오와는 다르게 본 사이트는 ssr인 nuxt와 webpack 대신 vite를, 현재 배우고 있는 타입스크립트를 적용하였습니다.",
+            "기존 제작했던 포트폴리오와는 다르게 본 사이트는 vue 대신 nuxt를, webpack 대신 vite를, 현재 배우고 있는 타입 스크립트를 적용하였습니다. 하드 코딩이 꽤나 있었고, 유지 보수가 좋지 않았던 코드를 보니 과거의 자신이 부끄럽게 느껴졌습니다. 코드를 수정하며 짧은 기간이지만 회사를 다니는 동안 많은 발전을 했다는 것을 느끼게 되었습니다.",
         desTitle: "자기소개, 보유 기술 나열, 프로젝트 설명",
         frontImgArray: [
             {
                 id: 0,
-                frontImg: "../assets/vue.png",
-                frontImgDes: "vue",
+                frontImg: "../assets/nuxt.png",
+                frontImgDes: "nuxt",
             },
             {
                 id: 1,
@@ -118,6 +118,7 @@ const myworks: TypeMyWorks = [
         goToGit: () => {
             open("https://github.com/swc9803/newportfolio");
         },
+        distribution: true,
     },
     {
         id: 1,
@@ -164,10 +165,11 @@ const myworks: TypeMyWorks = [
         goToGit: () => {
             open("https://github.com/swc9803/beer");
         },
+        distribution: true,
     },
     {
         id: 2,
-        siteTitle: "Portfolio Site",
+        siteTitle: "Wemix3.0 Linked with Screen Site",
         slideArray: [
             {
                 id: 0,
@@ -191,10 +193,10 @@ const myworks: TypeMyWorks = [
             },
         ],
         firstDes:
-            "포트폴리오 용으로 제작한 사이트입니다. 이 곳에 작성한 모든 프로젝트는 모두 저 혼자 만든 것입니다.",
+            "ㅇ",
         secondDes:
-            "제작 기간 동안 많은 사람들의 포트폴리오를 보며 자신이 아직 많이 부족하다는 생각이 들며 뒤쳐지지 않게 더 열심히 배워야겠다는 동기부여를 시켜주었습니다.",
-        desTitle: "자기 소개, 보유 기술 나열, 프로젝트 설명",
+            "websocket 백엔드 서버분과 협업 처음",
+        desTitle: "서버를 통해 스크린과 화면 연동",
         frontImgArray: [
             {
                 id: 0,
@@ -209,6 +211,7 @@ const myworks: TypeMyWorks = [
         goToGit: () => {
             open("https://github.com/swc9803/portf");
         },
+        distribution: false,
     },
     {
         id: 3,
@@ -252,6 +255,7 @@ const myworks: TypeMyWorks = [
         goToSite: () => {
             open("https://pofo-55041.web.app/weather");
         },
+        distribution: true,
     },
     {
         id: 4,
@@ -279,7 +283,7 @@ const myworks: TypeMyWorks = [
             },
         ],
         firstDes:
-            "제가 vue를 배운 후 제일 처음으로 만든 사이트입니다. No-SQL인 Firebase를 사용해 클라우드 데이터베이스를 관리하였습니다.",
+            "vue를 배운 후 제일 처음으로 만든 사이트입니다. No-SQL인 Firebase를 사용해 클라우드 데이터베이스를 관리하였습니다.",
         secondDes:
             "css에 대한 지식이 부족했던 시기라 Bootstrap 클래스의 margin 기능을 많이 활용하였습니다. CRUD에 대해 많은 것을 알게 되었고, 데이터를 효율적으로 관리하는 방법을 배우게 만들어준 사이트 제작이었습니다.",
         desTitle:
@@ -294,6 +298,7 @@ const myworks: TypeMyWorks = [
         goToSite: () => {
             open("https://rhdyd-a7e3b.firebaseapp.com");
         },
+        distribution: true,
     },
     {
         id: 5,
@@ -331,6 +336,7 @@ const myworks: TypeMyWorks = [
         goToGit: () => {
             open("https://github.com/swc9803/threetest");
         },
+        distribution: true,
     },
 ];
 </script>
