@@ -79,19 +79,7 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/beer/beerEx1.png",
-            },
-            {
-                id: 1,
-                slideImg: "../assets/beer/beerEx2.png",
-            },
-            {
-                id: 2,
-                slideImg: "../assets/beer/beerEx3.png",
-            },
-            {
-                id: 3,
-                slideImg: "../assets/beer/beerEx4.png",
+                slideImg: "../assets/portfolio/pf5.png",
             },
         ],
         firstDes:
@@ -122,6 +110,36 @@ const myworks: TypeMyWorks = [
     },
     {
         id: 1,
+        siteTitle: "Wemix3.0 Linked with Screen Site",
+        slideArray: [
+            {
+                id: 0,
+                slideImg: "../assets/portfolio/pf5.png",
+            },
+        ],
+        firstDes:
+            "코엑스에 개최된 코리아 블록체인 위크 2022에서 진행하는 위믹스3.0의 전시 외주를 받아 제작하게 되었습니다. 첫 번째 섹션에서는 해당하는 색을 눌러 웹과 스크린이 색이 동일하게 변경되도록 했으며, 두 번째 섹션에서는 input에 입력한 메세지가 스크린에 동일하게 출력되도록 했습니다. 마지막 섹션에서는 핸드폰 카메라 위에 canvas를 덮어 스티커 사진을 찍을 수 있습니다.",
+        secondDes:
+            "백엔드분과 협업을 처음 해 많은 걱정과 기대가 있었습니다. 걱정과는 다르게 수월하게 진행이 되어 마감일 보다 빠르게 제작이 되었습니다. websocket을 사용했으며 짧은 기간임에도 많은 발전을 한 것 같습니다.",
+        desTitle: "서버를 통해 스크린과 화면 연동",
+        frontImgArray: [
+            {
+                id: 0,
+                frontImg: "../assets/vue.png",
+                frontImgDes: "vue",
+            },
+        ],
+        goToSite: () => {
+            open("https://sungpf.web.app");
+        },
+        git: "../assets/githubIcon.png",
+        goToGit: () => {
+            open("https://github.com/swc9803/portf");
+        },
+        distribution: false,
+    },
+    {
+        id: 2,
         siteTitle: "Interactive Beer Promotion Site",
         slideArray: [
             {
@@ -166,52 +184,6 @@ const myworks: TypeMyWorks = [
             open("https://github.com/swc9803/beer");
         },
         distribution: true,
-    },
-    {
-        id: 2,
-        siteTitle: "Wemix3.0 Linked with Screen Site",
-        slideArray: [
-            {
-                id: 0,
-                slideImg: "../assets/portfolio/pf1.png",
-            },
-            {
-                id: 1,
-                slideImg: "../assets/portfolio/pf2.png",
-            },
-            {
-                id: 2,
-                slideImg: "../assets/portfolio/pf3.png",
-            },
-            {
-                id: 3,
-                slideImg: "../assets/portfolio/pf4.png",
-            },
-            {
-                id: 4,
-                slideImg: "../assets/portfolio/pf5.png",
-            },
-        ],
-        firstDes:
-            "ㅇ",
-        secondDes:
-            "websocket 백엔드 서버분과 협업 처음",
-        desTitle: "서버를 통해 스크린과 화면 연동",
-        frontImgArray: [
-            {
-                id: 0,
-                frontImg: "../assets/vue.png",
-                frontImgDes: "vue",
-            },
-        ],
-        goToSite: () => {
-            open("https://sungpf.web.app");
-        },
-        git: "../assets/githubIcon.png",
-        goToGit: () => {
-            open("https://github.com/swc9803/portf");
-        },
-        distribution: false,
     },
     {
         id: 3,
@@ -386,6 +358,7 @@ const myworks: TypeMyWorks = [
             .desTitle {
                 margin: 0;
                 .frontTitle {
+                    color: rgb(140, 140, 140);
                     letter-spacing: 1px;
                     font-size: 1.2em;
                     font-weight: 600;
