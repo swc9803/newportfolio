@@ -57,7 +57,7 @@
                             src="@/assets/homeIcon.png"
                             @click="mywork.goToSite"
                         />
-                        <img :src="mywork.git" @click="mywork.goToGit" />
+                        <img v-if="mywork.git" :src="mywork.git" @click="mywork.goToGit" />
                     </div>
                 </div>
             </div>
@@ -75,6 +75,52 @@ import { TypeMyWorks } from "../types/index.js"
 const myworks: TypeMyWorks = [
     {
         id: 0,
+        siteTitle: "Interactive Beer Promotion Site",
+        slideArray: [
+            {
+                id: 0,
+                slideImg: "../assets/beer/beerEx1.png",
+            },
+            {
+                id: 1,
+                slideImg: "../assets/beer/beerEx2.png",
+            },
+            {
+                id: 2,
+                slideImg: "../assets/beer/beerEx3.png",
+            },
+            {
+                id: 3,
+                slideImg: "../assets/beer/beerEx4.png",
+            },
+        ],
+        firstDes:
+            "올해 rc 버전을 낸 nuxt3로 포트폴리오 사이트를 다시 제작해보았습니다.",
+        secondDes:
+            "기존 제작했던 포트폴리오와는 다르게 본 사이트는 ssr인 nuxt와 webpack 대신 vite를, 현재 배우고 있는 타입스크립트를 적용하였습니다.",
+        desTitle: "자기소개, 보유 기술 나열, 프로젝트 설명",
+        frontImgArray: [
+            {
+                id: 0,
+                frontImg: "../assets/vue.png",
+                frontImgDes: "vue",
+            },
+            {
+                id: 1,
+                frontImg: "../assets/typescript.png",
+                frontImgDes: "typescript",
+            },
+        ],
+        goToSite: () => {
+            open("https://sungsbeer.web.app");
+        },
+        git: "../assets/githubIcon.png",
+        goToGit: () => {
+            open("https://github.com/swc9803/newportfolio");
+        },
+    },
+    {
+        id: 1,
         siteTitle: "Interactive Beer Promotion Site",
         slideArray: [
             {
@@ -120,7 +166,7 @@ const myworks: TypeMyWorks = [
         },
     },
     {
-        id: 1,
+        id: 2,
         siteTitle: "Portfolio Site",
         slideArray: [
             {
@@ -165,7 +211,7 @@ const myworks: TypeMyWorks = [
         },
     },
     {
-        id: 2,
+        id: 3,
         siteTitle: "Interactive GSAP Animation Practice",
         slideArray: [
             {
@@ -208,7 +254,7 @@ const myworks: TypeMyWorks = [
         },
     },
     {
-        id: 3,
+        id: 4,
         siteTitle: "Review Site",
         slideArray: [
             {
@@ -250,7 +296,7 @@ const myworks: TypeMyWorks = [
         },
     },
     {
-        id: 4,
+        id: 5,
         siteTitle: "Three Js Test Site",
         slideArray: [
             {
@@ -323,6 +369,7 @@ const myworks: TypeMyWorks = [
             }
         }
         .projectDes {
+            color: rgb(35, 35, 35);
             flex: 1 1 45%;
             margin: 0 20px 0 20px;
             margin-top: 20px;
@@ -332,11 +379,7 @@ const myworks: TypeMyWorks = [
             flex-direction: column;
             .desTitle {
                 margin: 0;
-                p {
-                    margin: 5px 0 5px 0;
-                }
                 .frontTitle {
-                    color: rgb(41, 41, 41);
                     letter-spacing: 1px;
                     font-size: 1.2em;
                     font-weight: 600;
@@ -350,9 +393,11 @@ const myworks: TypeMyWorks = [
                     p {
                         display: inline-block;
                         margin-right: 10px;
+                        position: relative;
+                        top: -5px;
                     }
                     img {
-                        height: 1.5em;
+                        width: 1.5em;
                         margin-right: 5px;
                     }
                 }
