@@ -12,12 +12,14 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.22.0",
     "eslint-plugin-nuxt": "^3.2.0",
+    "firebase-tools": "^11.8.0",
     "nuxt": "3.0.0-rc.8",
     "prettier": "^2.7.1"
   },
   "dependencies": {
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "@pinia/nuxt": "^0.4.1",
+    "firebase": "^9.9.3",
     "gsap": "^3.11.0",
     "pinia": "^2.0.20",
     "sass": "^1.54.5",
