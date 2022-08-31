@@ -42,18 +42,13 @@
         <div>
             <div class="focus" v-show="vueEx" @click="blur">
                 <img
-                    src="@/assets/examples/vueEx1.png"
-                    class="img2"
-                    alt="vueEx"
-                />
-                <img
-                    src="@/assets/examples/vueEx2.png"
-                    class="img2"
+                    src="@/assets/examples/vueEx.png"
+                    class="img1"
                     alt="vueEx"
                 />
             </div>
             <div class="focus" v-show="tsEx" @click="blur">
-                <img src="@/assets/examples/jsEx.png" class="img1" alt="tsEx" />
+                <img src="@/assets/examples/tsEx.png" class="img1" alt="tsEx" />
             </div>
             <div class="focus" v-show="scssEx" @click="blur">
                 <img
@@ -64,7 +59,7 @@
             </div>
             <div class="focus" v-show="piniaEx" @click="blur">
                 <img
-                    src="@/assets/examples/jsEx.png"
+                    src="@/assets/examples/piniaEx.png"
                     class="img1"
                     alt="piniaEx"
                 />
@@ -111,7 +106,7 @@ const scssToggle = ref<boolean>(false);
 const piniaToggle = ref<boolean>(false);
 const figmaToggle = ref<boolean>(false);
 const firebaseToggle = ref<boolean>(false);
-
+    // pick 적용해서 필요한 요소만 넣어보기
 const logoArray = ref<any>([]);
 const logoRef: any = (el: any) => logoArray.value.push(el);
 const logos: TypeSkills = ([
@@ -293,7 +288,7 @@ const dess: TypeDes = [
         focus: () => {
             vueEx.value = true;
         },
-        desExImg: "../assets/examples/vueEx1.png",
+        desExImg: "../assets/examples/vueEx.png",
         desEx: "vueEx",
     },
     {
@@ -305,7 +300,7 @@ const dess: TypeDes = [
         focus: () => {
             tsEx.value = true;
         },
-        desExImg: "../assets/examples/jsEx.png",
+        desExImg: "../assets/examples/tsEx.png",
         desEx: "tsEx",
     },
     {
@@ -318,7 +313,7 @@ const dess: TypeDes = [
         focus: () => {
             piniaEx.value = true;
         },
-        desExImg: "../assets/examples/jsEx.png",
+        desExImg: "../assets/examples/piniaEx.png",
         desEx: "piniaEx",
     },
     {

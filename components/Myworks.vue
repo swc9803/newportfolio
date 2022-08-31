@@ -80,7 +80,15 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/portfolio/pf5.png",
+                slideImg: "../assets/portfolio/pf1.png",
+            },
+            {
+                id: 1,
+                slideImg: "../assets/portfolio/pf2.png",
+            },
+            {
+                id: 2,
+                slideImg: "../assets/portfolio/pf3.png",
             },
         ],
         firstDes:
@@ -115,7 +123,19 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/portfolio/pf5.png",
+                slideImg: "../assets/wemix/wemix1.png",
+            },
+            {
+                id: 1,
+                slideImg: "../assets/wemix/wemix2.png",
+            },
+            {
+                id: 2,
+                slideImg: "../assets/wemix/wemix3.png",
+            },
+            {
+                id: 3,
+                slideImg: "../assets/wemix/wemix4.png",
             },
         ],
         firstDes:
@@ -133,7 +153,7 @@ const myworks: TypeMyWorks = [
         goToSite: () => {
             open("https://lab.ddungsang.com/wemix2022/phone/dist/?auth=QX7UD931");
         },
-        screen: "이미지",
+        screen: "../assets/screenIcon.png",
         goToScreen: () => {
             open("https://lab.ddungsang.com/wemix2022/screen.php?auth=QX7UD9311tsvdqggjs4a426my");
         },
