@@ -54,6 +54,7 @@ const mainText = ref<null>(null);
 const array = ref<any>([]);
 const twinkle: any = (el: any) => array.value.push(el);
 const sectionArray = ref<any>([]);
+    // pick 적용해서 필요한 요소만 넣어보기
 const sectionRef: any = (el: any) => sectionArray.value.push(el);
 const sections: TypeSections = [
     {

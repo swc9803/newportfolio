@@ -52,8 +52,8 @@
                     alt="vueEx"
                 />
             </div>
-            <div class="focus" v-show="jsEx" @click="blur">
-                <img src="@/assets/examples/jsEx.png" class="img1" alt="jsEx" />
+            <div class="focus" v-show="tsEx" @click="blur">
+                <img src="@/assets/examples/jsEx.png" class="img1" alt="tsEx" />
             </div>
             <div class="focus" v-show="scssEx" @click="blur">
                 <img
@@ -62,11 +62,11 @@
                     alt="scssEx"
                 />
             </div>
-            <div class="focus" v-show="gsapEx" @click="blur">
+            <div class="focus" v-show="piniaEx" @click="blur">
                 <img
-                    src="@/assets/examples/gsapEx.png"
+                    src="@/assets/examples/jsEx.png"
                     class="img1"
-                    alt="gsapEx"
+                    alt="piniaEx"
                 />
             </div>
             <div class="focus" v-show="figmaEx" @click="blur">
@@ -113,7 +113,6 @@ const figmaToggle = ref<boolean>(false);
 const firebaseToggle = ref<boolean>(false);
 
 const logoArray = ref<any>([]);
-    // pick 적용해서 필요한 요소만 쓰기
 const logoRef: any = (el: any) => logoArray.value.push(el);
 const logos: TypeSkills = ([
     {
@@ -275,9 +274,9 @@ const logos: TypeSkills = ([
 ]);
 
 const vueEx = ref<boolean>(false);
-const jsEx = ref<boolean>(false);
+const tsEx = ref<boolean>(false);
 const scssEx = ref<boolean>(false);
-const gsapEx = ref<boolean>(false);
+const piniaEx = ref<boolean>(false);
 const figmaEx = ref<boolean>(false);
 const firebaseEx = ref<boolean>(false);
 const desArray = ref<any>([]);
@@ -304,10 +303,10 @@ const dess: TypeDes = [
         firstDes: "es6문법과 typescript를 사용할 수 있으며 유지보수와 최적화에 관심이 많습니다.",
         secondDes: "최근 유지 보수의 중요성을 알게 돼 코드 최적화에 노력을 하고 있습니다. 경험이 적어 모든 타입을 완벽하게 선언하지는 못하지만 앞으로 발전하며 개선할 것입니다.",
         focus: () => {
-            jsEx.value = true;
+            tsEx.value = true;
         },
         desExImg: "../assets/examples/jsEx.png",
-        desEx: "jsEx",
+        desEx: "tsEx",
     },
     {
         id: 2,
@@ -317,10 +316,10 @@ const dess: TypeDes = [
         secondDes:
             "mutation이 없으며 vue3 composition api와 잘 어울려 vuex 대신에 pinia를 사용해 보다 깔끔한 코드를 만듭니다.",
         focus: () => {
-            gsapEx.value = true;
+            piniaEx.value = true;
         },
-        desExImg: "../assets/examples/gsapEx.png",
-        desEx: "gsapEx",
+        desExImg: "../assets/examples/jsEx.png",
+        desEx: "piniaEx",
     },
     {
         id: 3,
@@ -367,9 +366,9 @@ const dess: TypeDes = [
 
 const blur = (): void => {
     vueEx.value =
-        jsEx.value =
+        tsEx.value =
         scssEx.value =
-        gsapEx.value =
+        piniaEx.value =
         firebaseEx.value =
         figmaEx.value =
             false;
