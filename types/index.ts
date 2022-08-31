@@ -16,6 +16,8 @@ export interface MyWorks {
     goToSite: () => void;
     git?: string;
     goToGit?: () => void;
+    screen?: string;
+    goToScreen?: () => void;
     distribution?: boolean,
 }
 export type TypeMyWorks = MyWorks[];

@@ -105,28 +105,29 @@ import { TypeSkills, TypeDes } from "../types/index.js"
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = ref<null>(null);
-const vue = ref<boolean>(false);
-const js = ref<boolean>(false);
-const scss = ref<boolean>(false);
-const gsapp = ref<boolean>(false);
-const figma = ref<boolean>(false);
-const firebase = ref<boolean>(false);
+const vueToggle = ref<boolean>(false);
+const tsToggle = ref<boolean>(false);
+const scssToggle = ref<boolean>(false);
+const piniaToggle = ref<boolean>(false);
+const figmaToggle = ref<boolean>(false);
+const firebaseToggle = ref<boolean>(false);
 
 const logoArray = ref<any>([]);
+    // pick 적용해서 필요한 요소만 쓰기
 const logoRef: any = (el: any) => logoArray.value.push(el);
 const logos: TypeSkills = ([
     {
         id: 0,
         iconImg: "../assets/logos/vuenuxtLogo.png",
         showDes: (i) => {
-            if (!vue.value) {
-                js.value =
-                    scss.value =
-                    gsapp.value =
-                    figma.value =
-                    firebase.value =
+            if (!vueToggle.value) {
+                tsToggle.value =
+                    scssToggle.value =
+                    piniaToggle.value =
+                    figmaToggle.value =
+                    firebaseToggle.value =
                         false;
-                vue.value = true;
+                vueToggle.value = true;
                 logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
@@ -136,7 +137,7 @@ const logos: TypeSkills = ([
             } else {
                 logoArray.value[i].classList.toggle("active");
                 desArray.value[i].style.display = "none";
-                vue.value = false;
+                vueToggle.value = false;
             }
         },
         alt: "vueIcon",
@@ -145,14 +146,14 @@ const logos: TypeSkills = ([
         id: 1,
         iconImg: "../assets/logos/typescriptLogo.png",
         showDes: (i) => {
-            if (!js.value) {
-                vue.value =
-                    scss.value =
-                    gsapp.value =
-                    figma.value =
-                    firebase.value =
+            if (!tsToggle.value) {
+                vueToggle.value =
+                    scssToggle.value =
+                    piniaToggle.value =
+                    figmaToggle.value =
+                    firebaseToggle.value =
                         false;
-                js.value = true;
+                tsToggle.value = true;
                 logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
@@ -162,23 +163,23 @@ const logos: TypeSkills = ([
             } else {
                 logoArray.value[i].classList.toggle("active");
                 desArray.value[i].style.display = "none";
-                js.value = false;
+                tsToggle.value = false;
             }
         },
-        alt: "jsIcon",
+        alt: "tsIcon",
     },
     {
         id: 2,
         iconImg: "../assets/logos/piniaLogo.png",
         showDes: (i) => {
-            if (!gsapp.value) {
-                js.value =
-                    scss.value =
-                    vue.value =
-                    figma.value =
-                    firebase.value =
+            if (!piniaToggle.value) {
+                tsToggle.value =
+                    scssToggle.value =
+                    vueToggle.value =
+                    figmaToggle.value =
+                    firebaseToggle.value =
                         false;
-                gsapp.value = true;
+                piniaToggle.value = true;
                 logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
@@ -188,23 +189,23 @@ const logos: TypeSkills = ([
             } else {
                 logoArray.value[i].classList.toggle("active");
                 desArray.value[i].style.display = "none";
-                gsapp.value = false;
+                piniaToggle.value = false;
             }
         },
-        alt: "gsapIcon",
+        alt: "piniaIcon",
     },
     {
         id: 3,
         iconImg: "../assets/logos/scssLogo.png",
         showDes: (i) => {
-            if (!scss.value) {
-                js.value =
-                    vue.value =
-                    gsapp.value =
-                    figma.value =
-                    firebase.value =
+            if (!scssToggle.value) {
+                tsToggle.value =
+                    vueToggle.value =
+                    piniaToggle.value =
+                    figmaToggle.value =
+                    firebaseToggle.value =
                         false;
-                scss.value = true;
+                scssToggle.value = true;
                 logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
@@ -214,7 +215,7 @@ const logos: TypeSkills = ([
             } else {
                 logoArray.value[i].classList.toggle("active");
                 desArray.value[i].style.display = "none";
-                scss.value = false;
+                scssToggle.value = false;
             }
         },
         alt: "scssIcon",
@@ -223,14 +224,14 @@ const logos: TypeSkills = ([
         id: 4,
         iconImg: "../assets/logos/figmaLogo.png",
         showDes: (i) => {
-            if (!figma.value) {
-                js.value =
-                    scss.value =
-                    vue.value =
-                    gsapp.value =
-                    firebase.value =
+            if (!figmaToggle.value) {
+                tsToggle.value =
+                    scssToggle.value =
+                    vueToggle.value =
+                    piniaToggle.value =
+                    firebaseToggle.value =
                         false;
-                figma.value = true;
+                figmaToggle.value = true;
                 logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
@@ -240,7 +241,7 @@ const logos: TypeSkills = ([
             } else {
                 logoArray.value[i].classList.toggle("active");
                 desArray.value[i].style.display = "none";
-                figma.value = false;
+                figmaToggle.value = false;
             }
         },
         alt: "figmaIcon",
@@ -249,14 +250,14 @@ const logos: TypeSkills = ([
         id: 5,
         iconImg: "../assets/logos/firebaseLogo.png",
         showDes: (i) => {
-            if (!firebase.value) {
-                js.value =
-                    scss.value =
-                    vue.value =
-                    gsapp.value =
-                    figma.value =
+            if (!firebaseToggle.value) {
+                tsToggle.value =
+                    scssToggle.value =
+                    vueToggle.value =
+                    piniaToggle.value =
+                    figmaToggle.value =
                         false;
-                firebase.value = true;
+                firebaseToggle.value = true;
                 logoArray.value.map((item: any) => {
                     item.classList.remove("active");
                 });
@@ -266,7 +267,7 @@ const logos: TypeSkills = ([
             } else {
                 logoArray.value[i].classList.toggle("active");
                 desArray.value[i].style.display = "none";
-                firebase.value = false;
+                firebaseToggle.value = false;
             }
         },
         alt: "firebaseIcon",

@@ -58,6 +58,7 @@
                             @click="mywork.goToSite"
                         />
                         <img v-if="mywork.git" :src="mywork.git" @click="mywork.goToGit" />
+                        <img v-if="mywork.screen" :src="mywork.screen" @click="mywork.goToScreen" />
                     </div>
                 </div>
             </div>
@@ -118,7 +119,7 @@ const myworks: TypeMyWorks = [
             },
         ],
         firstDes:
-            "코엑스에 개최된 코리아 블록체인 위크 2022에서 진행하는 위믹스3.0의 전시 외주를 받아 제작하게 되었습니다. 첫 번째 섹션에서는 해당하는 색을 눌러 웹과 스크린이 색이 동일하게 변경되도록 했으며, 두 번째 섹션에서는 input에 입력한 메세지가 스크린에 동일하게 출력되도록 했습니다. 마지막 섹션에서는 핸드폰 카메라 위에 canvas를 덮어 스티커 사진을 찍을 수 있습니다.",
+            "코엑스에 개최된 코리아 블록체인 위크 2022에서 진행하는 위믹스3.0의 전시 외주를 받아 제작하게 되었습니다. 핸드폰으로 QR코드를 찍으면 사이트로 이동하게 됩니다. 첫 번째 섹션에서는 해당하는 색을 눌러 웹과 스크린이 색이 동일하게 변경되도록 했으며, 두 번째 섹션에서는 input에 입력한 메세지가 스크린에 동일하게 출력되도록 했습니다. 마지막 섹션에서는 핸드폰 카메라 위에 canvas를 덮어 스티커 사진을 찍을 수 있습니다.",
         secondDes:
             "백엔드분과 협업을 처음 해 많은 걱정과 기대가 있었습니다. 걱정과는 다르게 수월하게 진행이 되어 마감일 보다 빠르게 제작이 되었습니다. websocket을 사용했으며 짧은 기간임에도 많은 발전을 한 것 같습니다.",
         desTitle: "서버를 통해 스크린과 화면 연동",
@@ -130,11 +131,11 @@ const myworks: TypeMyWorks = [
             },
         ],
         goToSite: () => {
-            open("https://sungpf.web.app");
+            open("https://lab.ddungsang.com/wemix2022/phone/dist/?auth=QX7UD931");
         },
-        git: "../assets/githubIcon.png",
-        goToGit: () => {
-            open("https://github.com/swc9803/portf");
+        screen: "이미지",
+        goToScreen: () => {
+            open("https://lab.ddungsang.com/wemix2022/screen.php?auth=QX7UD9311tsvdqggjs4a426my");
         },
         distribution: false,
     },
