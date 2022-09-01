@@ -53,7 +53,8 @@
                         </div>
                     </div>
                     <div class="icons">
-                        <img
+                        <img 
+                            v-if="mywork.site"
                             src="@/assets/homeIcon.png"
                             @click="mywork.goToSite"
                         />
@@ -108,9 +109,6 @@ const myworks: TypeMyWorks = [
                 frontImgDes: "typescript",
             },
         ],
-        goToSite: () => {
-            open("https://sungsbeer.web.app");
-        },
         git: "../assets/githubIcon.png",
         goToGit: () => {
             open("https://github.com/swc9803/newportfolio");
@@ -150,6 +148,7 @@ const myworks: TypeMyWorks = [
                 frontImgDes: "vue",
             },
         ],
+        site: "../assets/homeIcon.png",
         goToSite: () => {
             open("https://lab.ddungsang.com/wemix2022/phone/dist/?auth=QX7UD931");
         },
@@ -197,6 +196,7 @@ const myworks: TypeMyWorks = [
                 frontImgDes: "scss",
             },
         ],
+        site: "../assets/homeIcon.png",
         goToSite: () => {
             open("https://sungsbeer.web.app");
         },
@@ -245,6 +245,7 @@ const myworks: TypeMyWorks = [
                 frontImgDes: "vue",
             },
         ],
+        site: "../assets/homeIcon.png",
         goToSite: () => {
             open("https://pofo-55041.web.app/weather");
         },
@@ -288,6 +289,7 @@ const myworks: TypeMyWorks = [
                 frontImgDes: "vue",
             },
         ],
+        site: "../assets/homeIcon.png",
         goToSite: () => {
             open("https://rhdyd-a7e3b.firebaseapp.com");
         },
@@ -322,6 +324,7 @@ const myworks: TypeMyWorks = [
                 frontImgDes: "vue",
             },
         ],
+        site: "../assets/homeIcon.png",
         goToSite: () => {
             open("https://sungthreejs.web.app/");
         },

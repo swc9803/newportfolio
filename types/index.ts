@@ -13,7 +13,8 @@ export interface MyWorks {
         frontImg: string;
         frontImgDes: string;
     }[];
-    goToSite: () => void;
+    site?: string;
+    goToSite?: () => void;
     git?: string;
     goToGit?: () => void;
     screen?: string;
