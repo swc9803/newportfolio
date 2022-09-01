@@ -14,7 +14,7 @@
                     <swiper-slide
                         v-for="slide in mywork.slideArray"
                         :key="slide.id"
-                        ><img :src="slide.slideImg"
+                        ><img :src="`/assets/${slide.slideImg}.png`"
                     /></swiper-slide>
                 </swiper>
                 <div class="projectDes">
@@ -36,7 +36,7 @@
                                 v-for="front in mywork.frontImgArray"
                                 :key="front.id"
                             >
-                                <img :src="front.frontImg" />
+                                <img :src="`/assets/${front.frontImg}.png`" />
                                 <p>
                                     {{ front.frontImgDes }}
                                 </p>
@@ -47,7 +47,7 @@
                         <p class="frontTitle">Distribution</p>
                         <div class="flex">
                             <div>
-                                <img src="@/assets/firebase.png" />
+                                <img src="@/public/assets/firebase.png" />
                                 <p>Firebase</p>
                             </div>
                         </div>
@@ -55,11 +55,11 @@
                     <div class="icons">
                         <img 
                             v-if="mywork.site"
-                            src="@/assets/homeIcon.png"
+                            src="@/public/assets/homeIcon.png"
                             @click="mywork.goToSite"
                         />
-                        <img v-if="mywork.git" :src="mywork.git" @click="mywork.goToGit" />
-                        <img v-if="mywork.screen" :src="mywork.screen" @click="mywork.goToScreen" />
+                        <img v-if="mywork.git" src="@/public/assets/githubIcon.png" @click="mywork.goToGit" />
+                        <img v-if="mywork.screen" src="@/public/assets/screenIcon.png" @click="mywork.goToScreen" />
                     </div>
                 </div>
             </div>
@@ -81,15 +81,15 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/portfolio/pf1.png",
+                slideImg: "portfolio/pf1",
             },
             {
                 id: 1,
-                slideImg: "../assets/portfolio/pf2.png",
+                slideImg: "portfolio/pf2",
             },
             {
                 id: 2,
-                slideImg: "../assets/portfolio/pf3.png",
+                slideImg: "portfolio/pf3",
             },
         ],
         firstDes:
@@ -100,16 +100,16 @@ const myworks: TypeMyWorks = [
         frontImgArray: [
             {
                 id: 0,
-                frontImg: "../assets/nuxt.png",
+                frontImg: "nuxt",
                 frontImgDes: "nuxt",
             },
             {
                 id: 1,
-                frontImg: "../assets/typescript.png",
+                frontImg: "typescript",
                 frontImgDes: "typescript",
             },
         ],
-        git: "../assets/githubIcon.png",
+        git: true,
         goToGit: () => {
             open("https://github.com/swc9803/newportfolio");
         },
@@ -121,19 +121,19 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/wemix/wemix1.png",
+                slideImg: "wemix/wemix1",
             },
             {
                 id: 1,
-                slideImg: "../assets/wemix/wemix2.png",
+                slideImg: "wemix/wemix2",
             },
             {
                 id: 2,
-                slideImg: "../assets/wemix/wemix3.png",
+                slideImg: "wemix/wemix3",
             },
             {
                 id: 3,
-                slideImg: "../assets/wemix/wemix4.png",
+                slideImg: "wemix/wemix4",
             },
         ],
         firstDes:
@@ -144,15 +144,15 @@ const myworks: TypeMyWorks = [
         frontImgArray: [
             {
                 id: 0,
-                frontImg: "../assets/vue.png",
+                frontImg: "vue",
                 frontImgDes: "vue",
             },
         ],
-        site: "../assets/homeIcon.png",
+        site: true,
         goToSite: () => {
             open("https://lab.ddungsang.com/wemix2022/phone/dist/?auth=QX7UD931");
         },
-        screen: "../assets/screenIcon.png",
+        screen: true,
         goToScreen: () => {
             open("https://lab.ddungsang.com/wemix2022/screen.php?auth=QX7UD9311tsvdqggjs4a426my");
         },
@@ -164,19 +164,19 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/beer/beerEx1.png",
+                slideImg: "beer/beerEx1",
             },
             {
                 id: 1,
-                slideImg: "../assets/beer/beerEx2.png",
+                slideImg: "beer/beerEx2",
             },
             {
                 id: 2,
-                slideImg: "../assets/beer/beerEx3.png",
+                slideImg: "beer/beerEx3",
             },
             {
                 id: 3,
-                slideImg: "../assets/beer/beerEx4.png",
+                slideImg: "beer/beerEx4",
             },
         ],
         firstDes:
@@ -187,20 +187,20 @@ const myworks: TypeMyWorks = [
         frontImgArray: [
             {
                 id: 0,
-                frontImg: "../assets/vue.png",
+                frontImg: "vue",
                 frontImgDes: "vue",
             },
             {
                 id: 1,
-                frontImg: "../assets/scss.png",
+                frontImg: "scss",
                 frontImgDes: "scss",
             },
         ],
-        site: "../assets/homeIcon.png",
+        site: true,
         goToSite: () => {
             open("https://sungsbeer.web.app");
         },
-        git: "../assets/githubIcon.png",
+        git: true,
         goToGit: () => {
             open("https://github.com/swc9803/beer");
         },
@@ -212,27 +212,27 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/gsap/spring.png",
+                slideImg: "gsap/spring",
             },
             {
                 id: 1,
-                slideImg: "../assets/gsap/summer.png",
+                slideImg: "gsap/summer",
             },
             {
                 id: 2,
-                slideImg: "../assets/gsap/fall.png",
+                slideImg: "gsap/fall",
             },
             {
                 id: 3,
-                slideImg: "../assets/gsap/winter.png",
+                slideImg: "gsap/winter",
             },
             {
                 id: 4,
-                slideImg: "../assets/gsap/sea.png",
+                slideImg: "gsap/sea",
             },
             {
                 id: 5,
-                slideImg: "../assets/gsap/process.png",
+                slideImg: "gsap/process",
             },
         ],
         firstDes:
@@ -241,11 +241,11 @@ const myworks: TypeMyWorks = [
         frontImgArray: [
             {
                 id: 0,
-                frontImg: "../assets/vue.png",
+                frontImg: "vue",
                 frontImgDes: "vue",
             },
         ],
-        site: "../assets/homeIcon.png",
+        site: true,
         goToSite: () => {
             open("https://pofo-55041.web.app/weather");
         },
@@ -257,23 +257,23 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/review/review1.png",
+                slideImg: "review/review1",
             },
             {
                 id: 1,
-                slideImg: "../assets/review/review2.png",
+                slideImg: "review/review2",
             },
             {
                 id: 2,
-                slideImg: "../assets/review/review3.png",
+                slideImg: "review/review3",
             },
             {
                 id: 3,
-                slideImg: "../assets/review/review4.png",
+                slideImg: "review/review4",
             },
             {
                 id: 4,
-                slideImg: "../assets/review/review5.png",
+                slideImg: "review/review5",
             },
         ],
         firstDes:
@@ -285,11 +285,11 @@ const myworks: TypeMyWorks = [
         frontImgArray: [
             {
                 id: 0,
-                frontImg: "../assets/vue.png",
+                frontImg: "vue",
                 frontImgDes: "vue",
             },
         ],
-        site: "../assets/homeIcon.png",
+        site: true,
         goToSite: () => {
             open("https://rhdyd-a7e3b.firebaseapp.com");
         },
@@ -301,15 +301,15 @@ const myworks: TypeMyWorks = [
         slideArray: [
             {
                 id: 0,
-                slideImg: "../assets/threejs/three1.png",
+                slideImg: "threejs/three1",
             },
             {
                 id: 1,
-                slideImg: "../assets/threejs/three2.png",
+                slideImg: "threejs/three2",
             },
             {
                 id: 2,
-                slideImg: "../assets/threejs/three3.png",
+                slideImg: "threejs/three3",
             },
         ],
         firstDes:
@@ -320,15 +320,15 @@ const myworks: TypeMyWorks = [
         frontImgArray: [
             {
                 id: 0,
-                frontImg: "../assets/vue.png",
+                frontImg: "vue",
                 frontImgDes: "vue",
             },
         ],
-        site: "../assets/homeIcon.png",
+        site: true,
         goToSite: () => {
             open("https://sungthreejs.web.app/");
         },
-        git: "../assets/githubIcon.png",
+        git: true,
         goToGit: () => {
             open("https://github.com/swc9803/threetest");
         },

@@ -13,11 +13,11 @@ export interface MyWorks {
         frontImg: string;
         frontImgDes: string;
     }[];
-    site?: string;
+    site?: boolean;
     goToSite?: () => void;
-    git?: string;
+    git?: boolean;
     goToGit?: () => void;
-    screen?: string;
+    screen?: boolean;
     goToScreen?: () => void;
     distribution?: boolean,
 }

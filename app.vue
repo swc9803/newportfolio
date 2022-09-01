@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <Title>{{ title }}</Title>
+        <Meta name="description" :content="title" />
+    </Head>
     <div>
         <Navbar
             class="navbar"
@@ -49,6 +53,11 @@ import Contact from "@/components/Contact.vue";
 import gsap from "gsap";
 import { TypeSections } from "./types/index.js";
 
+const title = ref("최성우 프론트엔드 포트폴리오");
+useHead({
+    title: "최성우 프론트엔드 포트폴리오",
+    meta: [{ name: "최성우 프론트엔드 포트폴리오", content: "최성우 프론트엔드 포트폴리오" }],
+});
 const progressbar = ref<null>(null);
 const mainText = ref<null>(null);
 const array = ref<any>([]);

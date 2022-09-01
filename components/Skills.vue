@@ -18,7 +18,7 @@
                 :ref="desRef"
                 :style="{ background: des.background }"
             >
-                <img class="desIcon" :src="des.desImg" />
+                <img class="desIcon" :src="`/assets/${des.desImg}.png`" />
                 <section>
                     <div>
                         <p>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="frame">
                         <img
-                            :src="des.desExImg"
+                            :src="`/assets/${des.desExImg}.png`"
                             @click="des.focus"
                             :alt="des.desEx"
                         />
@@ -42,48 +42,48 @@
         <div>
             <div class="focus" v-show="vueEx" @click="blur">
                 <img
-                    src="@/assets/examples/vueEx.png"
+                    src="@/public/assets/examples/vueEx.png"
                     class="img1"
                     alt="vueEx"
                 />
             </div>
             <div class="focus" v-show="tsEx" @click="blur">
-                <img src="@/assets/examples/tsEx.png" class="img1" alt="tsEx" />
+                <img src="@/public/assets/examples/tsEx.png" class="img1" alt="tsEx" />
             </div>
             <div class="focus" v-show="scssEx" @click="blur">
                 <img
-                    src="@/assets/examples/scssEx.png"
+                    src="@/public/assets/examples/scssEx.png"
                     class="img1"
                     alt="scssEx"
                 />
             </div>
             <div class="focus" v-show="piniaEx" @click="blur">
                 <img
-                    src="@/assets/examples/piniaEx.png"
+                    src="@/public/assets/examples/piniaEx.png"
                     class="img1"
                     alt="piniaEx"
                 />
             </div>
             <div class="focus" v-show="figmaEx" @click="blur">
                 <img
-                    src="@/assets/examples/figmaEx1.png"
+                    src="@/public/assets/examples/figmaEx1.png"
                     class="img2"
                     alt="figmaEx1"
                 />
                 <img
-                    src="@/assets/examples/figmaEx2.png"
+                    src="@/public/assets/examples/figmaEx2.png"
                     class="img2"
                     alt="figmaEx2"
                 />
             </div>
             <div class="focus" v-show="firebaseEx" @click="blur">
                 <img
-                    src="@/assets/examples/firebaseEx1.png"
+                    src="@/public/assets/examples/firebaseEx1.png"
                     class="img2"
                     alt="firebaseEx1"
                 />
                 <img
-                    src="@/assets/examples/firebaseEx2.png"
+                    src="@/public/assets/examples/firebaseEx2.png"
                     class="img2"
                     alt="firebaseEx2"
                 />
@@ -280,7 +280,7 @@ const dess: TypeDes = [
     {
         id: 0,
         background: "#3F724E",
-        desImg: "../assets/logos/vuenuxtLogo.png",
+        desImg: "logos/vuenuxtLogo",
         firstDes:
             "Vue3를 사용해 컴포넌트화와 라우팅, 상태 관리등을 할 수 있으며, vuex, router를 사용할 수 있습니다.",
         secondDes:
@@ -288,51 +288,51 @@ const dess: TypeDes = [
         focus: () => {
             vueEx.value = true;
         },
-        desExImg: "../assets/examples/vueEx.png",
+        desExImg: "examples/vueEx",
         desEx: "vueEx",
     },
     {
         id: 1,
         background: "#3178C6",
-        desImg: "../assets/logos/typescriptLogo.png",
+        desImg: "logos/typescriptLogo",
         firstDes: "es6문법과 typescript를 사용할 수 있으며 유지보수와 최적화에 관심이 많습니다.",
         secondDes: "최근 유지 보수의 중요성을 알게 돼 코드 최적화에 노력을 하고 있습니다. 경험이 적어 모든 타입을 완벽하게 선언하지는 못하지만 앞으로 발전하며 개선할 것입니다.",
         focus: () => {
             tsEx.value = true;
         },
-        desExImg: "../assets/examples/tsEx.png",
+        desExImg: "examples/tsEx",
         desEx: "tsEx",
     },
     {
         id: 2,
         background: "#909256",
-        desImg: "../assets/logos/piniaLogo.png",
+        desImg: "logos/piniaLogo",
         firstDes: "vue에서 권장하는 상태 관리 라이브러리인 pinia를 사용해 유저 관리, 토큰 저장 등의 작업이 가능합니다.",
         secondDes:
             "mutation이 없으며 vue3 composition api와 잘 어울려 vuex 대신에 pinia를 사용해 보다 깔끔한 코드를 만듭니다.",
         focus: () => {
             piniaEx.value = true;
         },
-        desExImg: "../assets/examples/piniaEx.png",
+        desExImg: "examples/piniaEx",
         desEx: "piniaEx",
     },
     {
         id: 3,
         background: "#881777",
-        desImg: "../assets/logos/scssLogo.png",
+        desImg: "logos/scssLogo",
         firstDes: "CSS3와 scss로 반응형 웹을 만들 수 있습니다.",
         secondDes:
             "Scss를 사용해 mixin, 변수를 만들어 유지 보수 관리를 수월하게 합니다.",
         focus: () => {
             scssEx.value = true;
         },
-        desExImg: "../assets/examples/scssEx.png",
+        desExImg: "examples/scssEx",
         desEx: "scssEx",
     },
     {
         id: 4,
         background: "#757575",
-        desImg: "../assets/logos/figmaLogo.png",
+        desImg: "logos/figmaLogo",
         firstDes:
             "Figma 툴을 사용해 간단한 일러스트를 제작할 수 있으며 웹 개발을 하기 전 제작에 도움을 줄 수 있는 견본을 만들 수 있습니다.",
         secondDes:
@@ -340,13 +340,13 @@ const dess: TypeDes = [
         focus: () => {
             figmaEx.value = true;
         },
-        desExImg: "../assets/examples/figmaEx1.png",
+        desExImg: "examples/figmaEx1",
         desEx: "figmaEx",
     },
     {
         id: 5,
         background: "#0d7297",
-        desImg: "../assets/logos/firebaseLogo.png",
+        desImg: "logos/firebaseLogo",
         firstDes:
             "구글의 NOSQL Firebase를 사용해 클라우드 데이터베이스와 유저를 관리할 수 있습니다.",
         secondDes:
@@ -354,7 +354,7 @@ const dess: TypeDes = [
         focus: () => {
             firebaseEx.value = true;
         },
-        desExImg: "../assets/examples/firebaseEx1.png",
+        desExImg: "examples/firebaseEx1",
         desEx: "firebaseEx",
     },
 ];
