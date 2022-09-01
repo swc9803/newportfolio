@@ -53,10 +53,25 @@ import Contact from "@/components/Contact.vue";
 import gsap from "gsap";
 import { TypeSections } from "./types/index.js";
 
-const title = ref("최성우 프론트엔드 포트폴리오");
+const title: string = "최성우 프론트엔드 포트폴리오";
 useHead({
-    title: "최성우 프론트엔드 포트폴리오",
-    meta: [{ name: "최성우 프론트엔드 포트폴리오", content: "최성우 프론트엔드 포트폴리오" }],
+    meta: [{
+        name: "최성우 프론트엔드 포트폴리오",
+        content: "최성우 프론트엔드 포트폴리오"
+    },
+    {
+        name: 'og:title',
+        content: '최성우 프론트엔드 포트폴리오'
+    },
+    {
+        name: 'og:image',
+        content: 'public/favicon.ico'
+    },
+    {
+        name: 'og:author',
+        content: '최성우'
+    }
+],
 });
 const progressbar = ref<null>(null);
 const mainText = ref<null>(null);
