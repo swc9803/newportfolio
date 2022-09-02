@@ -81,7 +81,7 @@ const navbarItems: TypeNavbar = [
 ];
 
 const toggledata = ref<boolean>(false);
-const items = ref<any>(null);
+const items = ref<HTMLDivElement>();
 const toggleOn: gsap.core.Timeline = gsap.timeline();
 const toggleOff: gsap.core.Timeline = gsap.timeline();
 const toggle = (): void => {
@@ -161,7 +161,7 @@ const toggle = (): void => {
     }
 };
 
-const progressbar = ref<any>(null);
+const progressbar = ref<HTMLDivElement>();
 const scrolled = ref<number>(0);
 onMounted(() => {
     // progressbar

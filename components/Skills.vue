@@ -107,7 +107,7 @@ const piniaToggle = ref<boolean>(false);
 const figmaToggle = ref<boolean>(false);
 const firebaseToggle = ref<boolean>(false);
     // pick 적용해서 필요한 요소만 넣어보기
-const logoArray = ref<any>([]);
+const logoArray = ref<HTMLDivElement[]>([]);
 const logoRef: any = (el: HTMLDivElement) => logoArray.value.push(el);
 const logos: TypeSkills = ([
     {

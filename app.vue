@@ -73,7 +73,7 @@ useHead({
     }
 ],
 });
-const progressbar = ref<null>(null);
+const progressbar = ref<null>();
 const mainText = ref<null>(null);
 const array = ref<HTMLDivElement[]>([]);
 const twinkle: any = (el: HTMLDivElement) => array.value.push(el);
