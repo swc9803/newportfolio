@@ -56,30 +56,30 @@ import { TypeSections } from "./types/index.js";
 const title: string = "최성우 프론트엔드 포트폴리오";
 useHead({
     meta: [{
-        name: "최성우 프론트엔드 포트폴리오",
-        content: "최성우 프론트엔드 포트폴리오"
+        name: "최성우 프론트엔드 포트폴리오" as string,
+        content: "최성우 프론트엔드 포트폴리오" as string
     },
     {
-        name: 'og:title',
-        content: '최성우 프론트엔드 포트폴리오'
+        name: "og:title",
+        content: "최성우 프론트엔드 포트폴리오" as string
     },
     {
-        name: 'og:image',
-        content: 'public/favicon.ico'
+        name: "og:image" as string,
+        content: "public/favicon.ico" as string
     },
     {
-        name: 'og:author',
-        content: '최성우'
+        name: "og:author" as string,
+        content: "최성우" as string
     }
 ],
 });
 const progressbar = ref<null>(null);
 const mainText = ref<null>(null);
-const array = ref<any>([]);
-const twinkle: any = (el: any) => array.value.push(el);
-const sectionArray = ref<any>([]);
+const array = ref<HTMLDivElement[]>([]);
+const twinkle: any = (el: HTMLDivElement) => array.value.push(el);
+const sectionArray = ref<HTMLDivElement[]>([]);
     // pick 적용해서 필요한 요소만 넣어보기
-const sectionRef: any = (el: any) => sectionArray.value.push(el);
+const sectionRef: any = (el: HTMLDivElement) => sectionArray.value.push(el);
 const sections: TypeSections = [
     {
         id: 0,
@@ -105,23 +105,23 @@ const sections: TypeSections = [
 ];
 
 const moveToAboutme = (): void => {
-    const aboutmeLocation = sectionArray.value[0].offsetTop;
-    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
+    const aboutmeLocation = (sectionArray.value[0] as HTMLDivElement)!.offsetTop;
+    const menuHeight = (document.querySelector(".navbar") as HTMLDivElement)!.offsetHeight;
     scrollTo({ top: aboutmeLocation - menuHeight, behavior: "smooth" });
 };
 const moveToSkills = (): void => {
-    const skillsLocation = sectionArray.value[1].offsetTop;
-    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
+    const skillsLocation = (sectionArray.value[1] as HTMLDivElement)!.offsetTop;
+    const menuHeight = (document.querySelector(".navbar") as HTMLDivElement)!.offsetHeight;
     scrollTo({ top: skillsLocation - menuHeight, behavior: "smooth" });
 };
 const moveToMyworks = (): void => {
-    const myworksLocation = sectionArray.value[2].offsetTop;
-    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
+    const myworksLocation = (sectionArray.value[2] as HTMLDivElement)!.offsetTop;
+    const menuHeight = (document.querySelector(".navbar") as HTMLDivElement)!.offsetHeight;
     scrollTo({ top: myworksLocation - menuHeight, behavior: "smooth" });
 };
 const moveToContact = (): void => {
-    const contactLocation = sectionArray.value[3].offsetTop;
-    const menuHeight = (document.querySelector(".navbar") as HTMLElement)!.offsetHeight;
+    const contactLocation = (sectionArray.value[3] as HTMLDivElement)!.offsetTop;
+    const menuHeight = (document.querySelector(".navbar") as HTMLDivElement)!.offsetHeight;
     scrollTo({ top: contactLocation - menuHeight, behavior: "smooth" });
 };
 

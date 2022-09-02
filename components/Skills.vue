@@ -108,7 +108,7 @@ const figmaToggle = ref<boolean>(false);
 const firebaseToggle = ref<boolean>(false);
     // pick 적용해서 필요한 요소만 넣어보기
 const logoArray = ref<any>([]);
-const logoRef: any = (el: any) => logoArray.value.push(el);
+const logoRef: any = (el: HTMLDivElement) => logoArray.value.push(el);
 const logos: TypeSkills = ([
     {
         id: 0,
@@ -122,11 +122,11 @@ const logos: TypeSkills = ([
                     firebaseToggle.value =
                         false;
                 vueToggle.value = true;
-                logoArray.value.map((item: any) => {
+                logoArray.value.map((item: HTMLDivElement) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item: any) => (item.style.display = "none"));
+                desArray.value.map((item: HTMLDivElement) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -148,11 +148,11 @@ const logos: TypeSkills = ([
                     firebaseToggle.value =
                         false;
                 tsToggle.value = true;
-                logoArray.value.map((item: any) => {
+                logoArray.value.map((item: HTMLDivElement) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item: any) => (item.style.display = "none"));
+                desArray.value.map((item: HTMLDivElement) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -174,11 +174,11 @@ const logos: TypeSkills = ([
                     firebaseToggle.value =
                         false;
                 piniaToggle.value = true;
-                logoArray.value.map((item: any) => {
+                logoArray.value.map((item: HTMLDivElement) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item: any) => (item.style.display = "none"));
+                desArray.value.map((item: HTMLDivElement) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -200,11 +200,11 @@ const logos: TypeSkills = ([
                     firebaseToggle.value =
                         false;
                 scssToggle.value = true;
-                logoArray.value.map((item: any) => {
+                logoArray.value.map((item: HTMLDivElement) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item: any) => (item.style.display = "none"));
+                desArray.value.map((item: HTMLDivElement) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -226,11 +226,11 @@ const logos: TypeSkills = ([
                     firebaseToggle.value =
                         false;
                 figmaToggle.value = true;
-                logoArray.value.map((item: any) => {
+                logoArray.value.map((item: HTMLDivElement) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item: any) => (item.style.display = "none"));
+                desArray.value.map((item: HTMLDivElement) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -252,11 +252,11 @@ const logos: TypeSkills = ([
                     figmaToggle.value =
                         false;
                 firebaseToggle.value = true;
-                logoArray.value.map((item: any) => {
+                logoArray.value.map((item: HTMLDivElement) => {
                     item.classList.remove("active");
                 });
                 logoArray.value[i].classList.toggle("active");
-                desArray.value.map((item: any) => (item.style.display = "none"));
+                desArray.value.map((item: HTMLDivElement) => (item.style.display = "none"));
                 desArray.value[i].style.display = "block";
             } else {
                 logoArray.value[i].classList.toggle("active");
@@ -274,8 +274,8 @@ const scssEx = ref<boolean>(false);
 const piniaEx = ref<boolean>(false);
 const figmaEx = ref<boolean>(false);
 const firebaseEx = ref<boolean>(false);
-const desArray = ref<any>([]);
-const desRef: any = (el: any) => desArray.value.push(el);
+const desArray = ref<HTMLDivElement[]>([]);
+const desRef: any = (el: HTMLDivElement) => desArray.value.push(el);
 const dess: TypeDes = [
     {
         id: 0,
