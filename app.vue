@@ -70,7 +70,11 @@ useHead({
     {
         name: "og:author" as string,
         content: "최성우" as string
-    }
+    },
+    {
+        name: "google-site-verification" as string,
+        content: "QqW6OK_y3kl9fCz4UUOarTsHCwoyl_CYiZ23Eg9Osvc" as string
+    },
 ],
 });
 const progressbar = ref<null>();
