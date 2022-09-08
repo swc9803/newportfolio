@@ -4,6 +4,7 @@ export interface MyWorks {
     slideArray: {
         id: number;
         slideImg: string;
+        alt: string;
     }[];
     firstDes: string;
     secondDes?: string;

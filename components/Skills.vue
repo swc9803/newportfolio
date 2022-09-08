@@ -18,7 +18,7 @@
                 :ref="desRef"
                 :style="{ background: des.background }"
             >
-                <img class="desIcon" :src="`/assets/${des.desImg}.png`" />
+                <img class="desIcon" :src="`/assets/${des.desImg}.png`" :alt="`${des.desEx}`" />
                 <section>
                     <div>
                         <p>

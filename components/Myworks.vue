@@ -14,7 +14,7 @@
                     <swiper-slide
                         v-for="slide in mywork.slideArray"
                         :key="slide.id"
-                        ><img :src="`/assets/${slide.slideImg}.png`"
+                        ><img :src="`/assets/${slide.slideImg}.png`" :alt="slide.alt"
                     /></swiper-slide>
                 </swiper>
                 <div class="projectDes">
@@ -36,7 +36,7 @@
                                 v-for="front in mywork.frontImgArray"
                                 :key="front.id"
                             >
-                                <img :src="`/assets/${front.frontImg}.png`" />
+                                <img :src="`/assets/${front.frontImg}.png`" :alt="`${front.frontImg}`" />
                                 <p>
                                     {{ front.frontImgDes }}
                                 </p>
@@ -47,7 +47,7 @@
                         <p class="frontTitle">Distribution</p>
                         <div class="flex">
                             <div>
-                                <img src="@/public/assets/firebase.png" />
+                                <img src="@/public/assets/firebase.png" alt="firebase" />
                                 <p>Firebase</p>
                             </div>
                         </div>
@@ -57,9 +57,10 @@
                             v-if="mywork.site"
                             src="@/public/assets/homeIcon.png"
                             @click="mywork.goToSite"
+                            alt="homeIcon"
                         />
-                        <img v-if="mywork.git" src="@/public/assets/githubIcon.png" @click="mywork.goToGit" />
-                        <img v-if="mywork.screen" src="@/public/assets/screenIcon.png" @click="mywork.goToScreen" />
+                        <img v-if="mywork.git" src="@/public/assets/githubIcon.png" @click="mywork.goToGit" alt="githubIcon" />
+                        <img v-if="mywork.screen" src="@/public/assets/screenIcon.png" @click="mywork.goToScreen" alt="screenIcon" />
                     </div>
                 </div>
             </div>
@@ -82,14 +83,17 @@ const myworks: TypeMyWorks = [
             {
                 id: 0,
                 slideImg: "portfolio/pf1",
+                alt: "pf1",
             },
             {
                 id: 1,
                 slideImg: "portfolio/pf2",
+                alt: "pf2",
             },
             {
                 id: 2,
                 slideImg: "portfolio/pf3",
+                alt: "pf3",
             },
         ],
         firstDes:
@@ -122,18 +126,22 @@ const myworks: TypeMyWorks = [
             {
                 id: 0,
                 slideImg: "wemix/wemix1",
+                alt: "wemix1",
             },
             {
                 id: 1,
                 slideImg: "wemix/wemix2",
+                alt: "wemix2",
             },
             {
                 id: 2,
                 slideImg: "wemix/wemix3",
+                alt: "wemix3",
             },
             {
                 id: 3,
                 slideImg: "wemix/wemix4",
+                alt: "wemix4",
             },
         ],
         firstDes:
@@ -165,18 +173,22 @@ const myworks: TypeMyWorks = [
             {
                 id: 0,
                 slideImg: "beer/beerEx1",
+                alt: "beer1",
             },
             {
                 id: 1,
                 slideImg: "beer/beerEx2",
+                alt: "beer2",
             },
             {
                 id: 2,
                 slideImg: "beer/beerEx3",
+                alt: "beer3",
             },
             {
                 id: 3,
                 slideImg: "beer/beerEx4",
+                alt: "beer4",
             },
         ],
         firstDes:
@@ -213,26 +225,32 @@ const myworks: TypeMyWorks = [
             {
                 id: 0,
                 slideImg: "gsap/spring",
+                alt: "gsap1",
             },
             {
                 id: 1,
                 slideImg: "gsap/summer",
+                alt: "gsap2",
             },
             {
                 id: 2,
                 slideImg: "gsap/fall",
+                alt: "gsap3",
             },
             {
                 id: 3,
                 slideImg: "gsap/winter",
+                alt: "gsap4",
             },
             {
                 id: 4,
                 slideImg: "gsap/sea",
+                alt: "gsap5",
             },
             {
                 id: 5,
                 slideImg: "gsap/process",
+                alt: "gsap6",
             },
         ],
         firstDes:
@@ -258,22 +276,27 @@ const myworks: TypeMyWorks = [
             {
                 id: 0,
                 slideImg: "review/review1",
+                alt: "review1",
             },
             {
                 id: 1,
                 slideImg: "review/review2",
+                alt: "review2",
             },
             {
                 id: 2,
                 slideImg: "review/review3",
+                alt: "review3",
             },
             {
                 id: 3,
                 slideImg: "review/review4",
+                alt: "review4",
             },
             {
                 id: 4,
                 slideImg: "review/review5",
+                alt: "review5",
             },
         ],
         firstDes:
@@ -302,14 +325,17 @@ const myworks: TypeMyWorks = [
             {
                 id: 0,
                 slideImg: "threejs/three1",
+                alt: "threejs1",
             },
             {
                 id: 1,
                 slideImg: "threejs/three2",
+                alt: "threejs2",
             },
             {
                 id: 2,
                 slideImg: "threejs/three3",
+                alt: "threejs3",
             },
         ],
         firstDes:
