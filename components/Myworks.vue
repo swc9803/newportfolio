@@ -78,6 +78,85 @@ import { TypeMyWorks } from "../types/index.js"
 const myworks: TypeMyWorks = [
     {
         id: 0,
+        siteTitle: "Lotteria Font Site",
+        slideArray: [
+            {
+                id: 0,
+                slideImg: "lotteria/lotteria1",
+                alt: "lotteriaFont1",
+            },
+            {
+                id: 1,
+                slideImg: "lotteria/lotteria2",
+                alt: "lotteriaFont2",
+            },
+            {
+                id: 2,
+                slideImg: "lotteria/lotteria3",
+                alt: "lotteriaFont3",
+            },
+        ],
+        firstDes:
+            "롯데리아의 외주를 받아 제작한 마이크로사이트입니다.",
+        secondDes:
+            "모든 개발 업무는 혼자 담당했지만 많은 폰트 디자이너, 웹 디자이너 분들과 협업해 보다 흥미로운 사이트를 만들고자 노력했습니다. 데스크탑, 아이패드, 모바일 사이즈로 반응형 웹을 제작했으며 user.agent를 사용해 여러 디바이스를 다루는 법을 배우는 개발이었습니다.",
+        desTitle: "폰트 소개, 커스텀 스티커 제작, 폰트 다운로드",
+        frontImgArray: [
+            {
+                id: 0,
+                frontImg: "vue",
+                frontImgDes: "vue",
+            },
+        ],
+        site: true,
+        goToSite: () => {
+            open("https://lotteriafont.com");
+        },
+    },
+    {
+        id: 1,
+        siteTitle: "Sungwoo's Gallery",
+        slideArray: [
+            {
+                id: 0,
+                slideImg: "gallery/gal1",
+                alt: "gal1",
+            },
+            {
+                id: 1,
+                slideImg: "gallery/gal2",
+                alt: "gal2",
+            },
+            {
+                id: 2,
+                slideImg: "gallery/gal3",
+                alt: "gal3",
+            },
+        ],
+        firstDes:
+            "인터랙티브, 시각화 라이브러리를 사용해 제작한 사이트입니다.",
+        secondDes:
+            "canvas만을 사용한 프로젝트와 three.js, pixi.js, gsap의 scrollTrigger, draggable 등을 사용해 제작했습니다. 전 회사에서는 위와 같은 사이트를 제작한 후 기획자와 디자이너에게 자신의 아이디어를 제시할 때 사용해 효율적으로 의사소통을 하였습니다. 아이디어가 생각날 때마다 사이트가 업데이트될 예정입니다.",
+        desTitle: "아이디어 공유, 인터랙티브 애니메이션",
+        frontImgArray: [
+            {
+                id: 0,
+                frontImg: "vue",
+                frontImgDes: "vue",
+            },
+        ],
+        site: true,
+        goToSite: () => {
+            open("https://sung-gallery.firebaseapp.com/");
+        },
+        git: true,
+        goToGit: () => {
+            open("https://github.com/swc9803/gallery");
+        },
+        distribution: true,
+    },
+    {
+        id: 2,
         siteTitle: "Updated Portfolio Site",
         slideArray: [
             {
@@ -120,7 +199,7 @@ const myworks: TypeMyWorks = [
         distribution: true,
     },
     {
-        id: 1,
+        id: 3,
         siteTitle: "Wemix3.0 Linked with Screen Site",
         slideArray: [
             {
@@ -167,7 +246,7 @@ const myworks: TypeMyWorks = [
         distribution: false,
     },
     {
-        id: 2,
+        id: 4,
         siteTitle: "Interactive Beer Promotion Site",
         slideArray: [
             {
@@ -219,7 +298,7 @@ const myworks: TypeMyWorks = [
         distribution: true,
     },
     {
-        id: 3,
+        id: 5,
         siteTitle: "Interactive GSAP Animation Practice",
         slideArray: [
             {
@@ -270,7 +349,7 @@ const myworks: TypeMyWorks = [
         distribution: true,
     },
     {
-        id: 4,
+        id: 6,
         siteTitle: "Review Site",
         slideArray: [
             {
@@ -319,7 +398,7 @@ const myworks: TypeMyWorks = [
         distribution: true,
     },
     {
-        id: 5,
+        id: 7,
         siteTitle: "Three Js Test Site",
         slideArray: [
             {
@@ -455,4 +534,5 @@ const myworks: TypeMyWorks = [
         margin: 0px;
     }
 }
+
 </style>
